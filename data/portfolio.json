@@ -1,0 +1,16 @@
+{
+    "holdings": [
+        {
+            "symbol": "WOCKPHARMA",
+            "company_name": "Wockhardt",
+            "quantity": 10,
+            "average_price": 1771,
+            "exchange": "NSE",
+            "currency": "INR",
+            "created_at": "2026-07-31T06:43:17.789169",
+            "current_price": 0.0,
+            "previous_close": 0.0,
+            "last_updated": null
+        }
+    ]
+}

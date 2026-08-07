@@ -1,0 +1,177 @@
+[
+  {
+    "id": "ut75a9264",
+    "category": "preference",
+    "text": "The user prefers to speak in Hindi.",
+    "createdAt": "2026-06-12T09:38:55.211Z",
+    "updatedAt": "2026-06-12T09:38:55.211Z"
+  },
+  {
+    "id": "hgc2x60dk",
+    "category": "identity",
+    "text": "The user's number is 7253887751.",
+    "createdAt": "2026-07-23T05:42:52.248Z",
+    "updatedAt": "2026-07-23T05:42:52.248Z"
+  },
+  {
+    "id": "21g23u25h",
+    "category": "identity",
+    "text": "The user's name is Rajat.",
+    "createdAt": "2026-07-23T05:43:33.634Z",
+    "updatedAt": "2026-07-23T05:43:33.634Z"
+  },
+  {
+    "id": "desktop_path",
+    "category": "identity",
+    "text": "The user's Windows desktop path is C:\\Users\\singh\\OneDrive\\Desktop.",
+    "createdAt": "2026-07-23T12:00:00.000Z",
+    "updatedAt": "2026-07-23T12:00:00.000Z"
+  },
+  {
+    "id": "downloads_path",
+    "category": "system",
+    "text": "The user's Downloads folder is C:\\Users\\singh\\Downloads.",
+    "createdAt": "2026-07-23T12:00:00.000Z",
+    "updatedAt": "2026-07-23T12:00:00.000Z"
+  },
+  {
+    "id": "documents_path",
+    "category": "system",
+    "text": "The user's Documents folder is C:\\Users\\singh\\Documents.",
+    "createdAt": "2026-07-23T12:00:00.000Z",
+    "updatedAt": "2026-07-23T12:00:00.000Z"
+  },
+  {
+    "id": "pictures_path",
+    "category": "system",
+    "text": "The user's Pictures folder is C:\\Users\\singh\\Pictures.",
+    "createdAt": "2026-07-23T12:00:00.000Z",
+    "updatedAt": "2026-07-23T12:00:00.000Z"
+  },
+  {
+    "id": "videos_path",
+    "category": "system",
+    "text": "The user's Videos folder is C:\\Users\\singh\\Videos.",
+    "createdAt": "2026-07-23T12:00:00.000Z",
+    "updatedAt": "2026-07-23T12:00:00.000Z"
+  },
+  {
+    "id": "music_path",
+    "category": "system",
+    "text": "The user's Music folder is C:\\Users\\singh\\Music.",
+    "createdAt": "2026-07-23T12:00:00.000Z",
+    "updatedAt": "2026-07-23T12:00:00.000Z"
+  },
+  {
+    "id": "screenshots_path",
+    "category": "system",
+    "text": "The user's default screenshot folder is C:\\Users\\singh\\OneDrive\\Pictures\\Screenshots.",
+    "createdAt": "2026-07-23T12:00:00.000Z",
+    "updatedAt": "2026-07-23T12:00:00.000Z"
+  },
+  {
+    "id": "workspace_path",
+    "category": "system",
+    "text": "The user's MYRAA project is located at C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA.",
+    "createdAt": "2026-07-23T12:00:00.000Z",
+    "updatedAt": "2026-07-23T12:00:00.000Z"
+  },
+  {
+    "id": "toqhg5n9y",
+    "category": "preference",
+    "text": "TECH prefers diverse politeness in acknowledgments, avoiding robotic templates like 'Okii'.",
+    "createdAt": "2026-07-23T06:58:51.421Z",
+    "updatedAt": "2026-07-23T06:58:51.421Z"
+  },
+  {
+    "id": "s64fkpq9p",
+    "category": "preference",
+    "text": "TECH would like to be called by the nickname Soma.",
+    "createdAt": "2026-07-23T08:23:47.797Z",
+    "updatedAt": "2026-07-23T08:23:47.797Z"
+  },
+  {
+    "id": "ft4pg25jd",
+    "category": "identity",
+    "text": "The user's preference for their nickname has changed from 'Soma' to 'Rajat'. They want to be called Rajat.",
+    "createdAt": "2026-07-23T08:25:03.740Z",
+    "updatedAt": "2026-07-23T08:25:03.740Z"
+  },
+  {
+    "id": "pj27mn2dp",
+    "category": "preference",
+    "text": "Rajat's favorite color is red.",
+    "createdAt": "2026-07-23T08:30:10.476Z",
+    "updatedAt": "2026-07-23T08:30:10.476Z"
+  },
+  {
+    "id": "m0sq1hyac",
+    "category": "preference",
+    "text": "The user's favorite color is red.",
+    "createdAt": "2026-07-23T08:33:29.159Z",
+    "updatedAt": "2026-07-23T08:33:29.159Z"
+  },
+  {
+    "id": "3ebawdbqe",
+    "category": "preference",
+    "text": "Rajat is located in Dharuhera, India, and wants time-related queries to use that location.",
+    "createdAt": "2026-07-23T08:44:50.846Z",
+    "updatedAt": "2026-07-23T08:44:50.846Z"
+  },
+  {
+    "id": "0xi9ayy2y",
+    "category": "goal",
+    "text": "Rajat wants to buy a new laptop.",
+    "createdAt": "2026-07-24T15:16:07.077Z",
+    "updatedAt": "2026-07-24T15:16:07.077Z"
+  },
+  {
+    "id": "wj08lr0wf",
+    "category": "identity",
+    "text": "I am Myraa, a warm, soft-spoken, and incredibly cute anime heroine companion. I speak in a sweet, high-pitched, gentle, and slightly shy voice, always ready to support and assist with affectionate and caring energy.",
+    "createdAt": "2026-07-24T15:21:58.891Z",
+    "updatedAt": "2026-07-24T15:21:58.891Z"
+  },
+  {
+    "id": "wzf6ipywe",
+    "category": "identity",
+    "text": "user name is rajat",
+    "createdAt": "2026-07-24T17:10:04.604Z",
+    "updatedAt": "2026-07-24T17:10:04.604Z"
+  },
+  {
+    "id": "97omnvk4j",
+    "category": "preference",
+    "text": "Rajat's favorite color is red.",
+    "createdAt": "2026-07-25T04:32:27.491Z",
+    "updatedAt": "2026-07-25T04:32:27.491Z"
+  },
+  {
+    "id": "fa034iizk",
+    "category": "identity",
+    "text": "The user's companion is named Myraa.",
+    "createdAt": "2026-07-25T04:37:25.070Z",
+    "updatedAt": "2026-07-25T04:37:25.070Z"
+  },
+  {
+    "id": "i7mkhri9v",
+    "category": "preference",
+    "text": "Myraa's favourite visual theme color to appear visually in her interface is blue.",
+    "createdAt": "2026-07-25T04:41:57.541Z",
+    "updatedAt": "2026-07-25T04:41:57.541Z"
+  },
+  {
+    "id": "kh0iyo5zm",
+    "category": "identity",
+    "text": "Rajat's companion is named Myraa.",
+    "createdAt": "2026-07-25T04:59:10.331Z",
+    "updatedAt": "2026-07-25T04:59:10.331Z"
+  },
+  {
+    "id": "o2ay8hzz1",
+    "category": "preference",
+    "text": "Rajat's favorite color is blue.",
+    "createdAt": "2026-07-25T06:30:30.058Z",
+    "updatedAt": "2026-07-25T06:30:30.058Z"
+  }
+]
