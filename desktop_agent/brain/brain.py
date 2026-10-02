@@ -20,7 +20,6 @@ from __future__ import annotations
 
 from typing import Optional
 from .semantic.semantic_parser import SemanticParser
-from .semantic.providers.gemini_provider import GeminiSemanticProvider
 # remove RuleBased provider usage
 
 from .decision.decision_engine import DecisionEngine

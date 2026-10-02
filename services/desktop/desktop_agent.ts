@@ -1,14 +1,24 @@
 import dotenv from "dotenv";
+import crypto from "crypto";
 
 dotenv.config();
 
-const DESKTOP_AGENT_URL =
+export const DESKTOP_AGENT_URL =
     process.env.DESKTOP_AGENT_URL ||
     "http://127.0.0.1:8765";
 
 const DESKTOP_AGENT_TIMEOUT = 25_000;
 
 let desktopAgentVerified = false;
+let lastVerifiedAt = 0;
+
+// Phase 29.7: liveness cache has a TTL — never trust a stale "alive" forever.
+const LIVENESS_TTL_MS = 30_000;
+
+export function invalidateDesktopAgentLiveness(): void {
+    desktopAgentVerified = false;
+    lastVerifiedAt = 0;
+}
 
 // ------------------------------------------------------------
 
@@ -24,7 +34,7 @@ async function isDesktopAgentAlive(): Promise<boolean> {
         );
 
         const response = await fetch(
-            `${DESKTOP_AGENT_URL}/health`,
+            `${DESKTOP_AGENT_URL}/health/live`,
             {
                 signal: controller.signal,
             },
@@ -46,7 +56,10 @@ async function isDesktopAgentAlive(): Promise<boolean> {
 
 export async function ensureDesktopAgent(): Promise<void> {
 
-    if (desktopAgentVerified) {
+    const cacheIsFresh =
+        desktopAgentVerified && (Date.now() - lastVerifiedAt) < LIVENESS_TTL_MS;
+
+    if (cacheIsFresh) {
 
         return;
 
@@ -56,6 +69,10 @@ export async function ensureDesktopAgent(): Promise<void> {
         await isDesktopAgentAlive();
 
     if (!alive) {
+
+        // Phase 29.7: failure invalidates the cached liveness immediately.
+        desktopAgentVerified = false;
+        lastVerifiedAt = 0;
 
         throw new Error(
 
@@ -68,6 +85,7 @@ export async function ensureDesktopAgent(): Promise<void> {
     }
 
     desktopAgentVerified = true;
+    lastVerifiedAt = Date.now();
 
     console.log(
         "[Desktop Agent] Connected successfully."
@@ -83,6 +101,14 @@ export async function callDesktopAgent(
 
     args: Record<string, unknown>,
 
+    opts?: {
+
+        requestId?: string;
+
+        taskId?: string;
+
+    },
+
 ): Promise<{
 
     ok: boolean;
@@ -95,57 +121,60 @@ export async function callDesktopAgent(
 
     await ensureDesktopAgent();
 
-    const controller =
-        new AbortController();
+    const controller = new AbortController();
 
-    const timer = setTimeout(
+    const timer = setTimeout(() => controller.abort(), DESKTOP_AGENT_TIMEOUT);
 
-        () => controller.abort(),
-
-        DESKTOP_AGENT_TIMEOUT,
-
-    );
+    const requestId =
+        opts?.requestId ||
+        crypto.randomUUID();
 
     try {
 
         const response = await fetch(
-
             `${DESKTOP_AGENT_URL}/execute`,
-
             {
-
                 method: "POST",
-
                 headers: {
-
-                    "Content-Type":
-                        "application/json",
-
+                    "Content-Type": "application/json",
+                    "X-Request-ID": requestId,
                 },
-
                 body: JSON.stringify({
-
                     tool,
-
                     args,
-
+                    request_id: requestId,
+                    task_id: opts?.taskId,
                 }),
-
                 signal: controller.signal,
-
             },
-
         );
 
         clearTimeout(timer);
 
-        return await response.json();
+        const body = await response.json();
+
+        // Surface the request id in the result for end-to-end traceability.
+        if (body && typeof body === "object") {
+            if (body.meta && typeof body.meta === "object") {
+                if (!body.meta.request_id) body.meta.request_id = requestId;
+            } else {
+                body.meta = { request_id: requestId };
+            }
+        }
+
+        return body;
 
     }
 
     catch (e: any) {
 
         clearTimeout(timer);
+
+        // Phase 29.7: connection-level failures invalidate cached liveness.
+        const msg = String(e?.message || "");
+        if (msg.includes("ECONNREFUSED") || msg.includes("fetch failed") || msg.includes("timed out") || msg.includes("abort")) {
+            invalidateDesktopAgentLiveness();
+        }
 
         return {
 
@@ -167,6 +196,14 @@ export async function callBrain(
 
     context?: unknown,
 
+    opts?: {
+
+        requestId?: string;
+
+        taskId?: string;
+
+    },
+
 ): Promise<{
 
     ok: boolean;
@@ -180,11 +217,8 @@ export async function callBrain(
     await ensureDesktopAgent();
 
     const requestId =
-        Math.random()
-
-            .toString(36)
-
-            .slice(2, 8);
+        opts?.requestId ||
+        crypto.randomUUID();
 
     console.log(
 
@@ -220,6 +254,9 @@ export async function callBrain(
                     "Content-Type":
                         "application/json",
 
+                    "X-Request-ID":
+                        requestId,
+
                 },
 
                 body: JSON.stringify({
@@ -227,6 +264,10 @@ export async function callBrain(
                     text,
 
                     context,
+
+                    request_id: requestId,
+
+                    task_id: opts?.taskId,
 
                 }),
 

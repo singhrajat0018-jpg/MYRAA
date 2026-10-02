@@ -1,0 +1,6320 @@
+[
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "youtube kholo",
+    "intent": "app_control",
+    "topic": "open youtube",
+    "entities": [
+      "youtube"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "YouTube khol raha hoon..."
+  },
+  {
+    "request": "open notepad",
+    "intent": "app_control",
+    "topic": "open notepad",
+    "entities": [
+      "notepad"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Opening Notepad..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "report tayyar karo",
+    "intent": "creation_document",
+    "topic": "prepare report",
+    "entities": [
+      "report"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "report",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Report tayyar karne ke liye, konsa topic hai?"
+  },
+  {
+    "request": "nifty analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "create a website with html and css",
+    "intent": "coding_build",
+    "topic": "website creation",
+    "entities": [
+      "html",
+      "css",
+      "website"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "code",
+    "execution_mode": "coding_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Here's a basic website structure using HTML and CSS..."
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "investigate blockchain technology trends",
+    "intent": "investigating",
+    "topic": "blockchain investigation",
+    "entities": [
+      "blockchain"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "investigation_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "recent",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Investigation into blockchain technology reveals..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "should I buy reliance stock",
+    "intent": "trading_decision",
+    "topic": "reliance investment",
+    "entities": [
+      "reliance",
+      "stock"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "recommendation",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data",
+      "news"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on Reliance's fundamentals and market conditions..."
+  },
+  {
+    "request": "karo the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "investigate blockchain technology trends",
+    "intent": "investigating",
+    "topic": "blockchain investigation",
+    "entities": [
+      "blockchain"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "investigation_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "recent",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Investigation into blockchain technology reveals..."
+  },
+  {
+    "request": "do not open notepad",
+    "intent": "app_control",
+    "topic": "open notepad",
+    "entities": [
+      "notepad"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I cannot help with that request as it would require closing/open applications."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "website banao",
+    "intent": "creation_document",
+    "topic": "create website",
+    "entities": [
+      "website"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "website",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Website banana mein madad karta hoon..."
+  },
+  {
+    "request": "thanks",
+    "intent": "thanks",
+    "topic": "thanks",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "You're welcome!"
+  },
+  {
+    "request": "nifty analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "youtube kholo",
+    "intent": "app_control",
+    "topic": "open youtube",
+    "entities": [
+      "youtube"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "YouTube khol raha hoon..."
+  },
+  {
+    "request": "debug this python code",
+    "intent": "coding_debug",
+    "topic": "python debugging",
+    "entities": [
+      "python"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "text",
+    "execution_mode": "standard_reasoning",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "debugger"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I can help you debug your Python code. Please share the snippet..."
+  },
+  {
+    "request": "who is einstein",
+    "intent": "simple_question",
+    "topic": "einstein",
+    "entities": [
+      "einstein"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Albert Einstein was a theoretical physicist..."
+  },
+  {
+    "request": "call mom",
+    "intent": "phone_control",
+    "topic": "phone call",
+    "entities": [
+      "mom"
+    ],
+    "domain": "phone",
+    "capability": "PHONE_ENGINE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "phone"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Calling Mom..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "compare machine learning algorithms",
+    "intent": "comparison",
+    "topic": "ml algorithms",
+    "entities": [
+      "machine learning",
+      "algorithms"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Different machine learning algorithms have different strengths..."
+  },
+  {
+    "request": "call mom",
+    "intent": "phone_control",
+    "topic": "phone call",
+    "entities": [
+      "mom"
+    ],
+    "domain": "phone",
+    "capability": "PHONE_ENGINE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "phone"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Calling Mom..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "karo nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "nifty analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "research latest developments in quantum computing",
+    "intent": "researching",
+    "topic": "quantum research",
+    "entities": [
+      "quantum computing"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "research_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Recent developments in quantum computing include..."
+  },
+  {
+    "request": "compare machine learning algorithms",
+    "intent": "comparison",
+    "topic": "ml algorithms",
+    "entities": [
+      "machine learning",
+      "algorithms"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Different machine learning algorithms have different strengths..."
+  },
+  {
+    "request": "check system performance",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "System performance check shows CPU usage at..."
+  },
+  {
+    "request": "please analyze the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "check system performance",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "System performance check shows CPU usage at..."
+  },
+  {
+    "request": "report tayyar karo",
+    "intent": "creation_document",
+    "topic": "prepare report",
+    "entities": [
+      "report"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "report",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Report tayyar karne ke liye, konsa topic hai?"
+  },
+  {
+    "request": "explain how photosynthesis works",
+    "intent": "explanation",
+    "topic": "photosynthesis",
+    "entities": [
+      "photosynthesis"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Photosynthesis is the process by which plants..."
+  },
+  {
+    "request": "open notepad",
+    "intent": "app_control",
+    "topic": "open notepad",
+    "entities": [
+      "notepad"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Opening Notepad..."
+  },
+  {
+    "request": "please please analyze the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "ppt banao",
+    "intent": "creation_document",
+    "topic": "create presentation",
+    "entities": [
+      "presentation"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Presentation banana mein madad karta hoon..."
+  },
+  {
+    "request": "send message to john",
+    "intent": "phone_control",
+    "topic": "send message",
+    "entities": [
+      "john"
+    ],
+    "domain": "phone",
+    "capability": "PHONE_ENGINE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "phone"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Sending message to John..."
+  },
+  {
+    "request": "create a document for project proposal",
+    "intent": "creation_document",
+    "topic": "project proposal",
+    "entities": [
+      "document",
+      "proposal"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "document",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "I'll help you create a professional project proposal..."
+  },
+  {
+    "request": "who is einstein",
+    "intent": "simple_question",
+    "topic": "einstein",
+    "entities": [
+      "einstein"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Albert Einstein was a theoretical physicist..."
+  },
+  {
+    "request": "research latest developments in quantum computing",
+    "intent": "researching",
+    "topic": "quantum research",
+    "entities": [
+      "quantum computing"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "research_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Recent developments in quantum computing include..."
+  },
+  {
+    "request": "analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "could you explain how photosynthesis works",
+    "intent": "explanation",
+    "topic": "photosynthesis",
+    "entities": [
+      "photosynthesis"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Photosynthesis is the process by which plants..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "nifty analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "kindly create a website with html and css",
+    "intent": "coding_build",
+    "topic": "website creation",
+    "entities": [
+      "html",
+      "css",
+      "website"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "code",
+    "execution_mode": "coding_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Here's a basic website structure using HTML and CSS..."
+  },
+  {
+    "request": "create a document for project proposal",
+    "intent": "creation_document",
+    "topic": "project proposal",
+    "entities": [
+      "document",
+      "proposal"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "document",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "I'll help you create a professional project proposal..."
+  },
+  {
+    "request": "create a document for project proposal",
+    "intent": "creation_document",
+    "topic": "project proposal",
+    "entities": [
+      "document",
+      "proposal"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "document",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "I'll help you create a professional project proposal..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "tell me what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "ppt banao",
+    "intent": "creation_document",
+    "topic": "create presentation",
+    "entities": [
+      "presentation"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Presentation banana mein madad karta hoon..."
+  },
+  {
+    "request": "ppt banao",
+    "intent": "creation_document",
+    "topic": "create presentation",
+    "entities": [
+      "presentation"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Presentation banana mein madad karta hoon..."
+  },
+  {
+    "request": "karlo system performance",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "System performance check karo shows CPU usage at..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "compare machine learning algorithms",
+    "intent": "comparison",
+    "topic": "ml algorithms",
+    "entities": [
+      "machine learning",
+      "algorithms"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Different machine learning algorithms have different strengths..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "close chrome",
+    "intent": "app_control",
+    "topic": "close chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Closing Chrome browser..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "compare machine learning algorithms",
+    "intent": "comparison",
+    "topic": "ml algorithms",
+    "entities": [
+      "machine learning",
+      "algorithms"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Different machine learning algorithms have different strengths..."
+  },
+  {
+    "request": "volume 70",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "show me what's on my screen",
+    "intent": "vision_screen",
+    "topic": "screen analysis",
+    "entities": [
+      "screen"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "analysis",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture",
+      "ocr"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Analyzing current screen content..."
+  },
+  {
+    "request": "banao a website with html and css",
+    "intent": "coding_build",
+    "topic": "website creation",
+    "entities": [
+      "html",
+      "css",
+      "website"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "code",
+    "execution_mode": "coding_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Here's a basic website structure using HTML and CSS..."
+  },
+  {
+    "request": "report tayyar karo",
+    "intent": "creation_document",
+    "topic": "prepare report",
+    "entities": [
+      "report"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "report",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Report tayyar karne ke liye, konsa topic hai?"
+  },
+  {
+    "request": "explain how photosynthesis works",
+    "intent": "explanation",
+    "topic": "photosynthesis",
+    "entities": [
+      "photosynthesis"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Photosynthesis is the process by which plants..."
+  },
+  {
+    "request": "analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "report tayyar karo",
+    "intent": "creation_document",
+    "topic": "prepare report",
+    "entities": [
+      "report"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "report",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Report tayyar karne ke liye, konsa topic hai?"
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "website banao",
+    "intent": "creation_document",
+    "topic": "create website",
+    "entities": [
+      "website"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "website",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Website banana mein madad karta hoon..."
+  },
+  {
+    "request": "analyze the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "explain the theory of relativity",
+    "intent": "explanation",
+    "topic": "relativity",
+    "entities": [
+      "relativity"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "The theory of relativity, developed by Albert Einstein..."
+  },
+  {
+    "request": "nifty please analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "explain how photosynthesis works",
+    "intent": "explanation",
+    "topic": "photosynthesis",
+    "entities": [
+      "photosynthesis"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Photosynthesis is the process by which plants..."
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "who is einstein",
+    "intent": "simple_question",
+    "topic": "einstein",
+    "entities": [
+      "einstein"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Albert Einstein was a theoretical physicist..."
+  },
+  {
+    "request": "check system performance",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "System performance check shows CPU usage at..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "debug this python code",
+    "intent": "coding_debug",
+    "topic": "python debugging",
+    "entities": [
+      "python"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "text",
+    "execution_mode": "standard_reasoning",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "debugger"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I can help you debug your Python code. Please share the snippet..."
+  },
+  {
+    "request": "compare machine learning algorithms",
+    "intent": "comparison",
+    "topic": "ml algorithms",
+    "entities": [
+      "machine learning",
+      "algorithms"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Different machine learning algorithms have different strengths..."
+  },
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "website banao",
+    "intent": "creation_document",
+    "topic": "create website",
+    "entities": [
+      "website"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "website",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Website banana mein madad karta hoon..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "should I buy reliance stock",
+    "intent": "trading_decision",
+    "topic": "reliance investment",
+    "entities": [
+      "reliance",
+      "stock"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "recommendation",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data",
+      "news"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on Reliance's fundamentals and market conditions..."
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "create a document for project proposal",
+    "intent": "creation_document",
+    "topic": "project proposal",
+    "entities": [
+      "document",
+      "proposal"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "document",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "I'll help you create a professional project proposal..."
+  },
+  {
+    "request": "debug this python code",
+    "intent": "coding_debug",
+    "topic": "python debugging",
+    "entities": [
+      "python"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "text",
+    "execution_mode": "standard_reasoning",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "debugger"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I can help you debug your Python code. Please share the snippet..."
+  },
+  {
+    "request": "website banao",
+    "intent": "creation_document",
+    "topic": "create website",
+    "entities": [
+      "website"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "website",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Website banana mein madad karta hoon..."
+  },
+  {
+    "request": "call mom",
+    "intent": "phone_control",
+    "topic": "phone call",
+    "entities": [
+      "mom"
+    ],
+    "domain": "phone",
+    "capability": "PHONE_ENGINE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "phone"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Calling Mom..."
+  },
+  {
+    "request": "explain how photosynthesis works",
+    "intent": "explanation",
+    "topic": "photosynthesis",
+    "entities": [
+      "photosynthesis"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Photosynthesis is the process by which plants..."
+  },
+  {
+    "request": "report tayyar karo",
+    "intent": "creation_document",
+    "topic": "prepare report",
+    "entities": [
+      "report"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "report",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Report tayyar karne ke liye, konsa topic hai?"
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "investigate blockchain technology trends",
+    "intent": "investigating",
+    "topic": "blockchain investigation",
+    "entities": [
+      "blockchain"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "investigation_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "recent",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Investigation into blockchain technology reveals..."
+  },
+  {
+    "request": "should I buy reliance stock",
+    "intent": "trading_decision",
+    "topic": "reliance investment",
+    "entities": [
+      "reliance",
+      "stock"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "recommendation",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data",
+      "news"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on Reliance's fundamentals and market conditions..."
+  },
+  {
+    "request": "nifty analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "report tayyar karo",
+    "intent": "creation_document",
+    "topic": "prepare report",
+    "entities": [
+      "report"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "report",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Report tayyar karne ke liye, konsa topic hai?"
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "thanks",
+    "intent": "thanks",
+    "topic": "thanks",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "You're welcome!"
+  },
+  {
+    "request": "analyze nifty trend today",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows... Here's the information for today."
+  },
+  {
+    "request": "should I buy reliance stock",
+    "intent": "trading_decision",
+    "topic": "reliance investment",
+    "entities": [
+      "reliance",
+      "stock"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "recommendation",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data",
+      "news"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on Reliance's fundamentals and market conditions..."
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "nifty analyze karo today",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue... Here's the information for today."
+  },
+  {
+    "request": "analyze the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "investigate blockchain technology trends",
+    "intent": "investigating",
+    "topic": "blockchain investigation",
+    "entities": [
+      "blockchain"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "investigation_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "recent",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Investigation into blockchain technology reveals..."
+  },
+  {
+    "request": "website banao",
+    "intent": "creation_document",
+    "topic": "create website",
+    "entities": [
+      "website"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "website",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Website banana mein madad karta hoon..."
+  },
+  {
+    "request": "analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "please analyze the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "tell me what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "youtube kholo",
+    "intent": "app_control",
+    "topic": "open youtube",
+    "entities": [
+      "youtube"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "YouTube khol raha hoon..."
+  },
+  {
+    "request": "show me what's on my screen",
+    "intent": "vision_screen",
+    "topic": "screen analysis",
+    "entities": [
+      "screen"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "analysis",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture",
+      "ocr"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Analyzing current screen content..."
+  },
+  {
+    "request": "please analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "banao a document for project proposal",
+    "intent": "creation_document",
+    "topic": "project proposal",
+    "entities": [
+      "document",
+      "proposal"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "document",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Madad karta hoon banana a professional project proposal..."
+  },
+  {
+    "request": "close chrome",
+    "intent": "app_control",
+    "topic": "close chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Closing Chrome browser..."
+  },
+  {
+    "request": "research latest developments in quantum computing",
+    "intent": "researching",
+    "topic": "quantum research",
+    "entities": [
+      "quantum computing"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "research_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Recent developments in quantum computing include..."
+  },
+  {
+    "request": "karo nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "nifty analyze karo today today",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Nifty ka technical analysis karte hue... Here's the information for today. Here's the information for today. Here's the information for today."
+  },
+  {
+    "request": "nifty analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "investigate blockchain technology trends",
+    "intent": "investigating",
+    "topic": "blockchain investigation",
+    "entities": [
+      "blockchain"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "investigation_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "recent",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Investigation into blockchain technology reveals..."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "explain how photosynthesis works",
+    "intent": "explanation",
+    "topic": "photosynthesis",
+    "entities": [
+      "photosynthesis"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Photosynthesis is the process by which plants..."
+  },
+  {
+    "request": "should I buy reliance stock",
+    "intent": "trading_decision",
+    "topic": "reliance investment",
+    "entities": [
+      "reliance",
+      "stock"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "recommendation",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data",
+      "news"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on Reliance's fundamentals and market conditions..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "should I buy reliance stock",
+    "intent": "trading_decision",
+    "topic": "reliance investment",
+    "entities": [
+      "reliance",
+      "stock"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "recommendation",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data",
+      "news"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on Reliance's fundamentals and market conditions..."
+  },
+  {
+    "request": "research latest developments in quantum computing",
+    "intent": "researching",
+    "topic": "quantum research",
+    "entities": [
+      "quantum computing"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "research_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Recent developments in quantum computing include..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "explain the theory of relativity",
+    "intent": "explanation",
+    "topic": "relativity",
+    "entities": [
+      "relativity"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "The theory of relativity, developed by Albert Einstein..."
+  },
+  {
+    "request": "send message to john",
+    "intent": "phone_control",
+    "topic": "send message",
+    "entities": [
+      "john"
+    ],
+    "domain": "phone",
+    "capability": "PHONE_ENGINE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "phone"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Sending message to John..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "website banao",
+    "intent": "creation_document",
+    "topic": "create website",
+    "entities": [
+      "website"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "website",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Website banana mein madad karta hoon..."
+  },
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "close chrome",
+    "intent": "app_control",
+    "topic": "close chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Closing Chrome browser..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "compare machine learning algorithms",
+    "intent": "comparison",
+    "topic": "ml algorithms",
+    "entities": [
+      "machine learning",
+      "algorithms"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Different machine learning algorithms have different strengths..."
+  },
+  {
+    "request": "karlo system performance today",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "System performance check karo shows CPU usage at... Here's the information for today."
+  },
+  {
+    "request": "should I buy reliance stock",
+    "intent": "trading_decision",
+    "topic": "reliance investment",
+    "entities": [
+      "reliance",
+      "stock"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "recommendation",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data",
+      "news"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on Reliance's fundamentals and market conditions..."
+  },
+  {
+    "request": "close chrome",
+    "intent": "app_control",
+    "topic": "close chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Closing Chrome browser..."
+  },
+  {
+    "request": "nifty analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "thanks",
+    "intent": "thanks",
+    "topic": "thanks",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "You're welcome!"
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "investigate blockchain technology trends",
+    "intent": "investigating",
+    "topic": "blockchain investigation",
+    "entities": [
+      "blockchain"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "investigation_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "recent",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Investigation into blockchain technology reveals..."
+  },
+  {
+    "request": "research latest developments in quantum computing",
+    "intent": "researching",
+    "topic": "quantum research",
+    "entities": [
+      "quantum computing"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "research_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Recent developments in quantum computing include..."
+  },
+  {
+    "request": "compare machine learning algorithms",
+    "intent": "comparison",
+    "topic": "ml algorithms",
+    "entities": [
+      "machine learning",
+      "algorithms"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Different machine learning algorithms have different strengths..."
+  },
+  {
+    "request": "explain how photosynthesis works",
+    "intent": "explanation",
+    "topic": "photosynthesis",
+    "entities": [
+      "photosynthesis"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Photosynthesis is the process by which plants..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "who is einstein",
+    "intent": "simple_question",
+    "topic": "einstein",
+    "entities": [
+      "einstein"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Albert Einstein was a theoretical physicist..."
+  },
+  {
+    "request": "create a website with html and css",
+    "intent": "coding_build",
+    "topic": "website creation",
+    "entities": [
+      "html",
+      "css",
+      "website"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "code",
+    "execution_mode": "coding_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Here's a basic website structure using HTML and CSS..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "close chrome",
+    "intent": "app_control",
+    "topic": "close chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Closing Chrome browser..."
+  },
+  {
+    "request": "investigate blockchain technology trends",
+    "intent": "investigating",
+    "topic": "blockchain investigation",
+    "entities": [
+      "blockchain"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "investigation_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "recent",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Investigation into blockchain technology reveals..."
+  },
+  {
+    "request": "call mom",
+    "intent": "phone_control",
+    "topic": "phone call",
+    "entities": [
+      "mom"
+    ],
+    "domain": "phone",
+    "capability": "PHONE_ENGINE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "phone"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Calling Mom..."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "show me what's on my screen",
+    "intent": "vision_screen",
+    "topic": "screen analysis",
+    "entities": [
+      "screen"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "analysis",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture",
+      "ocr"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Analyzing current screen content..."
+  },
+  {
+    "request": "research latest developments in quantum computing",
+    "intent": "researching",
+    "topic": "quantum research",
+    "entities": [
+      "quantum computing"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "research_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Recent developments in quantum computing include..."
+  },
+  {
+    "request": "compare machine learning algorithms",
+    "intent": "comparison",
+    "topic": "ml algorithms",
+    "entities": [
+      "machine learning",
+      "algorithms"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Different machine learning algorithms have different strengths..."
+  },
+  {
+    "request": "kindly banao a website with html and css",
+    "intent": "coding_build",
+    "topic": "website creation",
+    "entities": [
+      "html",
+      "css",
+      "website"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "code",
+    "execution_mode": "coding_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Here's a basic website structure using HTML and CSS..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "explain the theory of relativity",
+    "intent": "explanation",
+    "topic": "relativity",
+    "entities": [
+      "relativity"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "The theory of relativity, developed by Albert Einstein..."
+  },
+  {
+    "request": "please analyze the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "debug this python code",
+    "intent": "coding_debug",
+    "topic": "python debugging",
+    "entities": [
+      "python"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "text",
+    "execution_mode": "standard_reasoning",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "debugger"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I can help you debug your Python code. Please share the snippet..."
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "nifty analyze karo today",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue... Here's the information for today."
+  },
+  {
+    "request": "analyze the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "karlo system performance today",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "System performance check karo shows CPU usage at... Here's the information for today. Here's the information for today."
+  },
+  {
+    "request": "explain how photosynthesis works",
+    "intent": "explanation",
+    "topic": "photosynthesis",
+    "entities": [
+      "photosynthesis"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Photosynthesis is the process by which plants..."
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "please analyze the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "create a website with html and css",
+    "intent": "coding_build",
+    "topic": "website creation",
+    "entities": [
+      "html",
+      "css",
+      "website"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "code",
+    "execution_mode": "coding_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Here's a basic website structure using HTML and CSS..."
+  },
+  {
+    "request": "who is einstein",
+    "intent": "simple_question",
+    "topic": "einstein",
+    "entities": [
+      "einstein"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Albert Einstein was a theoretical physicist..."
+  },
+  {
+    "request": "call mom",
+    "intent": "phone_control",
+    "topic": "phone call",
+    "entities": [
+      "mom"
+    ],
+    "domain": "phone",
+    "capability": "PHONE_ENGINE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "phone"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Calling Mom..."
+  },
+  {
+    "request": "investigate blockchain technology trends",
+    "intent": "investigating",
+    "topic": "blockchain investigation",
+    "entities": [
+      "blockchain"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "investigation_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "recent",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Investigation into blockchain technology reveals..."
+  },
+  {
+    "request": "create a website with html and css",
+    "intent": "coding_build",
+    "topic": "website creation",
+    "entities": [
+      "html",
+      "css",
+      "website"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "code",
+    "execution_mode": "coding_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Here's a basic website structure using HTML and CSS..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "kholo notepad",
+    "intent": "app_control",
+    "topic": "open notepad",
+    "entities": [
+      "notepad"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Khol raha hoon Notepad..."
+  },
+  {
+    "request": "kindly banao a document for project proposal",
+    "intent": "creation_document",
+    "topic": "project proposal",
+    "entities": [
+      "document",
+      "proposal"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "document",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Certainly! Madad karta hoon banana a professional project proposal..."
+  },
+  {
+    "request": "nifty analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "karlo system performance",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "System performance check karo shows CPU usage at..."
+  },
+  {
+    "request": "send message to john",
+    "intent": "phone_control",
+    "topic": "send message",
+    "entities": [
+      "john"
+    ],
+    "domain": "phone",
+    "capability": "PHONE_ENGINE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "phone"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Sending message to John..."
+  },
+  {
+    "request": "thanks",
+    "intent": "thanks",
+    "topic": "thanks",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "You're welcome!"
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "could you could you explain how photosynthesis works",
+    "intent": "explanation",
+    "topic": "photosynthesis",
+    "entities": [
+      "photosynthesis"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Photosynthesis is the process by which plants..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "call mom",
+    "intent": "phone_control",
+    "topic": "phone call",
+    "entities": [
+      "mom"
+    ],
+    "domain": "phone",
+    "capability": "PHONE_ENGINE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "phone"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Calling Mom..."
+  },
+  {
+    "request": "investigate blockchain technology trends",
+    "intent": "investigating",
+    "topic": "blockchain investigation",
+    "entities": [
+      "blockchain"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "investigation_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "recent",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Investigation into blockchain technology reveals..."
+  },
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "show me what's on my screen",
+    "intent": "vision_screen",
+    "topic": "screen analysis",
+    "entities": [
+      "screen"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "analysis",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture",
+      "ocr"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Analyzing current screen content..."
+  },
+  {
+    "request": "website banao",
+    "intent": "creation_document",
+    "topic": "create website",
+    "entities": [
+      "website"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "website",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Website banana mein madad karta hoon..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "check system performance",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "System performance check shows CPU usage at..."
+  },
+  {
+    "request": "nifty please analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "tell me what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "close chrome",
+    "intent": "app_control",
+    "topic": "close chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Closing Chrome browser..."
+  },
+  {
+    "request": "nifty analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "debug this python code",
+    "intent": "coding_debug",
+    "topic": "python debugging",
+    "entities": [
+      "python"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "text",
+    "execution_mode": "standard_reasoning",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "debugger"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I can help you debug your Python code. Please share the snippet..."
+  },
+  {
+    "request": "create a website with html and css",
+    "intent": "coding_build",
+    "topic": "website creation",
+    "entities": [
+      "html",
+      "css",
+      "website"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "code",
+    "execution_mode": "coding_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Here's a basic website structure using HTML and CSS..."
+  },
+  {
+    "request": "ppt banao",
+    "intent": "creation_document",
+    "topic": "create presentation",
+    "entities": [
+      "presentation"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Presentation banana mein madad karta hoon..."
+  },
+  {
+    "request": "volume 70",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "ppt banao",
+    "intent": "creation_document",
+    "topic": "create presentation",
+    "entities": [
+      "presentation"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Presentation banana mein madad karta hoon..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "who is einstein",
+    "intent": "simple_question",
+    "topic": "einstein",
+    "entities": [
+      "einstein"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Albert Einstein was a theoretical physicist..."
+  },
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "create a website with html and css",
+    "intent": "coding_build",
+    "topic": "website creation",
+    "entities": [
+      "html",
+      "css",
+      "website"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "code",
+    "execution_mode": "coding_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Here's a basic website structure using HTML and CSS..."
+  },
+  {
+    "request": "show me what's on my screen",
+    "intent": "vision_screen",
+    "topic": "screen analysis",
+    "entities": [
+      "screen"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "analysis",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture",
+      "ocr"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Analyzing current screen content..."
+  },
+  {
+    "request": "research latest developments in quantum computing",
+    "intent": "researching",
+    "topic": "quantum research",
+    "entities": [
+      "quantum computing"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "research_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Recent developments in quantum computing include..."
+  },
+  {
+    "request": "debug this python code",
+    "intent": "coding_debug",
+    "topic": "python debugging",
+    "entities": [
+      "python"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "text",
+    "execution_mode": "standard_reasoning",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "debugger"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I can help you debug your Python code. Please share the snippet..."
+  },
+  {
+    "request": "nifty analyze karo",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue..."
+  },
+  {
+    "request": "karlo system performance",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "System performance check karo shows CPU usage at..."
+  },
+  {
+    "request": "ppt banao",
+    "intent": "creation_document",
+    "topic": "create presentation",
+    "entities": [
+      "presentation"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Presentation banana mein madad karta hoon..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "who is einstein",
+    "intent": "simple_question",
+    "topic": "einstein",
+    "entities": [
+      "einstein"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Albert Einstein was a theoretical physicist..."
+  },
+  {
+    "request": "investigate blockchain technology trends",
+    "intent": "investigating",
+    "topic": "blockchain investigation",
+    "entities": [
+      "blockchain"
+    ],
+    "domain": "research",
+    "capability": "RESEARCH_PIPELINE",
+    "output_type": "investigation_report",
+    "execution_mode": "research_pipeline",
+    "reasoning_depth": "deep",
+    "freshness": "recent",
+    "tools_required": [
+      "web_research"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Investigation into blockchain technology reveals..."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "open notepad",
+    "intent": "app_control",
+    "topic": "open notepad",
+    "entities": [
+      "notepad"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Opening Notepad..."
+  },
+  {
+    "request": "report tayyar karo",
+    "intent": "creation_document",
+    "topic": "prepare report",
+    "entities": [
+      "report"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "report",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Report tayyar karne ke liye, konsa topic hai?"
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "banao a document for project proposal",
+    "intent": "creation_document",
+    "topic": "project proposal",
+    "entities": [
+      "document",
+      "proposal"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "document",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Madad karta hoon banana a professional project proposal..."
+  },
+  {
+    "request": "create a document for project proposal",
+    "intent": "creation_document",
+    "topic": "project proposal",
+    "entities": [
+      "document",
+      "proposal"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "document",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll help you create a professional project proposal..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "ppt banao",
+    "intent": "creation_document",
+    "topic": "create presentation",
+    "entities": [
+      "presentation"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Presentation banana mein madad karta hoon..."
+  },
+  {
+    "request": "analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "could you explain the theory of relativity",
+    "intent": "explanation",
+    "topic": "relativity",
+    "entities": [
+      "relativity"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "The theory of relativity, developed by Albert Einstein..."
+  },
+  {
+    "request": "website banao",
+    "intent": "creation_document",
+    "topic": "create website",
+    "entities": [
+      "website"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "website",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Website banana mein madad karta hoon..."
+  },
+  {
+    "request": "who is einstein",
+    "intent": "simple_question",
+    "topic": "einstein",
+    "entities": [
+      "einstein"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Albert Einstein was a theoretical physicist..."
+  },
+  {
+    "request": "youtube kholo",
+    "intent": "app_control",
+    "topic": "open youtube",
+    "entities": [
+      "youtube"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "YouTube khol raha hoon..."
+  },
+  {
+    "request": "hi there",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hi! What can I do for you?"
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "create a document for project proposal",
+    "intent": "creation_document",
+    "topic": "project proposal",
+    "entities": [
+      "document",
+      "proposal"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "document",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "I'll help you create a professional project proposal..."
+  },
+  {
+    "request": "check system performance",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "System performance check shows CPU usage at..."
+  },
+  {
+    "request": "chrome kholo",
+    "intent": "app_control",
+    "topic": "open chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Chrome khol raha hoon..."
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "volume 50",
+    "intent": "audio_control",
+    "topic": "set volume",
+    "entities": [
+      "volume"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Setting volume to 50%..."
+  },
+  {
+    "request": "debug this python code",
+    "intent": "coding_debug",
+    "topic": "python debugging",
+    "entities": [
+      "python"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "text",
+    "execution_mode": "standard_reasoning",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "debugger"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I can help you debug your Python code. Please share the snippet..."
+  },
+  {
+    "request": "karlo system performance",
+    "intent": "system_diagnostics",
+    "topic": "system check",
+    "entities": [
+      "system",
+      "performance"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "System performance check karo shows CPU usage at..."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "close chrome",
+    "intent": "app_control",
+    "topic": "close chrome",
+    "entities": [
+      "chrome"
+    ],
+    "domain": "system",
+    "capability": "COMPUTER_USE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Closing Chrome browser..."
+  },
+  {
+    "request": "karo nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "what is python",
+    "intent": "simple_question",
+    "topic": "python definition",
+    "entities": [
+      "python"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Python is a high-level programming language..."
+  },
+  {
+    "request": "what time is it",
+    "intent": "time_query",
+    "topic": "current time",
+    "entities": [
+      "time"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "real_time",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "The current time is..."
+  },
+  {
+    "request": "make a presentation about ai",
+    "intent": "creation_document",
+    "topic": "ai presentation",
+    "entities": [
+      "presentation",
+      "ai"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "presentation",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "presentation_tool"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I'll create an engaging presentation about AI topics..."
+  },
+  {
+    "request": "compare machine learning algorithms",
+    "intent": "comparison",
+    "topic": "ml algorithms",
+    "entities": [
+      "machine learning",
+      "algorithms"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Different machine learning algorithms have different strengths..."
+  },
+  {
+    "request": "nifty analyze karo today",
+    "intent": "trading_analysis",
+    "topic": "analyze nifty",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "Hinglish",
+    "complexity": "simple",
+    "expected_response": "Nifty ka technical analysis karte hue... Here's the information for today. Here's the information for today. Here's the information for today."
+  },
+  {
+    "request": "explain the theory of relativity",
+    "intent": "explanation",
+    "topic": "relativity",
+    "entities": [
+      "relativity"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "The theory of relativity, developed by Albert Einstein..."
+  },
+  {
+    "request": "who is einstein",
+    "intent": "simple_question",
+    "topic": "einstein",
+    "entities": [
+      "einstein"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Albert Einstein was a theoretical physicist..."
+  },
+  {
+    "request": "explain the theory of relativity",
+    "intent": "explanation",
+    "topic": "relativity",
+    "entities": [
+      "relativity"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "The theory of relativity, developed by Albert Einstein..."
+  },
+  {
+    "request": "analyze nifty trend today",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows... Here's the information for today. Here's the information for today."
+  },
+  {
+    "request": "debug this python code",
+    "intent": "coding_debug",
+    "topic": "python debugging",
+    "entities": [
+      "python"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "text",
+    "execution_mode": "standard_reasoning",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "debugger"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "I can help you debug your Python code. Please share the snippet..."
+  },
+  {
+    "request": "compare machine learning algorithms",
+    "intent": "comparison",
+    "topic": "ml algorithms",
+    "entities": [
+      "machine learning",
+      "algorithms"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Different machine learning algorithms have different strengths..."
+  },
+  {
+    "request": "karo the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "Hinglish",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "analyze the pros and cons of renewable energy",
+    "intent": "analysis",
+    "topic": "renewable energy",
+    "entities": [
+      "renewable",
+      "energy"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Renewable energy has several advantages and disadvantages..."
+  },
+  {
+    "request": "create a website with html and css",
+    "intent": "coding_build",
+    "topic": "website creation",
+    "entities": [
+      "html",
+      "css",
+      "website"
+    ],
+    "domain": "coding",
+    "capability": "CODING_ENGINE",
+    "output_type": "code",
+    "execution_mode": "coding_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "code_execution"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Here's a basic website structure using HTML and CSS..."
+  },
+  {
+    "request": "take a screenshot",
+    "intent": "vision_screen",
+    "topic": "screenshot",
+    "entities": [
+      "screenshot"
+    ],
+    "domain": "vision",
+    "capability": "VISION",
+    "output_type": "image",
+    "execution_mode": "vision",
+    "reasoning_depth": "basic",
+    "freshness": "live",
+    "tools_required": [
+      "screen_capture"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Capturing screenshot..."
+  },
+  {
+    "request": "who is einstein",
+    "intent": "simple_question",
+    "topic": "einstein",
+    "entities": [
+      "einstein"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Albert Einstein was a theoretical physicist..."
+  },
+  {
+    "request": "hello",
+    "intent": "greeting",
+    "topic": "greeting",
+    "entities": [],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "fast_deterministic",
+    "reasoning_depth": "minimal",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Hello! How can I help you?"
+  },
+  {
+    "request": "analyze nifty trend",
+    "intent": "trading_analysis",
+    "topic": "nifty analysis",
+    "entities": [
+      "nifty"
+    ],
+    "domain": "trading",
+    "capability": "TRADING_ENGINE",
+    "output_type": "analysis",
+    "execution_mode": "trading_engine",
+    "reasoning_depth": "deep",
+    "freshness": "real_time",
+    "tools_required": [
+      "market_data"
+    ],
+    "risk_level": "financial",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "Based on technical analysis, Nifty shows..."
+  },
+  {
+    "request": "create a document for project proposal",
+    "intent": "creation_document",
+    "topic": "project proposal",
+    "entities": [
+      "document",
+      "proposal"
+    ],
+    "domain": "creative",
+    "capability": "CREATION_ENGINE",
+    "output_type": "document",
+    "execution_mode": "creation_engine",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [
+      "document_editor"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "I'll help you create a professional project proposal..."
+  },
+  {
+    "request": "diagnose computer issues",
+    "intent": "system_diagnostics",
+    "topic": "computer diagnosis",
+    "entities": [
+      "computer",
+      "issues"
+    ],
+    "domain": "system",
+    "capability": "SYSTEM_DIAGNOSTICS",
+    "output_type": "diagnostic_report",
+    "execution_mode": "system_diagnostics",
+    "reasoning_depth": "moderate",
+    "freshness": "recent",
+    "tools_required": [
+      "system_tools"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Based on diagnostic tests, potential issues include..."
+  },
+  {
+    "request": "send message to john",
+    "intent": "phone_control",
+    "topic": "send message",
+    "entities": [
+      "john"
+    ],
+    "domain": "phone",
+    "capability": "PHONE_ENGINE",
+    "output_type": "action",
+    "execution_mode": "fast_model",
+    "reasoning_depth": "basic",
+    "freshness": "static",
+    "tools_required": [
+      "phone"
+    ],
+    "risk_level": "low",
+    "language": "English",
+    "complexity": "simple",
+    "expected_response": "Sending message to John..."
+  },
+  {
+    "request": "explain the theory of relativity",
+    "intent": "explanation",
+    "topic": "relativity",
+    "entities": [
+      "relativity"
+    ],
+    "domain": "general",
+    "capability": "GLOBAL_INTELLIGENCE_ENGINE",
+    "output_type": "text",
+    "execution_mode": "deep_reasoning",
+    "reasoning_depth": "moderate",
+    "freshness": "static",
+    "tools_required": [],
+    "risk_level": "none",
+    "language": "English",
+    "complexity": "complex",
+    "expected_response": "The theory of relativity, developed by Albert Einstein..."
+  }
+]

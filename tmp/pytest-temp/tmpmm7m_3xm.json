@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "saved_at": 1788699994.0179436,
+  "records": [
+    {
+      "id": "bccdb040-6b5e-4786-8cad-ed47572fe22c",
+      "type": "working",
+      "content": "Chrome launched",
+      "summary": "App opened",
+      "source": "observer",
+      "source_reference": null,
+      "scope": "session",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788699993.9666328,
+      "updated_at": 1788699993.9666333,
+      "last_accessed_at": 1788699993.9666333,
+      "event_time": null,
+      "importance": 0.5,
+      "confidence": 0.7,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "short_term",
+      "metadata": {
+        "severity": "info",
+        "app": "chrome"
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "ef0061f2bb58665b2f0fa87c9731557fc4cd1571894336aa5b7e307775cb14c0"
+    }
+  ]
+}

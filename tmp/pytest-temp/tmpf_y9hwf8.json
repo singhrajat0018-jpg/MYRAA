@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1789187572.5239708,
+  "records": [
+    {
+      "id": "2fa2f99e-4e5f-4247-b33d-457e91801d6a",
+      "type": "preference",
+      "content": "User prefers dark mode",
+      "summary": "",
+      "source": "test",
+      "source_reference": null,
+      "scope": "global",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789187572.4681726,
+      "updated_at": 1789187572.4681728,
+      "last_accessed_at": 1789187572.468173,
+      "event_time": null,
+      "importance": 0.8,
+      "confidence": 0.9,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "f0af711d6396586fac678088f6c58d3efdc9992d59fe7c21f1af84b5fe4fdc25"
+    }
+  ]
+}

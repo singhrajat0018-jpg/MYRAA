@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1788699993.5510187,
+  "records": [
+    {
+      "id": "8a24e2d7-c558-47b3-a7c5-1c0f7f7d6b03",
+      "type": "semantic",
+      "content": "API endpoint: /v3/users",
+      "summary": "",
+      "source": "docs",
+      "source_reference": null,
+      "scope": "global",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788699993.4997625,
+      "updated_at": 1788699993.4997625,
+      "last_accessed_at": 1788699993.4997628,
+      "event_time": null,
+      "importance": 0.6083333333333333,
+      "confidence": 0.8200000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 3,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": "468aa470-081f-4db2-9df9-8d76cf910880",
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "2eb605c757c69768d083fcaf1055409e459e7361ea91288e3b4f3a2cb10fa05b"
+    }
+  ]
+}

@@ -14,11 +14,12 @@ from __future__ import annotations
 import logging
 import threading
 import time
-from queue import Empty, Queue
+from queue import Empty, Full, Queue
 from typing import Callable
 
 from .event import ObserverEvent
 from .registry import ObserverRegistry
+from desktop_agent.brain import metrics
 
 logger = logging.getLogger(__name__)
 
@@ -30,13 +31,15 @@ class ObserverManager:
         registry: ObserverRegistry,
         event_handler: Callable[[ObserverEvent], None] | None = None,
         poll_interval: float = 5.0,
+        max_queue_size: int = 1000,
     ) -> None:
 
         self.registry = registry
         self.poll_interval = poll_interval
         self.event_handler = event_handler
+        self.max_queue_size = max_queue_size
 
-        self._queue: Queue[ObserverEvent] = Queue()
+        self._queue: Queue[ObserverEvent] = Queue(maxsize=max_queue_size)
 
         self._thread: threading.Thread | None = None
         self._running = False
@@ -86,8 +89,14 @@ class ObserverManager:
         self,
         event: ObserverEvent,
     ) -> None:
-
-        self._queue.put(event)
+        try:
+            self._queue.put_nowait(event)
+        except Full:
+            # Queue is full, drop the event to prevent blocking
+            # This implements backpressure handling - latest-frame-wins approach
+            self.logger.warning(f"Observer queue full, dropping event from {event.source}")
+            # Optionally, we could implement a more sophisticated dropping strategy
+            # For now, we just drop the new event when queue is full
 
     # --------------------------------------------------
 
@@ -145,6 +154,9 @@ class ObserverManager:
         self,
         event: ObserverEvent,
     ) -> None:
+        # Record event processing success for observer subsystem
+        from desktop_agent.brain.failure_containment import failure_containment_manager
+        failure_containment_manager.record_success('observer')
 
         logger.info(
             "[Observer] %s | %s",

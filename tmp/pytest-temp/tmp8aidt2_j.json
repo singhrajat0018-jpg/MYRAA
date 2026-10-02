@@ -1,0 +1,82 @@
+{
+  "version": 2,
+  "saved_at": 1789881469.9453435,
+  "records": [
+    {
+      "id": "33abe537-d395-4a15-afba-d9471c587b0f",
+      "type": "working",
+      "content": "recent working item",
+      "summary": "event",
+      "source": "brain",
+      "source_reference": null,
+      "scope": "session",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789881469.8943248,
+      "updated_at": 1789881469.8943253,
+      "last_accessed_at": 1789881469.8943253,
+      "event_time": null,
+      "importance": 0.5,
+      "confidence": 0.7,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "short_term",
+      "metadata": {
+        "category": "event"
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "02c7e5d13c15d9a22707f45886e8600d0b8a86b9ede7cc14b59b266e531aa8a5"
+    },
+    {
+      "id": "cc721583-ad6c-4d80-94c0-b6f71a93221c",
+      "type": "semantic",
+      "content": "user_name: Aarav",
+      "summary": "Aarav",
+      "source": "brain",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789881469.8948865,
+      "updated_at": 1789881469.8948867,
+      "last_accessed_at": 1789881469.8948867,
+      "event_time": null,
+      "importance": 0.7,
+      "confidence": 1.0,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "user_name"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {
+        "key": "user_name"
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "d23274ebe72b9edc821efcb444d029a4578ffe543d9d9c68c12ee4df828fa6ac"
+    }
+  ]
+}

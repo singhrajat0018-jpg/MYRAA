@@ -1,8 +1,8 @@
 """
 Search commands: open a search results page for a query on a given engine.
 
-These launch in the user's default browser (separate from the Playwright
-automation browser). For form-filling / in-page automation see tools_browser.
+These launch in the user's Windows default browser (MYRAA owns no browser
+engine). For vision-based in-page interaction see tools_browser.
 """
 
 from __future__ import annotations

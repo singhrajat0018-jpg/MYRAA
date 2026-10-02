@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "saved_at": 1788694499.6482565,
+  "records": [
+    {
+      "id": "a1bd3bc3-86c1-47f2-bf94-c114f940b75b",
+      "type": "preference",
+      "content": "User also enjoys pasta",
+      "summary": "",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788694499.596383,
+      "updated_at": 1788694499.5963833,
+      "last_accessed_at": 1788694499.5963833,
+      "event_time": null,
+      "importance": 0.7,
+      "confidence": 0.8200000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 2,
+      "status": "active",
+      "tags": [
+        "food"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": "742365f2-0732-4d20-af25-3511983caabd",
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "35e3d2a895d53155663d25af4885fa72966766b313e20e4684683b7229219276"
+    }
+  ]
+}

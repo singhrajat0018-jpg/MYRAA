@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1789195613.0377457,
+  "records": [
+    {
+      "id": "6ffaf790-4bf4-4eea-a8a8-20f0e4e177e3",
+      "type": "episodic",
+      "content": "Message: user asked for the weather",
+      "summary": "Consolidated event: Message: user asked for the weather",
+      "source": "observer",
+      "source_reference": null,
+      "scope": "conversation",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": "conv-123",
+      "created_at": 1789195612.9839938,
+      "updated_at": 1789195612.9839938,
+      "last_accessed_at": 1789195612.984121,
+      "event_time": null,
+      "importance": 0.5444444444444444,
+      "confidence": 0.76,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.9999999999507894,
+      "access_count": 1,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "91112c8699e509d02c0951b3f3825f87057ae418084fa8e914a3b30639ef0ad0"
+    }
+  ]
+}

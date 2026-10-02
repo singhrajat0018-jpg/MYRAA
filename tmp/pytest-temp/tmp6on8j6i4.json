@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1789881469.7888346,
+  "records": [
+    {
+      "id": "2e56f5d6-8f86-4b38-a55b-66e59169dba8",
+      "type": "semantic",
+      "content": "User's current title: Senior Developer",
+      "summary": "",
+      "source": "hr_system",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789881469.7377486,
+      "updated_at": 1789881469.7385423,
+      "last_accessed_at": 1789881469.7385564,
+      "event_time": null,
+      "importance": 0.85,
+      "confidence": 0.92,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.9999999996882714,
+      "access_count": 2,
+      "version": 2,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "c01e6cc54c8b20d73db7abcb3937eb5ac702e334bc0c323d960ba995b0a5a13e"
+    }
+  ]
+}

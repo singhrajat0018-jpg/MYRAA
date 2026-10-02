@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1788693043.698492,
+  "records": [
+    {
+      "id": "c3498577-6f56-4277-9057-18d2595e12c9",
+      "type": "semantic",
+      "content": "The project deadline is next Friday",
+      "summary": "",
+      "source": "test",
+      "source_reference": null,
+      "scope": "project",
+      "project_id": "TEST_PROJECT",
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788693043.6456814,
+      "updated_at": 1788693043.6484768,
+      "last_accessed_at": 1788693043.6456819,
+      "event_time": null,
+      "importance": 0.8,
+      "confidence": 0.9,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 2,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "1dbd37a09cd961134a135594efa72df4fc31816e35350d22ed4f97930f37874d"
+    }
+  ]
+}

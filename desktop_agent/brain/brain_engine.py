@@ -34,7 +34,8 @@ from .world_model import WorldModel
 from .reasoning_engine import ReasoningEngine
 from .models import BrainResult
 from .autonomy.autonomy_loop import AutonomyLoop
-from .memory.manager import MemoryManager
+from .memory.unified_manager import UnifiedMemoryManager
+from .memory.memory_commands import MemoryCommandEngine
 from .working_memory.working_memory import WorkingMemory
 from .cognition.evaluator import CognitiveEvaluator
 from .context.brain_context import BrainContext
@@ -66,8 +67,15 @@ from desktop_agent.brain.thinking.metacognition import (
 )
 from .cognition.cognitive_state_manager import CognitiveStateManager
 from .autonomy.autonomy_manager import AutonomyManager
-from desktop_agent.brain.ai.router import AIRouter
+from desktop_agent.brain.ai.ai_manager import AIManager
+from desktop_agent.brain.semantic.semantic_models import Intent
 from .executive.executive_controller import ExecutiveController
+from .router.response_router import (
+    ResearchHandoff,
+    ResponseRouteType,
+    ResponseRouter,
+)
+from .research.research_router import ResearchRouter
 log = logging.getLogger(__name__)
 
 class BrainEngine:
@@ -91,6 +99,8 @@ class BrainEngine:
         reflection_engine=None,
 
         memory_manager=None,
+
+        ai_manager=None,
 
         config=None,
     ):
@@ -149,13 +159,11 @@ class BrainEngine:
         self.intent_classifier = IntentClassifier()
 
         self.working_memory = WorkingMemory()
-        print("\n========== BRAIN ENGINE ==========")
-        print("WorkingMemory ID:", id(self.working_memory))
-        print("=================================\n")
+        log.debug("========== BRAIN ENGINE ==========")
+        log.debug("WorkingMemory ID: %s", id(self.working_memory))
+        log.debug("=================================")
 
         # Runtime context
-
-        self.context_manager = ContextManager()
 
         self.memory = (
 
@@ -163,9 +171,22 @@ class BrainEngine:
 
             if memory_manager
 
-            else MemoryManager()
+            else UnifiedMemoryManager()
 
         )
+
+        # M9: the unified store is the single authoritative memory. When the
+        # container injects the shared instance post-construction, this points
+        # at the SAME store as `self.memory_2_0`.
+        if getattr(self, "memory_2_0", None) is None:
+
+            self.memory_2_0 = self.memory
+
+        # M10: explicit memory command engine (REMEMBER/RECALL/UPDATE/FORGET/
+        # LIST/CLEAR_SCOPE) executes against the same unified store.
+        self.memory_command_engine = MemoryCommandEngine(self.memory_2_0)
+
+        self.context_manager = ContextManager(self.perception, self.blackboard, self.memory)
 
         self.reflection = ReflectionEngine(
 
@@ -216,19 +237,32 @@ class BrainEngine:
 
         self.context_resolver = ContextResolver()
 
-        # TODO:
         # Executor pipeline is under migration.
         # Production execution is handled by Orchestrator.
-        #
         # self.executor = Executor(
         #     tool_router=self.router
-        # )
+        # )  # Commented out during migration - to be removed or restored after migration completes
 
         self.cognitive_cycle = CognitiveCycle(self)
 
         self.semantic_parser = SemanticParser()
 
-        self.ai_router = AIRouter()
+        # Authoritative AI provider router (EPIC-03). Used for real LLM
+        # reasoning (EPIC-04). A single container-owned instance is injected
+        # when provided so the whole runtime shares ONE AI Manager authority.
+        self.ai = ai_manager if ai_manager is not None else AIManager()
+
+        # EPIC-07: authoritative CAPABILITY router. Decides which MYRAA
+        # capability (LOCAL_FAST/BRAIN/RESEARCH/EXECUTION/MEMORY) should handle
+        # a request. Deterministic; reuses the parsed SemanticTask. Distinct from
+        # self.ai (provider selection).
+        self.response_router = ResponseRouter()
+        self._last_response_route = None
+
+        # EPIC-08: RESEARCH capability (lazy — only constructed on first RESEARCH
+        # request so ordinary conversation never pays for provider setup).
+        self._research_router = None
+        self._last_research_result = None
 
         self.knowledge_decision = KnowledgeDecisionEngine()
 
@@ -286,12 +320,12 @@ class BrainEngine:
         self.goals = GoalManager()
         self.scheduler = GoalScheduler()
 
-        print("=" * 60)
-        print("DecisionEngine instance:", self.decision)
-        print("DecisionEngine class   :", self.decision.__class__)
-        print("DecisionEngine module  :", self.decision.__class__.__module__)
-        print("DecisionEngine file    :", self.decision.__class__.__dict__.get("__module__"))
-        print("=" * 60)
+        log.debug("=" * 60)
+        log.debug("DecisionEngine instance: %s", self.decision)
+        log.debug("DecisionEngine class   : %s", self.decision.__class__)
+        log.debug("DecisionEngine module  : %s", self.decision.__class__.__module__)
+        log.debug("DecisionEngine file    : %s", self.decision.__class__.__dict__.get("__module__"))
+        log.debug("=" * 60)
     # ----------------------------------------------------
 
     @property
@@ -414,38 +448,380 @@ class BrainEngine:
 
         except Exception:
 
-            import traceback
-
-            traceback.print_exc()
+            log.exception("Failed to record reflection.")
 
         return result
 
+    # ----------------------------------------------------
+    # EPIC-04: real LLM reasoning path
+    # ----------------------------------------------------
+
+    # Structured intents handled by the rule-based / execution path. These are
+    # NOT sent to the LLM: they map to local actions or goal management.
+    _NON_LLM_INTENTS = {
+        Intent.OPEN_APPLICATION,
+        Intent.CLOSE_APPLICATION,
+        Intent.CREATE_FILE,
+        Intent.CREATE_FOLDER,
+        Intent.DELETE_FILE,
+        Intent.MOVE_FILE,
+        Intent.COPY_FILE,
+        Intent.SEARCH_WEB,
+        Intent.OPEN_WEBSITE,
+        Intent.SET_GOAL,
+        Intent.GET_GOAL,
+        Intent.CLEAR_GOAL,
+        Intent.ROUTER_ACTION,
+    }
+
+    def _requires_llm(
+        self,
+        semantic_task,
+    ) -> bool:
+        """
+        True for language/reasoning-heavy requests. Concrete execution tasks (a
+        mapped action, or a structured tool-intent) stay on the rule path.
+        """
+        if semantic_task.metadata.get("action"):
+            return False
+
+        return semantic_task.intent not in self._NON_LLM_INTENTS
+
+    def _conversation_context_lines(
+        self,
+        context,
+        max_turns: int = 6,
+    ):
+        """
+        Extract a bounded recent-conversation window from the /brain context
+        (Node-owned conversation history). Only the last few turns are included
+        so the LLM prompt stays bounded.
+        """
+        if context is None:
+            return []
+
+        metadata = getattr(context, "metadata", None) or {}
+
+        if not isinstance(metadata, dict):
+            return []
+
+        history = metadata.get("conversation_history")
+
+        if not isinstance(history, (list, tuple)):
+            return []
+
+        lines = []
+
+        for turn in history[-max_turns:]:
+
+            if isinstance(turn, dict):
+                role = turn.get("role")
+                turn_text = turn.get("text", "")
+            else:
+                role = getattr(turn, "role", None)
+                turn_text = getattr(turn, "text", "")
+
+            if not turn_text:
+                continue
+
+            label = "User" if role == "user" else "MYRAA"
+            lines.append(f"{label}: {turn_text}")
+
+        return lines
+
+    def _build_llm_prompt(
+        self,
+        text: str,
+        semantic_task,
+        context=None,
+    ):
+        """
+        Smallest relevant context for the LLM: the user text, the detected
+        intent, a bounded window of recent conversation history, and the current
+        foreground application if known. The whole Blackboard / memory are never
+        dumped into the prompt.
+        """
+        intent_value = getattr(
+            semantic_task.intent,
+            "value",
+            str(semantic_task.intent),
+        )
+
+        system_prompt = (
+            "You are MYRAA, a helpful Windows desktop AI assistant. "
+            "Answer the user's request clearly and concisely. "
+            "Never claim to have performed a computer action that was not "
+            "actually executed."
+        )
+
+        lines = [
+            f"Intent: {intent_value}",
+        ]
+
+        # EPIC-06: bounded recent-conversation context for continuity.
+        conv_lines = self._conversation_context_lines(context)
+
+        if conv_lines:
+            lines.append("Recent conversation:")
+            lines.extend(conv_lines)
+
+        lines.append(f"User: {text}")
+
+        try:
+
+            current_app = self.working_memory.current_application()
+
+            if current_app:
+
+                lines.append(
+                    f"Foreground application: {current_app}"
+                )
+
+        except Exception:
+            pass
+
+        return system_prompt, "\n".join(lines)
+
+    def _maybe_llm_reason(
+        self,
+        text: str,
+        semantic_task,
+        context=None,
+    ):
+        """
+        Invoke the authoritative AI provider (AIManager.route) for requests that
+        genuinely benefit from LLM reasoning.
+
+        Returns a BrainResult when the request is handled (success, or a
+        controlled failure/fallback), or None to continue on the existing
+        rule/execution path.
+
+        The LLM is reasoning only: it never triggers desktop actions. Desktop
+        execution stays behind ExecutionBrain -> Orchestrator -> Dispatcher.
+        """
+        if not self._requires_llm(semantic_task):
+
+            return None
+
+        system_prompt, user_prompt = self._build_llm_prompt(
+            text,
+            semantic_task,
+            context,
+        )
+
+        try:
+
+            raw = self.ai.generate(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                hints={"categories": ["conversational", "local"]},
+                task=semantic_task,
+            )
+
+        except Exception as exc:
+
+            log.warning(
+                "[Brain] LLM generation failed: %s",
+                exc,
+            )
+
+            return BrainResult(
+                success=False,
+                message="AI reasoning failed: " + str(exc),
+                actions=[],
+                metadata={
+                    "llm": True,
+                    "error": str(exc),
+                },
+                provider="none",
+            )
+
+        output = (raw or "").strip()
+
+        provider_name = getattr(self.ai, "_active_provider", None)
+        if provider_name is not None:
+            provider_name = getattr(provider_name, "name", "unknown")
+        else:
+            provider_name = "unknown"
+
+        if not output:
+
+            return BrainResult(
+                success=False,
+                message="AI returned an empty response.",
+                actions=[],
+                metadata={
+                    "llm": True,
+                    "provider": provider_name,
+                    "empty": True,
+                },
+                provider=provider_name,
+            )
+
+        return BrainResult(
+            success=True,
+            message=output,
+            actions=[],
+            metadata={
+                "llm": True,
+                "provider": provider_name,
+            },
+            provider=provider_name,
+        )
+
+    def _get_research_router(self):
+        if self._research_router is None:
+            self._research_router = ResearchRouter()
+        return self._research_router
+
+    def _handle_research(
+        self,
+        text: str,
+        context,
+        response_route,
+    ) -> BrainResult:
+        """
+        Run the RESEARCH capability for an EPIC-07 RESEARCH route: real provider
+        research (Tavily/DDG/Wikipedia) -> bounded evidence -> AIManager synthesis
+        -> ONE grounded answer. Never fabricates a current answer on failure.
+
+        Phase 4.5: Fast-path bypass for static knowledge — if the query doesn't
+        need external sources, skip research and answer directly via LLM.
+        """
+        handoff = response_route.metadata.get("research_handoff")
+        if not isinstance(handoff, ResearchHandoff):
+            handoff = ResearchHandoff(query=text, reason=response_route.reason)
+
+        # Phase 4.5: Fast-path — skip research for static knowledge
+        try:
+            router = self._get_research_router()
+            if not router.needs_external_source(text):
+                log.debug("[Research] Fast-path: static knowledge, skipping external sources")
+                # Fall through to LLM reasoning instead
+                llm_result = self._maybe_llm_reason(text, None, context)
+                if llm_result is not None:
+                    llm_result.metadata["route"] = "BRAIN"
+                    llm_result.metadata["route_reason"] = "static knowledge fast-path"
+                    return llm_result
+        except Exception:
+            pass  # If fast-path check fails, continue with normal research
+        handoff = response_route.metadata.get("research_handoff")
+        if not isinstance(handoff, ResearchHandoff):
+            handoff = ResearchHandoff(query=text, reason=response_route.reason)
+
+        # EPIC-06: pass bounded conversation context into synthesis where useful.
+        conversation_context = None
+        try:
+            meta = getattr(context, "metadata", None) or {}
+            if isinstance(meta, dict):
+                conversation_context = meta.get("conversation_history")
+        except Exception:
+            conversation_context = None
+
+        try:
+            research = self._get_research_router().research(
+                handoff,
+                conversation_context,
+            )
+        except Exception as exc:  # noqa: BLE001
+            log.warning("[Research] pipeline failed: %s", exc)
+            return BrainResult(
+                success=False,
+                message="Research unavailable: " + str(exc),
+                actions=[],
+                metadata={
+                    "route": ResponseRouteType.RESEARCH.value,
+                    "route_reason": response_route.reason,
+                },
+            )
+
+        self._last_research_result = research
+
+        if not research.success or not research.synthesized:
+            # Controlled failure — do not present stale/ungrounded knowledge as
+            # current information.
+            reason = "; ".join(research.errors) or "no evidence retrieved"
+            return BrainResult(
+                success=False,
+                message="Research could not produce a grounded answer. " + reason,
+                actions=[],
+                metadata={
+                    "route": ResponseRouteType.RESEARCH.value,
+                    "route_reason": response_route.reason,
+                    "research": research.to_dict(),
+                },
+            )
+
+        return BrainResult(
+            success=True,
+            message=research.synthesized,
+            actions=[],
+            metadata={
+                # EPIC-05 gate: this is the authoritative, single user-facing answer.
+                "llm": True,
+                "route": ResponseRouteType.RESEARCH.value,
+                "route_reason": response_route.reason,
+                "research": {
+                    "query": research.query,
+                    "source_count": len(research.sources),
+                    "providers": [p.provider for p in research.provider_results],
+                    "synthesis_provider": research.synthesis_provider,
+                },
+            },
+            provider=research.synthesis_provider,
+        )
+
     def process(self, text: str, context=None):
-        print("[Brain] process()")
+        log.debug("[Brain] process()")
         t0 = time.perf_counter()
         resolved_text = self._resolve_input(text)
-        print(f"Resolve: {(time.perf_counter()-t0):.3f}s")
-        print("[Brain] starting semantic parser")
+        log.debug("Resolve: %.3fs", time.perf_counter()-t0)
+
+        # M10: explicit memory commands short-circuit the pipeline so they are
+        # always handled deterministically, before routing or LLM paths.
+        cmd_result = self.memory_command_engine.handle(text, context)
+        if cmd_result is not None:
+            log.debug("[Brain] MemoryCommand handled: %s", cmd_result.operation)
+            return BrainResult(
+                success=cmd_result.success,
+                message=cmd_result.message,
+                metadata={
+                    "route": "MEMORY_COMMAND",
+                    "command_operation": cmd_result.operation,
+                    "command_affected": cmd_result.affected_ids,
+                },
+            )
+        log.debug("[Brain] starting semantic parser")
         t1 = time.perf_counter()
         semantic_task = self._parse_semantics(
             resolved_text,
             context,
         )
-        print("<<< PARSE RETURNED >>>")
-        print(type(semantic_task))
-        print(semantic_task)
-        print("<<< ABOUT TO CALL MEMORY >>>")
-        print(">>> BEFORE MEMORY RETRIEVAL")
+        log.debug("<<< PARSE RETURNED >>>")
+        log.debug("semantic_task type: %s", type(semantic_task))
+        log.debug("semantic_task: %s", semantic_task)
+
+        # ----------------------------------------------------
+        # EPIC-07: authoritative CAPABILITY router. One decision authority for
+        # which MYRAA capability handles this request. Deterministic, reuses the
+        # parsed SemanticTask, never executes. Distinct from AIManager (provider).
+        # ----------------------------------------------------
+        response_route = self.response_router.route(semantic_task)
+        self._last_response_route = response_route
+        log.debug("[ResponseRouter] route=%s reason=%s", response_route.route.value, response_route.reason)
+
+        log.debug("<<< ABOUT TO CALL MEMORY >>>")
+        log.debug(">>> BEFORE MEMORY RETRIEVAL")
         memory_result = self.memory_retrieval.resolve(
             resolved_text,
             self.working_memory,
         )
-        print(">>> AFTER MEMORY RETRIEVAL")
-        print(memory_result)
+        log.debug(">>> AFTER MEMORY RETRIEVAL")
+        log.debug("memory_result: %s", memory_result)
 
         if memory_result.handled:
 
-            print("[Memory Retrieval] handled")
+            log.debug("[Memory Retrieval] handled")
 
             return BrainResult(
                 success=True,
@@ -453,25 +829,68 @@ class BrainEngine:
                 metadata={
                     "source": memory_result.source,
                     "confidence": memory_result.confidence,
+                    # EPIC-07: the existing memory architecture already handled
+                    # this request, so it is the MEMORY capability.
+                    "route": ResponseRouteType.MEMORY.value,
+                    "route_reason": "existing memory retrieval handled the request",
                 },
             )
         self.brain_state.update_task(
             semantic_task
         )
-        route = self.ai_router.route(semantic_task)
 
-        print(f"[AI Router] Route = {route.name}")
-        if route.name == "LLM":
-
-            provider = self.ai_router.provider(
-                semantic_task
+        # ----------------------------------------------------
+        # LOCAL_FAST short-circuit. Pure conversation / small talk is
+        # answered by the local fast model (Qwen3.5) alone. Returning a
+        # non-LLM, un-surfaced result here prevents a second Brain answer for the
+        # same request (one request -> one authoritative response).
+        # ----------------------------------------------------
+        if response_route.route == ResponseRouteType.LOCAL_FAST:
+            return BrainResult(
+                success=True,
+                message="",
+                actions=[],
+                metadata={
+                    "route": ResponseRouteType.LOCAL_FAST.value,
+                    "route_reason": response_route.reason,
+                },
             )
 
-            print(
-                f"[AI Router] Provider = {provider}"
+        # ----------------------------------------------------
+        # EPIC-08: RESEARCH capability. Consume the EPIC-07 ResearchHandoff, run
+        # the ResearchRouter (Tavily/DDG/Wikipedia), synthesize ONE grounded
+        # answer via AIManager, and surface it as the single authoritative reply.
+        # ----------------------------------------------------
+        if response_route.route == ResponseRouteType.RESEARCH:
+            return self._handle_research(
+                resolved_text,
+                context,
+                response_route,
             )
-        print("[Brain] semantic parser finished")
-        print("[Brain] starting think")
+
+        # ----------------------------------------------------
+        # EPIC-04: real LLM reasoning path.
+        # The authoritative AIManager.route() selects the provider; the LLM is a
+        # reasoning layer only and never executes desktop actions. Non-LLM /
+        # execution intents skip this and continue on the rule path below.
+        # ----------------------------------------------------
+
+        llm_result = self._maybe_llm_reason(
+            resolved_text,
+            semantic_task,
+            context,
+        )
+
+        if llm_result is not None:
+
+            # EPIC-07: stamp the authoritative route for explainability.
+            llm_result.metadata["route"] = response_route.route.value
+            llm_result.metadata["route_reason"] = response_route.reason
+
+            return llm_result
+
+        log.debug("[Brain] semantic parser finished")
+        log.debug("[Brain] starting think")
         brain_context = self.think(semantic_task)
 
         # ----------------------------------------------------
@@ -482,11 +901,11 @@ class BrainEngine:
             resolved_text
         )
 
-        print("\n========== KNOWLEDGE DECISION ==========")
-        print("Browser :", decision.use_browser)
-        print("Knowledge:", decision.use_knowledge)
-        print("Reason   :", decision.reason)
-        print("========================================\n")
+        log.debug("========== KNOWLEDGE DECISION ==========")
+        log.debug("Browser : %s", decision.use_browser)
+        log.debug("Knowledge: %s", decision.use_knowledge)
+        log.debug("Reason   : %s", decision.reason)
+        log.debug("========================================")
 
         brain_context.metadata["use_browser"] = (
             decision.use_browser
@@ -495,10 +914,10 @@ class BrainEngine:
         brain_context.metadata["use_knowledge"] = (
             decision.use_knowledge
         )
-        print("[Brain] think finished")
+        log.debug("[Brain] think finished")
         # Inject active goal into the cognitive context
         brain_context.metadata["active_goal"] = self.current_goal()
-        print("[Brain] starting decision")
+        log.debug("[Brain] starting decision")
         # -------------------------------------------------
         # Update runtime context before decision
         # -------------------------------------------------
@@ -527,12 +946,12 @@ class BrainEngine:
             semantic_task,
             brain_context,
         )       
-        print("[Brain] decision finished")
-        print("========== SemanticTask ==========")
-        print("Intent   :", semantic_task.intent)
-        print("Metadata :", semantic_task.metadata)
-        print("==================================")
-        print(f"Semantic: {(time.perf_counter()-t1):.3f}s")
+        log.debug("[Brain] decision finished")
+        log.debug("========== SemanticTask ==========")
+        log.debug("Intent   : %s", semantic_task.intent)
+        log.debug("Metadata : %s", semantic_task.metadata)
+        log.debug("==================================")
+        log.debug("Semantic: %.3fs", time.perf_counter()-t1)
 
         # =====================================================
         # Thinking Engine
@@ -584,9 +1003,9 @@ class BrainEngine:
         if thinking.uncertainty.requires_clarification:
 
             return thinking.uncertainty.clarification_question
-        print("[Brain] starting planner")
+        log.debug("[Brain] starting planner")
         plan = self.planner.create_plan(decision)
-        print("[Brain] planner finished")
+        log.debug("[Brain] planner finished")
         self.brain_state.update_plan(
             plan
         )
@@ -603,6 +1022,9 @@ class BrainEngine:
                 metadata={
                     "planner_failed": True,
                     "reason": getattr(plan, "reason", ""),
+                    # EPIC-07
+                    "route": response_route.route.value,
+                    "route_reason": response_route.reason,
                 },
             )
 
@@ -610,13 +1032,13 @@ class BrainEngine:
         # Executive
         # =====================================================
 
-        print("[Brain] starting executive")
+        log.debug("[Brain] starting executive")
 
         request = self.executive.submit(plan)
 
         plan = request.metadata["plan"]
 
-        print("[Brain] executive finished")
+        log.debug("[Brain] executive finished")
 
         # =====================================================
         # Execute
@@ -624,11 +1046,11 @@ class BrainEngine:
 
         t5 = time.perf_counter()
 
-        print("[Brain] starting execute")
+        log.debug("[Brain] starting execute")
 
         result = self.orchestrator.execute(plan)
 
-        print("[Brain] execute finished")
+        log.debug("[Brain] execute finished")
 
         if result.success:
 
@@ -655,10 +1077,17 @@ class BrainEngine:
 
         )
 
-        print(f"Execute: {(time.perf_counter() - t5):.3f}s")
-        print(f"TOTAL: {(time.perf_counter() - t0):.3f}s")
+        log.debug("Execute: %.3fs", time.perf_counter() - t5)
+        log.debug("TOTAL: %.3fs", time.perf_counter() - t0)
 
-        return result  
+        # EPIC-07: stamp the authoritative route for explainability. This is an
+        # EXECUTION/RESEARCH capability outcome produced by the existing
+        # Orchestrator -> CommandDispatcher path (never executed by the router).
+        if hasattr(result, "metadata") and isinstance(result.metadata, dict):
+            result.metadata["route"] = response_route.route.value
+            result.metadata["route_reason"] = response_route.reason
+
+        return result
 
     def set_goal(self, goal):
 
@@ -686,13 +1115,7 @@ class BrainEngine:
 
             return
 
-        print(
-
-            "[Brain] Goal completed:",
-
-            goal,
-
-        )
+        log.info("[Brain] Goal completed: %s", goal)
 
         self.scheduler.complete()
 
@@ -712,13 +1135,7 @@ class BrainEngine:
 
             return
 
-        print(
-
-            "[Brain] Goal failed:",
-
-            goal,
-
-        )
+        log.info("[Brain] Goal failed: %s", goal)
 
         self.goals.fail()
 
@@ -732,13 +1149,7 @@ class BrainEngine:
 
             return
 
-        print(
-
-            "[Brain] Goal cancelled:",
-
-            goal,
-
-        )
+        log.info("[Brain] Goal cancelled: %s", goal)
 
         self.goals.cancel()
 
@@ -924,7 +1335,7 @@ class BrainEngine:
         Synchronize latest desktop perception.
         """
 
-        print("[Brain] perception updated")
+        log.debug("[Brain] perception updated")
 
         # -----------------------------------------
         # Perception
@@ -1093,7 +1504,7 @@ class BrainEngine:
 
     def tick(self):
 
-        print("[Brain] tick()")
+        log.debug("[Brain] tick()")
 
         self.world.update(
             self.perception.snapshot
@@ -1102,28 +1513,28 @@ class BrainEngine:
         context = self._build_runtime_context()
 
         self._current_context = context
-        print("[Brain] context ready")
+        log.debug("[Brain] context ready")
 
         if context is None:
-            print("[Brain] context is None")
+            log.debug("[Brain] context is None")
             return
 
-        print("[Brain] running cognitive cycle")
+        log.debug("[Brain] running cognitive cycle")
 
         self.cognitive_cycle.run()
 
-        print("[Brain] cognitive cycle finished")
+        log.debug("[Brain] cognitive cycle finished")
 
         goal = self.current_goal()
 
-        print("[Brain] goal =", goal)
+        log.debug("[Brain] goal = %s", goal)
 
         if goal is None:
-            print("[Brain] no goal")
+            log.debug("[Brain] no goal")
             return
 
         if getattr(self, "_runtime_busy", False):
-            print("[Brain] runtime busy")
+            log.debug("[Brain] runtime busy")
             return
 
         context.metadata["active_goal"] = goal
@@ -1136,7 +1547,7 @@ class BrainEngine:
 
             if getattr(result, "success", False):
 
-                print("[Brain] Goal completed")
+                log.debug("[Brain] Goal completed")
 
                 self.complete_goal()
 
@@ -1168,18 +1579,13 @@ class BrainEngine:
             # Working Memory
             self.working_memory.remember_event(event)
 
-            # Episodic Memory
-            self.memory.episodic.record(
-                title=getattr(event, "title", ""),
-                category="observer",
-                description=getattr(event, "message", ""),
-                importance=0.7,
-                metadata={
-                    "source": getattr(event, "source", None),
-                    "severity": str(getattr(event, "severity", "")),
-                    "payload": getattr(event, "payload", {}),
-                },
-            )
+            # Memory 2.0 (M7/M9): feed the observer event into the unified
+            # store as a WORKING record so the runtime consolidation pipeline
+            # has input. Since M9 the unified store is authoritative, so this
+            # is the single canonical memory write for observer events.
+            memory_2_0 = getattr(self, "memory_2_0", None) or self.memory
+            if memory_2_0 is not None:
+                memory_2_0.remember_working_event(event)
 
             self._on_event_received(event)
 

@@ -1,0 +1,617 @@
+﻿........................................................................ [  3%]
+........................................................................ [  7%]
+........................................................sssssssss....... [ 11%]
+s....................................................................... [ 15%]
+........................................................................ [ 19%]
+........................................................................ [ 23%]
+........................................................................ [ 27%]
+.................................................sssssssssssss.......... [ 31%]
+........................................................................ [ 35%]
+........................................................................ [ 39%]
+........................................................................ [ 43%]
+........................................................................ [ 47%]
+........................................................................ [ 51%]
+........................................................................ [ 55%]
+......................................................s................. [ 59%]
+........................................................................ [ 63%]
+........................................................................ [ 67%]
+........................................................................ [ 71%]
+........................................................................ [ 75%]
+........................................................................ [ 79%]
+................................................s....................... [ 82%]
+........................................................................ [ 86%]
+........................................................................ [ 90%]
+............................................s.........ssssssss.......... [ 94%]
+........................................................................ [ 98%]
+......................                                                   [100%]
+============================== warnings summary ===============================
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/test_b26_e2e.py: 12 warnings
+tests/test_communication_routing.py: 7 warnings
+tests/test_phase7_desktop_integration.py: 5 warnings
+tests/test_phase8_browser_integration.py: 7 warnings
+tests/test_phase9_communication_integration.py: 4 warnings
+tests/test_phase_4_5_information_router.py: 3 warnings
+tests/test_phase_b_autonomy.py: 22 warnings
+tests/test_routing_golden.py: 9 warnings
+tests/test_superbrain_route_integration.py: 1 warning
+  <string>:16: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_devg_fixes_integration.py: 34 warnings
+tests/test_performance_integration.py: 4 warnings
+tests/test_phase_c_multimodal_e2e.py: 4 warnings
+tests/test_phase_c_startup_recovery.py: 16 warnings
+tests/test_phase_v_v1_canonical.py: 2 warnings
+tests/test_prod_f_neural_inference.py: 18 warnings
+tests/test_prod_g_failure_injection.py: 10 warnings
+tests/test_start_stop_restart.py: 13 warnings
+tests/test_superbrain_route_integration.py: 2 warnings
+  <string>:3: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_devg_fixes_integration.py: 34 warnings
+tests/test_performance_integration.py: 4 warnings
+tests/test_phase_c_multimodal_e2e.py: 4 warnings
+tests/test_phase_c_startup_recovery.py: 16 warnings
+tests/test_phase_v_v1_canonical.py: 2 warnings
+tests/test_prod_f_neural_inference.py: 18 warnings
+tests/test_prod_g_failure_injection.py: 10 warnings
+tests/test_start_stop_restart.py: 8 warnings
+tests/test_superbrain_route_integration.py: 2 warnings
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\blackboard\working_blackboard.py:106: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    self.created_at = datetime.utcnow()
+
+tests/test_devg_fixes_integration.py: 17 warnings
+tests/test_phase_c_multimodal_e2e.py: 2 warnings
+tests/test_phase_c_startup_recovery.py: 8 warnings
+tests/test_phase_d_final.py: 2 warnings
+tests/test_phase_d_trading.py: 1 warning
+tests/test_phase_v_v1_canonical.py: 1 warning
+tests/test_prod_f_neural_inference.py: 9 warnings
+tests/test_prod_g_failure_injection.py: 5 warnings
+tests/test_superbrain_route_integration.py: 1 warning
+  <string>:8: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_devg_fixes_integration.py: 17 warnings
+tests/test_groww_smoke.py: 1 warning
+tests/test_phase_c_multimodal_e2e.py: 2 warnings
+tests/test_phase_c_startup_recovery.py: 8 warnings
+tests/test_phase_d_final.py: 1 warning
+tests/test_phase_d_groww_advisor.py: 4 warnings
+tests/test_phase_d_trading.py: 4 warnings
+tests/test_phase_v_v1_canonical.py: 1 warning
+tests/test_prod_f_neural_inference.py: 9 warnings
+tests/test_prod_g_failure_injection.py: 5 warnings
+tests/test_start_stop_restart.py: 3 warnings
+tests/test_superbrain_route_integration.py: 1 warning
+  <string>:7: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_devg_fixes_integration.py: 17 warnings
+tests/test_phase_c_multimodal_e2e.py: 2 warnings
+tests/test_phase_c_startup_recovery.py: 8 warnings
+tests/test_phase_d_final.py: 6 warnings
+tests/test_phase_d_trading.py: 3 warnings
+tests/test_phase_v_v1_canonical.py: 1 warning
+tests/test_prod_f_neural_inference.py: 9 warnings
+tests/test_prod_g_failure_injection.py: 5 warnings
+tests/test_superbrain_route_integration.py: 1 warning
+  <string>:5: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_groww_smoke.py::TestGrowwSmokeFixtureVerification::test_groww_normalizer_portfolio_flow
+tests/test_phase_d_groww_advisor.py::TestPortfolioNormalization::test_normalize_groww_portfolio
+tests/test_phase_d_groww_advisor.py::TestPortfolioNormalization::test_normalize_groww_portfolio_empty
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\groww\normalizer.py:190: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow().isoformat(),
+
+tests/test_groww_smoke.py::TestGrowwSmokeFixtureVerification::test_groww_guidance_engine_produces_advice
+tests/test_phase_d_final.py::TestGuidanceBoundary::test_single_position_guidance
+tests/test_phase_d_groww_advisor.py::TestGuidanceEngine::test_analyze_portfolio_basic
+tests/test_phase_d_groww_advisor.py::TestGuidanceEngine::test_position_actions
+tests/test_phase_d_groww_advisor.py::TestGuidanceEngine::test_sector_exposure
+tests/test_phase_d_groww_advisor.py::TestPhaseDIntegration::test_snapshot_to_guidance_flow
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\groww\guidance.py:191: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow().isoformat(),
+
+tests/test_groww_smoke.py: 2 warnings
+tests/test_phase_d_final.py: 2 warnings
+tests/test_phase_d_groww_advisor.py: 6 warnings
+tests/test_phase_d_trading.py: 20 warnings
+  <string>:21: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_performance_integration.py::test_performance_guard_basic_functionality
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_performance_integration.py::test_performance_guard_basic_functionality returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_performance_integration.py::test_performance_guard_decorator
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_performance_integration.py::test_performance_guard_decorator returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_performance_integration.py::test_benchmark_suite_integration
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_performance_integration.py::test_benchmark_suite_integration returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_performance_integration.py: 4 warnings
+tests/test_start_stop_restart.py: 8 warnings
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\blackboard\cognitive_context.py:56: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    self.timestamp = datetime.utcnow()
+
+tests/test_performance_integration.py: 4 warnings
+tests/test_phase_d_trading.py: 3 warnings
+tests/test_phase_u_unified_runtime.py: 40 warnings
+tests/test_start_stop_restart.py: 8 warnings
+  <string>:4: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_performance_integration.py::test_stress_test_framework
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_performance_integration.py::test_stress_test_framework returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_performance_integration.py::test_performance_optimizations_working
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_performance_integration.py::test_performance_optimizations_working returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_performance_integration.py::test_no_regressions_in_core_functionality
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_performance_integration.py::test_no_regressions_in_core_functionality returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_files_capability_registration
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_files_capability_registration returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_project_capability_registration
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_project_capability_registration returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_file_listing
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_file_listing returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_file_search
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_file_search returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_filename_filtering
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_filename_filtering returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_content_search
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_content_search returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_metadata_retrieval
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_metadata_retrieval returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_read
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_read returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_write
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_write returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_rename
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_rename returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_move
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_move returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_copy
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_copy returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_delete_with_permission_gate
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_delete_with_permission_gate returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_destructive_confirmation
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_destructive_confirmation returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_create_folder
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_create_folder returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_duplicate_detection
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_duplicate_detection returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_project_identification
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_project_identification returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_project_ambiguity_clarification
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_project_ambiguity_clarification returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_project_scoped_memory_retrieval
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_project_scoped_memory_retrieval returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_project_isolation
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_project_isolation returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_project_file_search
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_project_file_search returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_code_project_workflow
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_code_project_workflow returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_verification_of_file_operations
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_verification_of_file_operations returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_failure_recovery
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_failure_recovery returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_cancellation
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_cancellation returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_browser_download_file_workflow
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_browser_download_file_workflow returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_file_gmail_attachment_workflow
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_file_gmail_attachment_workflow returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_file_whatsapp_attachment_workflow
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_file_whatsapp_attachment_workflow returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase10_files_projects_integration.py::test_no_fake_success
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase10_files_projects_integration.py::test_no_fake_success returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase_3_4_screen_architecture.py::test_phase_3_4
+tests/test_screen_share.py::test_screen_share_engine
+tests/test_screen_share.py::test_screen_share_engine
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\desktop\vision\screenshot_engine.py:35: DeprecationWarning: mss.mss is deprecated and will be removed in a future release; use mss.MSS instead
+    self.sct = mss.mss()
+
+tests/test_phase_3_4_screen_architecture.py::test_phase_3_4
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase_3_4_screen_architecture.py::test_phase_3_4 returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase_4_5_information_router.py::test_phase_4_5_information
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase_4_5_information_router.py::test_phase_4_5_information returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase_d_final.py: 5 warnings
+tests/test_phase_d_trading.py: 14 warnings
+  <string>:11: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_phase_d_final.py::TestStaleDataHandling::test_data_quality_layer
+  C:\Users\singh\OneDrive\Desktop\MYRAA\tests\test_phase_d_final.py:274: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow(),
+
+tests/test_phase_d_final.py::TestStaleDataHandling::test_data_quality_layer
+tests/test_phase_d_final.py::TestStaleDataHandling::test_stale_quote_detected
+tests/test_phase_d_trading.py::test_data_quality_quote_fresh
+tests/test_phase_d_trading.py::test_data_quality_quote_stale
+tests/test_phase_d_trading.py::test_trading_engine_analyze_stock
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\data_quality.py:58: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    age = (datetime.utcnow() - quote.timestamp).total_seconds()
+
+tests/test_phase_d_final.py::TestNormalizerBoundary::test_paise_normalization
+tests/test_phase_d_final.py::TestNormalizerBoundary::test_normal_price_unchanged
+tests/test_phase_d_groww_advisor.py::TestGrowwQuoteNormalization::test_normalize_groww_quote
+tests/test_phase_d_groww_advisor.py::TestGrowwQuoteNormalization::test_normalize_groww_quote_paise_prices
+tests/test_phase_d_groww_advisor.py::TestGrowwQuoteNormalization::test_normalize_groww_quote_missing_fields
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\groww\normalizer.py:91: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow().isoformat(),
+
+tests/test_phase_d_final.py::TestGuidanceBoundary::test_empty_portfolio_guidance
+tests/test_phase_d_groww_advisor.py::TestGuidanceEngine::test_analyze_portfolio_empty
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\groww\guidance.py:135: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow().isoformat(),
+
+tests/test_phase_d_final.py::TestOptionsAnalysis::test_options_analyzer_pcr
+tests/test_phase_d_trading.py::test_options_analyzer_pcr
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\options\analyzer.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow(),
+
+tests/test_phase_d_final.py::TestPaperTrading::test_paper_trader_open
+tests/test_phase_d_trading.py::test_paper_trading_lifecycle
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\paper\trading.py:135: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    entry_date=datetime.utcnow(),
+
+tests/test_phase_d_groww_advisor.py::TestGuidanceEngine::test_analyze_portfolio_basic
+tests/test_phase_d_groww_advisor.py::TestGuidanceEngine::test_position_actions
+tests/test_phase_d_groww_advisor.py::TestGuidanceEngine::test_sector_exposure
+tests/test_phase_d_groww_advisor.py::TestGuidanceEngine::test_stock_guidance
+  C:\Users\singh\OneDrive\Desktop\MYRAA\tests\test_phase_d_groww_advisor.py:235: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    return PortfolioSnapshot(positions=positions, cash=150000, timestamp=datetime.utcnow().isoformat())
+
+tests/test_phase_d_groww_advisor.py::TestGuidanceEngine::test_analyze_portfolio_empty
+  C:\Users\singh\OneDrive\Desktop\MYRAA\tests\test_phase_d_groww_advisor.py:413: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    empty = PortfolioSnapshot(positions=[], cash=0, timestamp=datetime.utcnow().isoformat())
+
+tests/test_phase_d_groww_advisor.py::TestGrowwAuth::test_authenticator_direct_token
+tests/test_phase_d_groww_advisor.py::TestGrowwAuth::test_auth_state
+tests/test_phase_d_groww_advisor.py::TestGrowwClient::test_client_get_success
+tests/test_phase_d_groww_advisor.py::TestGrowwAdapter::test_adapter_auth_state
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\groww\groww_auth.py:223: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    now = datetime.utcnow()
+
+tests/test_phase_d_groww_advisor.py::TestGrowwAuth::test_authenticator_direct_token
+tests/test_phase_d_groww_advisor.py::TestGrowwAuth::test_auth_state
+tests/test_phase_d_groww_advisor.py::TestGrowwClient::test_client_get_success
+tests/test_phase_d_groww_advisor.py::TestGrowwAdapter::test_adapter_auth_state
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\groww\groww_auth.py:89: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    return datetime.utcnow() < self.token_expiry
+
+tests/test_phase_d_groww_advisor.py::TestGrowwAdvisor::test_advisor_analyze_empty_portfolio
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\groww\advisor.py:114: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    return PortfolioSnapshot(positions=[], cash=0, timestamp=datetime.utcnow().isoformat())
+
+tests/test_phase_d_groww_advisor.py::TestGrowwAdvisor::test_advisor_analyze_empty_portfolio
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\groww\advisor.py:135: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow().isoformat(),
+
+tests/test_phase_d_groww_advisor.py::TestPhaseDIntegration::test_snapshot_to_guidance_flow
+  C:\Users\singh\OneDrive\Desktop\MYRAA\tests\test_phase_d_groww_advisor.py:599: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    positions=positions, cash=150000, timestamp=datetime.utcnow().isoformat()
+
+tests/test_phase_d_groww_advisor.py::TestPhaseDIntegration::test_portfolio_snapshot_properties
+  C:\Users\singh\OneDrive\Desktop\MYRAA\tests\test_phase_d_groww_advisor.py:616: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    positions=positions, cash=100000, timestamp=datetime.utcnow().isoformat()
+
+tests/test_phase_d_trading.py: 19 warnings
+  C:\Users\singh\OneDrive\Desktop\MYRAA\tests\test_phase_d_trading.py:67: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    volume=vol, exchange=Exchange.NSE, timestamp=datetime.utcnow(),
+
+tests/test_phase_d_trading.py::test_data_quality_quote_stale
+  C:\Users\singh\OneDrive\Desktop\MYRAA\tests\test_phase_d_trading.py:151: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    q.timestamp = datetime.utcnow() - timedelta(hours=2)
+
+tests/test_phase_d_trading.py: 360 warnings
+  C:\Users\singh\OneDrive\Desktop\MYRAA\tests\test_phase_d_trading.py:82: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow() - timedelta(days=n - i),
+
+tests/test_phase_d_trading.py::test_data_quality_ohlcv_gaps
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\data_quality.py:153: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    age = (datetime.utcnow() - latest.timestamp).total_seconds()
+
+tests/test_phase_d_trading.py::test_data_quality_market_status
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\data_quality.py:230: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    now = datetime.utcnow()
+
+tests/test_phase_d_trading.py::test_technical_engine_analysis
+tests/test_phase_d_trading.py::test_market_scanner
+tests/test_phase_d_trading.py::test_market_scanner
+tests/test_phase_d_trading.py::test_market_scanner
+tests/test_phase_d_trading.py::test_trade_plan_engine_buy_candidate
+tests/test_phase_d_trading.py::test_trade_plan_engine_no_trade
+tests/test_phase_d_trading.py::test_risk_engine_high_volatility
+tests/test_phase_d_trading.py::test_risk_engine_concentration
+tests/test_phase_d_trading.py::test_trading_engine_analyze_stock
+  <string>:15: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_phase_d_trading.py::test_fundamental_analyzer_valuation
+tests/test_phase_d_trading.py::test_fundamental_analyzer_unavailable
+tests/test_phase_d_trading.py::test_trading_engine_analyze_stock
+  <string>:12: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_phase_d_trading.py::test_news_analyzer_sentiment
+tests/test_phase_d_trading.py::test_news_analyzer_sentiment
+tests/test_phase_d_trading.py::test_news_analyzer_events
+  <string>:6: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_phase_d_trading.py::test_trade_plan_engine_buy_candidate
+tests/test_phase_d_trading.py::test_trading_engine_analyze_stock
+  <string>:20: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_phase_d_trading.py::test_risk_engine_high_volatility
+tests/test_phase_d_trading.py::test_risk_engine_concentration
+tests/test_phase_d_trading.py::test_trading_engine_analyze_stock
+  <string>:13: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+tests/test_phase_d_trading.py: 20 warnings
+  C:\Users\singh\OneDrive\Desktop\MYRAA\tests\test_phase_d_trading.py:107: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    expiry=datetime.utcnow() + timedelta(days=5),
+
+tests/test_phase_d_trading.py::test_options_analyzer_pcr
+tests/test_phase_d_trading.py::test_options_strategy_long_call
+  C:\Users\singh\OneDrive\Desktop\MYRAA\tests\test_phase_d_trading.py:115: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    expiry=datetime.utcnow() + timedelta(days=5),
+
+tests/test_phase_d_trading.py::test_paper_trading_lifecycle
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\models.py:808: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    self.exit_date = datetime.utcnow()
+
+tests/test_phase_d_trading.py::test_broker_adapter_read_only
+tests/test_prod_d_trading_integration.py::TestTradingEngine::test_engine_broker_account
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\adapter.py:63: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "last_updated": datetime.utcnow().isoformat(),
+
+tests/test_phase_v_v1_canonical.py::test_v1_canonical_voice_pipeline
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase_v_v1_canonical.py::test_v1_canonical_voice_pipeline returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase_v_v2_device.py::test_v2_device_handling
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase_v_v2_device.py::test_v2_device_handling returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase_v_v3_turns.py::test_v3_turn_management
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase_v_v3_turns.py::test_v3_turn_management returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase_v_v4_resilience.py::test_v4_resilience
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase_v_v4_resilience.py::test_v4_resilience returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase_v_v5_playback.py::test_v5_playback
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase_v_v5_playback.py::test_v5_playback returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase_v_v6_capabilities.py::test_v6_capabilities
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase_v_v6_capabilities.py::test_v6_capabilities returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_phase_v_v7_final.py::test_v7_observability
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_phase_v_v7_final.py::test_v7_observability returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_prod_d_trading_integration.py::TestGrowwAdvisorContracts::test_groww_advisor_health
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\groww\browser_advisor.py:404: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/test_prod_d_trading_integration.py::TestGrowwAdvisorContracts::test_groww_portfolio_empty_when_disconnected
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\finance\trading\broker\groww\browser_advisor.py:159: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow()
+
+tests/test_regression_matrix.py::test_epic11_ui_regression
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_regression_matrix.py::test_epic11_ui_regression returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_regression_matrix.py::test_epic12_voice_regression
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_regression_matrix.py::test_epic12_voice_regression returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_regression_matrix.py::test_epic13_screen_vision_regression
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_regression_matrix.py::test_epic13_screen_vision_regression returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_regression_matrix.py::test_epic14a_perception_regression
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_regression_matrix.py::test_epic14a_perception_regression returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_regression_matrix.py::test_epic14b_target_resolution_regression
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_regression_matrix.py::test_epic14b_target_resolution_regression returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_regression_matrix.py::test_epic14c_action_execution_regression
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_regression_matrix.py::test_epic14c_action_execution_regression returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_regression_matrix.py::test_epic14d_verification_recovery_regression
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_regression_matrix.py::test_epic14d_verification_recovery_regression returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_screen_share.py::test_screen_share_engine
+  C:\Users\singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_screen_share.py::test_screen_share_engine returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_start_stop_restart.py::test_blackboard_start_stop_cycles
+tests/test_start_stop_restart.py::test_blackboard_start_stop_cycles
+tests/test_start_stop_restart.py::test_blackboard_start_stop_cycles
+tests/test_start_stop_restart.py::test_blackboard_start_stop_cycles
+tests/test_start_stop_restart.py::test_blackboard_start_stop_cycles
+  C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\blackboard\working_blackboard.py:754: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    self.created_at = datetime.utcnow()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1788 passed, 34 skipped, 1074 warnings in 445.04s (0:07:25)

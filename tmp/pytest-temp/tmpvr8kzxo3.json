@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "saved_at": 1789187570.6449578,
+  "records": [
+    {
+      "id": "2e6d5076-d5a9-4da8-a395-5a3c529cabbd",
+      "type": "semantic",
+      "content": "a testable fact",
+      "summary": "a testable fact",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789187570.635423,
+      "updated_at": 1789187570.644354,
+      "last_accessed_at": 1789187570.635476,
+      "event_time": null,
+      "importance": 0.7,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {
+        "lifecycle": {
+          "transitions": [
+            {
+              "from": "active",
+              "to": "expired",
+              "at": 1789187570.636868,
+              "reason": "expired"
+            },
+            {
+              "from": "expired",
+              "to": "active",
+              "at": 1789187570.6443613,
+              "reason": "restored"
+            }
+          ]
+        },
+        "expired_at": 1789187570.6368449,
+        "last_lifecycle_reason": "restored",
+        "restored_at": 1789187570.644339
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "2b1292f4ed23c9c102d9c6bd77fa93fc8a607bcd0cdfe6de02d487e8c6933d27"
+    }
+  ]
+}

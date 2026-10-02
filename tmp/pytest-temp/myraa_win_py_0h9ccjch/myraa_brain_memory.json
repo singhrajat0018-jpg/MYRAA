@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "saved_at": 1789195726.9983342,
+  "records": [
+    {
+      "id": "eaa504ca-fbae-416f-ac56-239c3dbbf300",
+      "type": "semantic",
+      "content": "new fact during lock",
+      "summary": "new fact during lock",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789195726.9945488,
+      "updated_at": 1789195726.994549,
+      "last_accessed_at": 1789195726.994549,
+      "event_time": null,
+      "importance": 0.7,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 2,
+      "status": "active",
+      "tags": [
+        "win-test"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {},
+      "supersedes": "130e55b7-d3c4-410d-b811-f2a4942761df",
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "2eb8c0a356c799102b042ce4b6b828094b9d118c73cf543e658d6de30fb3b4f9"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "saved_at": 1789198182.692201,
+  "records": [
+    {
+      "id": "c1dc3195-714e-4993-8814-5943e453658b",
+      "type": "semantic",
+      "content": "the user owns a blue bicycle in Berlin",
+      "summary": "the user owns a blue bicycle in Berlin",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789198182.6361098,
+      "updated_at": 1789198182.6361105,
+      "last_accessed_at": 1789198182.6361105,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "cycling-berlin",
+        "the user owns a blue bicycle in Berlin"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "f6a402b50068165d242e1940d3ba63328b237308d0505925f178120660b886d8"
+    },
+    {
+      "id": "1a97a3ce-2edf-4e01-882b-0833642a0934",
+      "type": "semantic",
+      "content": "quantum entanglement enables instant spice trading on Mars",
+      "summary": "quantum entanglement enables instant spice trading",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789198182.6592228,
+      "updated_at": 1789198182.6592233,
+      "last_accessed_at": 1789198182.6592233,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "quantum entanglement enables instant spice trading on Mars",
+        "quantum-mars"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {
+        "conflict_resolution": "mark_conflict",
+        "conflicts_with": [
+          "c1dc3195-714e-4993-8814-5943e453658b"
+        ]
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "655b29b649ef2d4ceb5d4a1919a51f07788e47e6df13977860d377996031856e"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "test": {
+    "total_calls": 19,
+    "success_count": 19,
+    "failure_count": 0,
+    "total_latency_ms": 171.0,
+    "avg_latency_ms": 9.0,
+    "last_success": 1789831065.1556299,
+    "last_failure": 0.0,
+    "last_used": 1789831065.1556306,
+    "recent_errors": [],
+    "history": [
+      {
+        "type": "success",
+        "latency_ms": 0.0,
+        "timestamp": 1789831065.079298
+      },
+      {
+        "type": "success",
+        "latency_ms": 1.0,
+        "timestamp": 1789831065.0827787
+      },
+      {
+        "type": "success",
+        "latency_ms": 2.0,
+        "timestamp": 1789831065.0871117
+      },
+      {
+        "type": "success",
+        "latency_ms": 3.0,
+        "timestamp": 1789831065.091874
+      },
+      {
+        "type": "success",
+        "latency_ms": 4.0,
+        "timestamp": 1789831065.0963635
+      },
+      {
+        "type": "success",
+        "latency_ms": 5.0,
+        "timestamp": 1789831065.1012332
+      },
+      {
+        "type": "success",
+        "latency_ms": 6.0,
+        "timestamp": 1789831065.1063225
+      },
+      {
+        "type": "success",
+        "latency_ms": 7.0,
+        "timestamp": 1789831065.1119523
+      },
+      {
+        "type": "success",
+        "latency_ms": 8.0,
+        "timestamp": 1789831065.115064
+      },
+      {
+        "type": "success",
+        "latency_ms": 9.0,
+        "timestamp": 1789831065.1191213
+      },
+      {
+        "type": "success",
+        "latency_ms": 10.0,
+        "timestamp": 1789831065.1226413
+      },
+      {
+        "type": "success",
+        "latency_ms": 11.0,
+        "timestamp": 1789831065.127302
+      },
+      {
+        "type": "success",
+        "latency_ms": 12.0,
+        "timestamp": 1789831065.131951
+      },
+      {
+        "type": "success",
+        "latency_ms": 13.0,
+        "timestamp": 1789831065.1395237
+      },
+      {
+        "type": "success",
+        "latency_ms": 14.0,
+        "timestamp": 1789831065.1429956
+      },
+      {
+        "type": "success",
+        "latency_ms": 15.0,
+        "timestamp": 1789831065.1473303
+      },
+      {
+        "type": "success",
+        "latency_ms": 16.0,
+        "timestamp": 1789831065.1502624
+      },
+      {
+        "type": "success",
+        "latency_ms": 17.0,
+        "timestamp": 1789831065.1533248
+      },
+      {
+        "type": "success",
+        "latency_ms": 18.0,
+        "timestamp": 1789831065.1556315
+      }
+    ]
+  }
+}

@@ -1,9 +1,14 @@
+import os
+
 from desktop_agent.brain.knowledge.intelligence.knowledge_request import KnowledgeRequest
 from desktop_agent.brain.knowledge.providers.tavily_provider import TavilyProvider
 
-# IMPORTANT:
-# Replace with your configuration system later.
-API_KEY = "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"
+# Credential sourced from the environment only — never hardcoded/committed.
+# Skip the live call when the key is not present.
+API_KEY = os.environ.get("TAVILY_API_KEY", "")
+
+if not API_KEY:
+    raise SystemExit("TAVILY_API_KEY not set — refusing to run a live Tavily call.")
 
 tavily_provider = TavilyProvider(
     api_key=API_KEY,

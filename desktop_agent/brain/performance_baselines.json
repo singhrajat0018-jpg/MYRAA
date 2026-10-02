@@ -1,0 +1,24 @@
+{
+  "decorated_sync_function": {
+    "operation_name": "decorated_sync_function",
+    "baseline_mean": 10.590599999886763,
+    "baseline_std": 0.0,
+    "sample_count": 1,
+    "last_updated": 1789882061.1302366,
+    "measurement_unit": "ms",
+    "warning_threshold_pct": 20.0,
+    "critical_threshold_pct": 50.0,
+    "improvement_threshold_pct": 30.0
+  },
+  "decorated_async_function": {
+    "operation_name": "decorated_async_function",
+    "baseline_mean": 10.224999999991269,
+    "baseline_std": 0.0,
+    "sample_count": 1,
+    "last_updated": 1789882061.141935,
+    "measurement_unit": "ms",
+    "warning_threshold_pct": 20.0,
+    "critical_threshold_pct": 50.0,
+    "improvement_threshold_pct": 30.0
+  }
+}

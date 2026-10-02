@@ -64,7 +64,7 @@ export const BrowserAgent: React.FC<BrowserAgentProps> = ({
   const [activeTabId, setActiveTabId] = useState<string>("");
   const [inputValue, setInputValue] = useState<string>("");
 
-  // Playwright Local Server status states (retained for backward compatibility)
+  // Default-browser mode: no Playwright server. isLocalConnected stays false.
   const [isLocalConnected, setIsLocalConnected] = useState<boolean>(false);
   const [localLogs, setLocalLogs] = useState<LogItem[]>([]);
   const [showLocalConsole, setShowLocalConsole] = useState<boolean>(false);
@@ -221,32 +221,13 @@ export const BrowserAgent: React.FC<BrowserAgentProps> = ({
     }
   }, [activeTabId, activeTab?.url]);
 
-  // Read Playwright Local server status on a loop to support the local headed helper if active
+  // Default-browser architecture: no Playwright/local-agent server exists.
+  // MYRAA opens the user's Windows default browser. The local :3001 helper was
+  // a Playwright server that has been intentionally removed (hard architectural
+  // requirement) — so there is no external automation server to poll.
   useEffect(() => {
-    let isMounted = true;
-    const fetchStatus = async () => {
-      try {
-        const res = await fetch("http://localhost:3001/api/status", { mode: "cors" });
-        if (res.ok && isMounted) {
-          const data = await res.json();
-          setIsLocalConnected(true);
-          if (data.logs && Array.isArray(data.logs)) {
-            setLocalLogs(data.logs);
-          }
-        }
-      } catch (err) {
-        if (isMounted) {
-          setIsLocalConnected(false);
-        }
-      }
-    };
-
-    fetchStatus();
-    const interval = setInterval(fetchStatus, 3500);
-    return () => {
-      isMounted = false;
-      clearInterval(interval);
-    };
+    setIsLocalConnected(false);
+    setLocalLogs([]);
   }, []);
 
   // Set hook error context on iframe document
@@ -268,10 +249,17 @@ export const BrowserAgent: React.FC<BrowserAgentProps> = ({
   // Handle click interceptions from children iframe inside proxy
   useEffect(() => {
     const handleNavigationMessage = (event: MessageEvent) => {
-      if (event.data && event.data.type === "NAVIGATE" && event.data.url) {
-        console.log("[Myraa Browser] Same-origin child iframe navigated to:", event.data.url);
-        navigateToUrl(event.data.url);
-      }
+      // Dormant-view hardening: the proxied iframe is sandboxed (opaque
+      // origin), so its messages arrive with origin "null". Accept only
+      // same-origin or sandboxed-null senders, and only string targets.
+      // Executable schemes are rejected here; web content is untrusted data.
+      if (event.origin !== window.location.origin && event.origin !== "null") return;
+      const url = event.data?.url;
+      if (event.data?.type !== "NAVIGATE" || typeof url !== "string" || !url) return;
+      const lowered = url.trim().toLowerCase();
+      if (lowered.startsWith("javascript:") || lowered.startsWith("data:") || lowered.startsWith("vbscript:")) return;
+      console.log("[Myraa Browser] Same-origin child iframe navigated to:", url);
+      navigateToUrl(url);
     };
     window.addEventListener("message", handleNavigationMessage);
     return () => window.removeEventListener("message", handleNavigationMessage);
@@ -647,7 +635,7 @@ export const BrowserAgent: React.FC<BrowserAgentProps> = ({
 
   return (
     <div
-      id="myraa-playwright-automation-hud"
+      id="myraa-browser-hud"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-xl animate-fade-in text-left select-none"
     >
       <div className="relative w-full max-w-5xl h-[88vh] flex flex-col rounded-3xl border border-white/10 bg-slate-900/85 shadow-[0_0_90px_rgba(168,85,247,0.4)] overflow-hidden">
@@ -700,12 +688,12 @@ export const BrowserAgent: React.FC<BrowserAgentProps> = ({
             <button
               onClick={() => setShowDebugPanel(!showDebugPanel)}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[10px] font-mono tracking-wider font-extrabold cursor-pointer transition ${
-                showDebugPanel 
-                  ? "bg-amber-900/20 border-amber-500/30 text-amber-400 shadow-[0_0_12px_rgba(245,158,11,0.15)]" 
+                showDebugPanel
+                  ? "bg-cyan-900/20 border-cyan-500/30 text-cyan-400 shadow-[0_0_12px_rgba(0,255,255,0.15)]"
                   : "bg-white/5 border-white/5 text-slate-400 hover:text-white"
               }`}
             >
-              <Terminal size={12} className={showDebugPanel ? "text-amber-400 animate-pulse" : ""} />
+              <Terminal size={12} className={showDebugPanel ? "text-cyan-400 animate-pulse" : ""} />
               <span>DEBUG PANEL {showDebugPanel ? "ON" : "OFF"}</span>
             </button>
 
@@ -1034,6 +1022,8 @@ export const BrowserAgent: React.FC<BrowserAgentProps> = ({
                   onLoad={handleIframeLoadComplete}
                   className="w-full h-full border-0 absolute inset-0 bg-[#07070a]"
                   allow="autoplay; encrypted-media; fullscreen"
+                  sandbox="allow-scripts allow-forms allow-popups"
+                  referrerPolicy="no-referrer"
                 />
 
                 {/* Secure Loading indicators */}
@@ -1049,7 +1039,7 @@ export const BrowserAgent: React.FC<BrowserAgentProps> = ({
             )}
           </div>
 
-          {/* PLAYWRIGHT LOCAL SIDE BAR - COLLAPSABLE CONSOLE TRAY */}
+          {/* BROWSER STATUS SIDE BAR - COLLAPSABLE TRAY */}
           <AnimatePresence>
             {showLocalConsole && (
               <motion.div
@@ -1062,7 +1052,7 @@ export const BrowserAgent: React.FC<BrowserAgentProps> = ({
                 <div className="p-5 flex-1 flex flex-col overflow-hidden space-y-4">
                   <div className="flex items-center justify-between border-b border-white/5 pb-2.5">
                     <span className="font-mono text-xs uppercase tracking-wider text-purple-300 font-bold flex items-center gap-1.5">
-                      <Terminal size={14} /> Local Playwright Logs
+                      <Terminal size={14} /> Browser Status
                     </span>
                     <button
                       onClick={() => setShowLocalConsole(false)}
@@ -1073,44 +1063,21 @@ export const BrowserAgent: React.FC<BrowserAgentProps> = ({
                   </div>
 
                   {!isLocalConnected ? (
-                    
-                    // Offline terminal assistance
+
+                    // Default-browser notice — Playwright/local-agent removed by design.
                     <div className="flex-1 overflow-y-auto space-y-5 pr-1 select-text">
                       <div className="p-3.5 rounded-xl border border-indigo-500/10 bg-indigo-505/10 text-[11px] font-sans leading-normal text-indigo-300">
-                        <p className="font-bold uppercase tracking-wider text-xs mb-1">Local Browser Sync Mode</p>
-                        <span>If you prefer to command a real, headed Chrome browser on your desktop computer, easily launch Myraa's local client script!</span>
+                        <p className="font-bold uppercase tracking-wider text-xs mb-1">Default Windows Browser</p>
+                        <span>
+                          MYRAA opens pages in your normal Windows default browser (Chrome/Edge/Firefox).
+                          There is no embedded or private browser — MYRAA uses the user's own browser
+                          with your existing session and security.
+                        </span>
                       </div>
-
-                      <div className="space-y-4 font-mono text-[10px]">
-                        <div>
-                          <p className="text-slate-400 uppercase font-bold mb-1">1. Install libraries</p>
-                          <div className="p-2.5 bg-slate-950 border border-white/5 rounded-lg flex items-center justify-between text-slate-300">
-                            <code>npm install playwright express cors</code>
-                            <button onClick={() => copyToClipboard("npm install playwright express cors", "install1")} className="p-1 rounded hover:bg-white/5 text-slate-500 hover:text-white">
-                              {copiedSection === "install1" ? <Check size={11} className="text-emerald-400" /> : <Copy size={11} />}
-                            </button>
-                          </div>
-                        </div>
-
-                        <div>
-                          <p className="text-slate-400 uppercase font-bold mb-1">2. Run playwight installer</p>
-                          <div className="p-2.5 bg-slate-950 border border-white/5 rounded-lg flex items-center justify-between text-slate-300">
-                            <code>npx playwright install chromium</code>
-                            <button onClick={() => copyToClipboard("npx playwright install chromium", "install2")} className="p-1 rounded hover:bg-white/5 text-slate-500 hover:text-white">
-                              {copiedSection === "install2" ? <Check size={11} className="text-emerald-400" /> : <Copy size={11} />}
-                            </button>
-                          </div>
-                        </div>
-
-                        <div>
-                          <p className="text-slate-400 uppercase font-bold mb-1">3. Launch local connection</p>
-                          <div className="p-2.5 bg-slate-950 border border-white/5 rounded-lg flex items-center justify-between text-slate-300">
-                            <code>node local-agent.js</code>
-                            <button onClick={() => copyToClipboard("node local-agent.js", "install3")} className="p-1 rounded hover:bg-white/5 text-slate-500 hover:text-white">
-                              {copiedSection === "install3" ? <Check size={11} className="text-emerald-400" /> : <Copy size={11} />}
-                            </button>
-                          </div>
-                        </div>
+                      <div className="space-y-2 font-mono text-[10px] text-slate-500">
+                        <p>• No separate browser install required</p>
+                        <p>• No Playwright / Puppeteer / Selenium</p>
+                        <p>• Uses the OS default-browser mechanism</p>
                       </div>
                     </div>
                   ) : (

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "saved_at": 1789796360.8995638,
+  "episodic": {
+    "next_id": 1,
+    "events": []
+  },
+  "semantic": {
+    "facts": {
+      "user_name": {
+        "key": "user_name",
+        "value": "Rahul",
+        "confidence": 1.0,
+        "source": "brain",
+        "created_at": 1789796360.8995607,
+        "updated_at": 1789796360.8995607,
+        "metadata": {}
+      }
+    }
+  }
+}

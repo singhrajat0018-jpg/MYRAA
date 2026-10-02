@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "saved_at": 1788700624.2276063,
+  "episodic": {
+    "next_id": 1,
+    "events": []
+  },
+  "semantic": {
+    "facts": {
+      "key": {
+        "key": "key",
+        "value": {
+          "nested": [
+            1,
+            2,
+            3
+          ]
+        },
+        "confidence": 1.0,
+        "source": "brain",
+        "created_at": 1788700624.2225094,
+        "updated_at": 1788700624.2225094,
+        "metadata": {}
+      },
+      "empty_value": {
+        "key": "empty_value",
+        "value": null,
+        "confidence": 1.0,
+        "source": "brain",
+        "created_at": 1788700624.2276032,
+        "updated_at": 1788700624.2276034,
+        "metadata": {}
+      }
+    }
+  }
+}

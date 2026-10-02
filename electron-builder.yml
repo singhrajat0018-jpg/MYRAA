@@ -16,6 +16,7 @@ files:
   - dist/**/*
   - assets/**/*
   - package.json
+  - node_modules/**/*
 
 # The PyInstaller-frozen desktop agent (embeds its own Python runtime) is copied
 # verbatim into resources/agent, so the target machine needs no Python.
@@ -24,6 +25,9 @@ extraResources:
     to: agent
     filter: ["**/*"]
 
+# Install production deps before packaging
+npmRebuild: false
+
 win:
   target:
     - target: nsis
@@ -31,6 +35,7 @@ win:
     - target: portable
       arch: [x64]
   artifactName: ${productName}-${version}-${arch}.${ext}
+  icon: build/icon.ico
 
 nsis:
   oneClick: false
@@ -40,6 +45,7 @@ nsis:
   createStartMenuShortcut: true
   shortcutName: MYRAA
   artifactName: ${productName}-Setup-${version}.${ext}
+  uninstallerIcon: build/icon.ico
 
 portable:
   artifactName: ${productName}-Portable-${version}.${ext}

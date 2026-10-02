@@ -1,8 +1,8 @@
 # MYRAA Desktop Control Agent
 
 A local Python FastAPI service that gives MYRAA **JARVIS-style desktop control** —
-open apps, manage files, control volume, take screenshots, OCR the screen, automate a
-real Chromium browser, run code, read system stats, and more.
+open apps, manage files, control volume, take screenshots, OCR the screen, open
+the user's Windows default browser, run code, read system stats, and more.
 
 > **This agent does NOT modify MYRAA's UI, personality, or chat system.** It is a pure
 > backend tool layer that MYRAA's existing Node bridge (`server.ts`) calls over HTTP.
@@ -15,7 +15,7 @@ real Chromium browser, run code, read system stats, and more.
 |---|---|---|
 | **Python 3.11+** | Runtime | Use the full interpreter path, e.g. `C:\Users\MSI\AppData\Local\Programs\Python\Python311\python.exe` |
 | **pip** | Install Python packages | Ships with Python |
-| **Chromium** (Playwright) | Browser automation | Installed via `playwright install chromium` |
+| **Windows default browser** | Website opening | Already installed — MYRAA never bundles or downloads a browser |
 | **Tesseract OCR** *(optional)* | Screen text reading | Download from [UB-Mannheim/tesseract](https://github.com/UB-Mannheim/tesseract/wiki). Non-OCR tools work without it. |
 
 ---
@@ -29,13 +29,14 @@ cd C:\Users\MSI\Desktop\myraa-ai-assistant
 # 2. Install Python dependencies (use the full interpreter path if `python` shim is broken)
 "C:\Users\MSI\AppData\Local\Programs\Python\Python311\python.exe" -m pip install -r desktop_agent/requirements.txt
 
-# 3. Install the Playwright Chromium browser (one-time, ~130MB download)
-"C:\Users\MSI\AppData\Local\Programs\Python\Python311\python.exe" -m playwright install chromium
-
-# 4. (Optional) Install Tesseract OCR for screen-reading capabilities
+# 3. (Optional) Install Tesseract OCR for screen-reading capabilities
 #    Download installer from: https://github.com/UB-Mannheim/tesseract/wiki
 #    Install to default path: C:\Program Files\Tesseract-OCR\
 ```
+
+> **Browser note:** there is NO step to install a browser. MYRAA opens the
+> user's existing Windows default browser via the OS shell handler. There is no
+> Playwright/Puppeteer/Selenium, no bundled Chromium, and no browser server.
 
 ---
 
@@ -139,18 +140,23 @@ On error:
 | `analyzeScreenshot` | Screenshot + OCR to extract visible text |
 | `readScreen` | Read the active window's title + visible text via OCR |
 
-### 🌐 Browser Automation (Playwright)
+### 🌐 Browser (Windows default browser only)
+MYRAA does NOT own a browser. There is no Playwright/Puppeteer/Selenium and no
+bundled/embedded browser. URLs open in the user's OS default browser; in-page
+interaction is vision-based (screenshot + OCR + mouse/keyboard through
+UniversalController, permission-gated and verified).
+
 | Tool | Description |
 |---|---|
-| `browserOpen` / `browserNavigate` | Open a URL in the automation browser |
-| `browserOpenTab` | Open a new tab |
-| `browserCloseTab` | Close a tab |
-| `browserSearch` | Search in the automation browser |
-| `browserClick` | Click an element by selector or text |
-| `browserType` | Type text into the active element |
-| `browserFillForm` | Fill multiple form fields and optionally submit |
-| `browserGoBack` / `browserGoForward` | Navigate history |
-| `browserScroll` | Scroll the page up or down |
+| `openWebsite` / `desktopBrowserOpen` / `desktopBrowserNavigate` | Open a URL or named site in the Windows default browser (http/https only) |
+| `desktopBrowserOpenTab` | Open a URL as a new tab/window group |
+| `desktopBrowserSearch` | Search via the default browser |
+| `desktopBrowserCloseTab` | Close the focused browser tab (focus-verified Ctrl+W; refuses if a browser window is not focused) |
+| `desktopBrowserClick` | Vision-based click on a visible target (UniversalController) |
+| `desktopBrowserType` | Vision-based typing into a visible input field |
+| `desktopBrowserScroll` | Wheel scroll at the cursor position |
+| `desktopBrowserFillForm` | Not supported (use `desktopBrowserType` per field) |
+| `desktopBrowserGoBack` / `desktopBrowserGoForward` | Not supported (unsafe without verified browser focus) |
 
 ### 💻 Coding Assistance
 | Tool | Description |
@@ -191,7 +197,7 @@ HTTP POST → localhost:8765/execute
         ↓
 Python FastAPI desktop_agent
         ↓
-pyautogui / pywin32 / psutil / Playwright / pytesseract / etc.
+pyautogui / pywin32 / psutil / pytesseract / webbrowser (OS default browser) / etc.
         ↓
 Windows Desktop
 ```

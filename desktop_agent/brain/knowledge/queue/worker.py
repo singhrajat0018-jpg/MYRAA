@@ -23,11 +23,16 @@ class KnowledgeWorker(threading.Thread):
 
     def run(self):
 
-        print("[Knowledge Worker] Started")
+        import logging
+        log = logging.getLogger(__name__)
+        log.info("[Knowledge Worker] Started")
 
         while self.running:
 
-            event_type, path = self.queue.get()
+            try:
+                event_type, path = self.queue.get(timeout=1.0)
+            except Exception:
+                continue
 
             try:
 
@@ -46,7 +51,7 @@ class KnowledgeWorker(threading.Thread):
 
             except Exception as e:
 
-                print(f"[Knowledge Worker] {e}")
+                log.warning("[Knowledge Worker] %s", e)
 
             finally:
 
@@ -57,3 +62,7 @@ class KnowledgeWorker(threading.Thread):
     def stop(self):
 
         self.running = False
+        try:
+            self.queue.put_nowait(None)
+        except Exception:
+            pass

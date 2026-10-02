@@ -47,6 +47,29 @@ from .progress_tracker import ProgressTracker
 logger = logging.getLogger(__name__)
 
 
+def _is_explicitly_non_retryable(response) -> bool:
+    """True when the dispatch response carries an explicit non-retryable error.
+
+    Uses the canonical MYRAAError already attached to the response meta (F6)
+    and defers to the ONE authoritative recovery engine (F7) so a failure
+    classified as non-retryable is never auto-retried by any lower layer.
+    """
+    try:
+        meta = getattr(response, "meta", None) or {}
+        err = (meta or {}).get("error")
+        if isinstance(err, dict):
+            retry = err.get("retry")
+            if isinstance(retry, dict):
+                # Recovery decision attached by the dispatcher: STOP = no retry.
+                return retry.get("action") == "stop"
+            # Fall back to the canonical retryable flag if present.
+            if "retryable" in err:
+                return err["retryable"] is False
+        return False
+    except Exception:
+        return False
+
+
 # ==========================================================
 # Core Data Structures
 # ==========================================================
@@ -208,6 +231,17 @@ class RetryEngine:
             if response.ok:
                 return response
 
+            # Invariant: retryable == false → ZERO automatic retries.
+            # Consult the ONE authoritative recovery engine (F7) — never retry a
+            # step the canonical classification marks non-retryable, regardless
+            # of the retry budget.
+            if _is_explicitly_non_retryable(response):
+                logger.warning(
+                    "Step %s classified non-retryable — not auto-retrying (attempt %s).",
+                    step.id, attempt,
+                )
+                break
+
             if attempt == self._policy.max_retries:
                 logger.error("Step %s failed permanently after %s attempts.", step.id, attempt)
                 break
@@ -307,8 +341,12 @@ class ExecutionScheduler:
 
     def _enqueue_step(self, step: PlanStep) -> None:
         """Add a step to the priority queue."""
-        # Default priority to 100 if not specified
-        priority = getattr(step, "priority", 100)
+        # Use the step's priority calculation method if available, otherwise default
+        if hasattr(step, '_get_priority_for_action'):
+            priority = step._get_priority_for_action()
+        else:
+            # Default priority to 100 if not specified
+            priority = getattr(step, "priority", 100)
         self._queue.put(ScheduledTask(priority=priority, step=step))
 
     def get_next_step(self, timeout: Optional[float] = None) -> Optional[PlanStep]:
@@ -409,11 +447,11 @@ class ExecutionWorker:
             self._process_step(step)
 
     def _process_step(self, step: PlanStep) -> None:
-        print("\n========== WORKER START ==========")
-        print("Step:", step)
-        print("Action:", step.action)
-        print("Parameters:", step.parameters)
-        print("==================================")
+        logger.debug("========== WORKER START ==========")
+        logger.debug("Step: %s", step)
+        logger.debug("Action: %s", step.action)
+        logger.debug("Parameters: %s", step.parameters)
+        logger.debug("==================================")
         from desktop_agent.main import ExecuteRequest, ExecuteResponse
         """Execute the full lifecycle of a single step."""
         self._event_bus.emit("before_step", step=step)
@@ -450,12 +488,33 @@ class ExecutionWorker:
         try:
             # Define the raw dispatch logic
             def dispatch(s: PlanStep) -> ExecuteResponse:
-                print(">>>> INSIDE dispatch")
-                print("\n========== DISPATCH ==========")
-                print("Action:", s.action)
-                print("Parameters:", s.parameters)
-                print("==============================")
+                logger.debug("INSIDE dispatch")
+                logger.debug("========== DISPATCH ==========")
+                logger.debug("Action: %s", s.action)
+                logger.debug("Parameters: %s", s.parameters)
+                logger.debug("== =============================== ==")
                 self._metrics.increment("dispatcher_calls")
+
+                # -------------------------------------------------
+                # PRE-DISPATCH GUARD: skip empty-tool steps
+                # If TaskRouter declared tools_required=False, the
+                # plan step may carry an empty tool_name.  Never
+                # execute an empty tool — return a direct-response
+                # result instead.
+                # -------------------------------------------------
+                tool_name = s.parameters.get("tool_name", "") if s.parameters else ""
+                if not tool_name:
+                    return ExecuteResponse(
+                        ok=True,
+                        tool="",
+                        result={
+                            "success": True,
+                            "message": "",
+                            "decision": "FAST_ANSWER",
+                            "metadata": {"route": "PRE_DISPATCH_GUARD"},
+                        },
+                        meta={"pre_dispatch_guard": True},
+                    )
 
                 # -------------------------------------------------
                 # Generic desktop tool execution
@@ -463,25 +522,25 @@ class ExecutionWorker:
 
                 if s.action == ActionType.CUSTOM:
 
-                    print("\n========== ORCHESTRATOR ==========")
-                    print(s.parameters)
-                    print("=================================\n")
+                    logger.debug("========== ORCHESTRATOR ==========")
+                    logger.debug("%s", s.parameters)
+                    logger.debug("==================================")
 
                     req = ExecuteRequest(
                         tool=s.parameters["tool_name"],
                         args=s.parameters.get("parameters", {}),
                     )
-                    print("Calling dispatcher...")
+                    logger.debug("Calling dispatcher...")
 
                     response = self._dispatcher.dispatch(req)
 
-                    print("\n========== DISPATCH RESPONSE ==========")
-                    print("OK      :", response.ok)
-                    print("TOOL    :", response.tool)
-                    print("ERROR   :", response.error)
-                    print("META    :", response.meta)
-                    print("RESULT  :", response.result)
-                    print("=======================================\n")
+                    logger.debug("========== DISPATCH RESPONSE ==========")
+                    logger.debug("OK: %s", response.ok)
+                    logger.debug("TOOL: %s", response.tool)
+                    logger.debug("ERROR: %s", response.error)
+                    logger.debug("META: %s", response.meta)
+                    logger.debug("RESULT: %s", response.result)
+                    logger.debug("=======================================")
 
                     return response
 
@@ -508,11 +567,11 @@ class ExecutionWorker:
 
             # Wrap with timeout, then wrap with retry
             def execute_dispatch(s: PlanStep) -> ExecuteResponse:
-                print(">>>> INSIDE execute_dispatch")
+                logger.debug("INSIDE execute_dispatch")
                 return self._timeout_engine.execute_with_timeout(
                     s, dispatch, self._event_bus, self._metrics
                 )
-            print(">>>> BEFORE RETRY ENGINE")
+            logger.debug("BEFORE RETRY ENGINE")
 
             response = self._retry_engine.execute_with_retry(
                 step,
@@ -553,7 +612,11 @@ class ExecutionWorker:
                 step.complete()
                 report.summary = "Execution completed."
 
-                
+                # Preserve the real tool output so the final ExecutionResult can
+                # report exactly what happened (not just that the step completed).
+                step.metadata["tool_result"] = response.result
+
+
                 self._metrics.increment("completed_steps")
                 self._rollback_engine.push(step)
                 self._event_bus.emit("after_step", step=step, response=response)
@@ -639,8 +702,7 @@ class ExecutionWorker:
                 
 
         except Exception:
-            import traceback
-            traceback.print_exc()
+            logger.exception("Step execution failed")
             raise
         finally:
 
@@ -765,36 +827,36 @@ class Orchestrator:
             thread_name_prefix="MYRAA-Worker"
         )
 
-        workers = [
-                ExecutionWorker(
-                    scheduler=scheduler,
-                    dispatcher=self._dispatcher,
-                    retry_engine=retry_engine,
-                    timeout_engine=timeout_engine,
-                    rollback_engine=rollback_engine,
-                    event_bus=self._event_bus,
-                    metrics=self._metrics,
-                    progress_tracker=self._progress_tracker,
-                    pause_event=self._pause_event,
-                    cancel_event=self._cancel_event,
-                    execution_coordinator=self.execution_coordinator,
-                    bridge=self.bridge,
-                )
-            for _ in range(self._max_workers)
-        ]
+        try:
+            workers = [
+                    ExecutionWorker(
+                        scheduler=scheduler,
+                        dispatcher=self._dispatcher,
+                        retry_engine=retry_engine,
+                        timeout_engine=timeout_engine,
+                        rollback_engine=rollback_engine,
+                        event_bus=self._event_bus,
+                        metrics=self._metrics,
+                        progress_tracker=self._progress_tracker,
+                        pause_event=self._pause_event,
+                        cancel_event=self._cancel_event,
+                        execution_coordinator=self.execution_coordinator,
+                        bridge=self.bridge,
+                    )
+                for _ in range(self._max_workers)
+            ]
 
-        for worker in workers:
-            future = worker_executor.submit(worker.run)
+            for worker in workers:
+                future = worker_executor.submit(worker.run)
 
-            try:
-                future.result()
-            except Exception:
-                import traceback
-                traceback.print_exc()
-
-        # Wait for workers to complete
-        worker_executor.shutdown(wait=True)
-        dispatch_executor.shutdown(wait=True)
+                try:
+                    future.result()
+                except Exception:
+                    logger.exception("Worker execution failed")
+        finally:
+            # Wait for workers to complete
+            worker_executor.shutdown(wait=True)
+            dispatch_executor.shutdown(wait=True)
 
         # Determine final result
         success = not self._cancel_event.is_set() and self._progress_tracker.failed_steps(self._context.plan) == 0
@@ -810,25 +872,20 @@ class Orchestrator:
 
         self._event_bus.emit("after_plan", plan=self._context.plan, success=success)
 
-        error_msg = None
-
         if not success:
-            error_msg = "Execution failed or was cancelled."
 
-            print("\n========== EXECUTION FAILED ==========")
+            logger.warning("========== EXECUTION FAILED ==========")
 
-            print("Failed steps:",
+            logger.warning("Failed steps: %s",
                 self._progress_tracker.failed_steps(
                     self._context.plan
                 ))
 
             for step in self._context.plan.steps:
-                print(
-                    "STEP:",
+                logger.warning(
+                    "STEP: %s STATUS: %s ERROR: %s",
                     step.name,
-                    "STATUS:",
                     step.status,
-                    "ERROR:",
                     step.error
                 )    
 
@@ -839,16 +896,50 @@ class Orchestrator:
             if step.status == StepStatus.COMPLETED
         ]
 
+        failed_steps = [
+            step
+            for step in self._context.plan.steps
+            if step.status == StepStatus.FAILED
+        ]
+
         last_action = ""
         last_tool = ""
         last_message = ""
+        result = None
 
         if completed_steps:
             last_step = completed_steps[-1]
 
             last_action = last_step.action
             last_tool = ACTION_TO_TOOL.get(last_step.action, "")
-            last_message = "Execution completed successfully"                
+            last_message = "Execution completed successfully"
+
+            step_result = last_step.metadata.get("tool_result")
+            if step_result is not None:
+                # Preserve the real tool-handler output (text or structured data).
+                result = step_result
+                if isinstance(step_result, dict):
+                    # Prefer the conventional text keys; fall back to a readable
+                    # repr of structured data (e.g. {"x": 512, "y": 384}).
+                    last_message = str(
+                        step_result.get("result")
+                        or step_result.get("message")
+                        or step_result
+                    )
+                else:
+                    last_message = str(step_result)
+
+        # Preserve the real error source (dispatcher ToolError / validation /
+        # Windows failure) instead of a generic "Execution failed or was cancelled."
+        errors: list[str] = []
+        if not success:
+            for step in failed_steps:
+                errors.append(
+                    step.error
+                    or "Execution failed or was cancelled."
+                )
+            if not errors:
+                errors = ["Execution failed or was cancelled."]
 
         return ExecutionResult(
             success=success,
@@ -858,12 +949,13 @@ class Orchestrator:
             ),
             total_steps=len(self._context.plan.steps),
             elapsed_time=0.0,
-            errors=[error_msg] if error_msg else [],
+            errors=errors,
+            result=result,
 
             last_action=last_action,
             last_tool=last_tool,
             last_message=last_message,
-        )           
+        )
 
     def pause(self) -> None:
         """Pause the orchestrator. Running steps will complete, but no new steps will start."""

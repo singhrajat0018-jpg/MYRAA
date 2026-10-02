@@ -15,10 +15,15 @@ from .action_types import ActionType
 
 class StepStatus(str,Enum):
     PENDING = "pending"
+    READY = "ready"
     RUNNING = "running"
+    BLOCKED = "blocked"
+    WAITING = "waiting"
     COMPLETED = "completed"
     FAILED = "failed"
     SKIPPED = "skipped"
+    CANCELLED = "cancelled"
+    UNVERIFIED = "unverified"
 
 
 @dataclass(slots=True)
@@ -91,7 +96,72 @@ class PlanStep:
     # Scheduling
     # =====================================================
 
-    priority: int = 100
+    # Priority levels: lower numbers = higher priority
+    PRIORITY_HIGH = -10
+    PRIORITY_NORMAL = 0
+    PRIORITY_LOW = 10
+
+    priority: int = PRIORITY_NORMAL
+
+    def _get_priority_for_action(self) -> int:
+        """Get appropriate priority level for this action type."""
+        # High priority actions (safety, user interaction, critical system)
+        high_priority_actions = {
+            ActionType.CLICK,
+            ActionType.DOUBLE_CLICK,
+            ActionType.RIGHT_CLICK,
+            ActionType.TYPE_TEXT,
+            ActionType.PRESS_KEY,
+            ActionType.HOTKEY,
+            ActionType.OPEN_APPLICATION,
+            ActionType.CLOSE_APPLICATION,
+            ActionType.ACTIVATE_WINDOW,
+            ActionType.MINIMIZE_WINDOW,
+            ActionType.MAXIMIZE_WINDOW,
+            ActionType.RESTORE_WINDOW,
+            ActionType.SWITCH_WINDOW,
+            ActionType.OPEN_URL,
+            ActionType.NEW_TAB,
+            ActionType.CLOSE_TAB,
+            ActionType.SWITCH_TAB,
+            ActionType.REFRESH_PAGE,
+            ActionType.OPEN_FILE,
+            ActionType.READ_FILE,
+            ActionType.WRITE_FILE,
+            ActionType.DELETE_FILE,
+            ActionType.MOVE_FILE,
+            ActionType.COPY_FILE,
+            ActionType.RENAME_FILE,
+        }
+
+        # Low priority actions (background, maintenance, non-urgent)
+        low_priority_actions = {
+            ActionType.LIST_FILES,
+            ActionType.FILE_EXISTS,
+            ActionType.COPY,
+            ActionType.CUT,
+            ActionType.PASTE,
+            ActionType.UNDO,
+            ActionType.REDO,
+            ActionType.SELECT_ALL,
+            ActionType.DELETE,
+            ActionType.WAIT,
+            ActionType.WAIT_FOR_ELEMENT,
+            ActionType.WAIT_FOR_WINDOW,
+            ActionType.WAIT_FOR_SCREEN_CHANGE,
+            ActionType.FIND_ELEMENT,
+            ActionType.VERIFY_ELEMENT,
+            ActionType.VERIFY_SCREEN,
+            ActionType.CAPTURE_SCREEN,
+            ActionType.OCR_SCREEN,
+        }
+
+        if self.action in high_priority_actions:
+            return self.PRIORITY_HIGH
+        elif self.action in low_priority_actions:
+            return self.PRIORITY_LOW
+        else:
+            return self.PRIORITY_NORMAL
 
 
     # =====================================================

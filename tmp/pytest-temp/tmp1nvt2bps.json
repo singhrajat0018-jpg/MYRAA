@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1789196390.0405824,
+  "records": [
+    {
+      "id": "f6387f8f-31f4-40e5-929e-6cae6e126e41",
+      "type": "preference",
+      "content": "I now prefer Hinglish language",
+      "summary": "",
+      "source": "user_explicit",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789196389.989572,
+      "updated_at": 1789196389.9895723,
+      "last_accessed_at": 1789196389.9895725,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.95,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "8834e6b7239eac84babbcced465c43824b580687b256f0c8175f1d6bd61a2c3f"
+    }
+  ]
+}

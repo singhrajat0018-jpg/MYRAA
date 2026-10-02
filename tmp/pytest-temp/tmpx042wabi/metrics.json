@@ -1,0 +1,22 @@
+{
+  "coding": {
+    "total_calls": 1,
+    "success_count": 0,
+    "failure_count": 1,
+    "total_latency_ms": 0.0,
+    "avg_latency_ms": 0.0,
+    "last_success": 0.0,
+    "last_failure": 1788699664.2182832,
+    "last_used": 1788699664.218284,
+    "recent_errors": [
+      "timeout"
+    ],
+    "history": [
+      {
+        "type": "failure",
+        "error": "timeout",
+        "timestamp": 1788699664.218286
+      }
+    ]
+  }
+}

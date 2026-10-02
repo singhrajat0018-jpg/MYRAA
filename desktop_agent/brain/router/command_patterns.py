@@ -61,3 +61,19 @@ BROWSER_SCROLL_UP_PATTERN = re.compile(
     r"^(scroll up)$",
     re.IGNORECASE,
 )
+
+# Generic website-open pattern: "open|launch|visit|go to|navigate to <site>".
+# The pattern is deliberately NAME-AGNOSTIC: the captured value is resolved by
+# IntentRouter through the ONE website table (tools_websites.SITE_URLS), so
+# adding an alias there never requires a new regex here.
+OPEN_WEBSITE_PATTERN = re.compile(
+    r"^(?:open|launch|visit|go\s+to|navigate\s+to)\s+(?:the\s+)?(?:website\s+|site\s+)?(.+?)$",
+    re.IGNORECASE,
+)
+
+# "open youtube in my browser" / "open google in the browser" — the trailing
+# browser clause is not part of the site name.
+BROWSER_CLAUSE_PATTERN = re.compile(
+    r"\s+in\s+(?:my|the|a|your)\s+(?:default\s+)?browser$",
+    re.IGNORECASE,
+)

@@ -1,0 +1,131 @@
+{
+  "version": 2,
+  "saved_at": 1789830880.6436365,
+  "records": [
+    {
+      "id": "ec3badb0-3cb4-4dda-bd61-1de807cdffb7",
+      "type": "semantic",
+      "content": "the user owns a blue bicycle in Berlin",
+      "summary": "the user owns a blue bicycle in Berlin",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789830869.9110203,
+      "updated_at": 1789830869.9110205,
+      "last_accessed_at": 1789830869.9110208,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "the user owns a blue bicycle in Berlin",
+        "cycling-berlin"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "f6a402b50068165d242e1940d3ba63328b237308d0505925f178120660b886d8"
+    },
+    {
+      "id": "41a34d64-c287-4b54-b591-a4510675894e",
+      "type": "semantic",
+      "content": "quantum entanglement enables instant spice trading on Mars",
+      "summary": "quantum entanglement enables instant spice trading",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789830869.9169228,
+      "updated_at": 1789830869.9169228,
+      "last_accessed_at": 1789830869.9169228,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "quantum-mars",
+        "quantum entanglement enables instant spice trading on Mars"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {
+        "conflict_resolution": "mark_conflict",
+        "conflicts_with": [
+          "ec3badb0-3cb4-4dda-bd61-1de807cdffb7"
+        ]
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "655b29b649ef2d4ceb5d4a1919a51f07788e47e6df13977860d377996031856e"
+    },
+    {
+      "id": "82248f4c-7f54-42a8-ace4-ba4d5a4f44c7",
+      "type": "semantic",
+      "content": "the user adopted a senior rescue dog named Biscuit",
+      "summary": "the user adopted a senior rescue dog named Biscuit",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789830880.642736,
+      "updated_at": 1789830880.6427362,
+      "last_accessed_at": 1789830880.6427364,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "the user adopted a senior rescue dog named Biscuit",
+        "dog-biscuit"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {
+        "conflict_resolution": "mark_conflict",
+        "conflicts_with": [
+          "ec3badb0-3cb4-4dda-bd61-1de807cdffb7",
+          "41a34d64-c287-4b54-b591-a4510675894e"
+        ]
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "6ad64838bd70dc093d1e7fc0ce0df567344cbb3ead618b6d6d474bd9286b48b4"
+    }
+  ]
+}

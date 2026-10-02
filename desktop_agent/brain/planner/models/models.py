@@ -7,6 +7,7 @@ Shared Planner Models
 from __future__ import annotations
 
 import time
+from typing import Optional
 
 from dataclasses import dataclass, field
 from enum import Enum
@@ -61,7 +62,7 @@ class PlannerContext:
     selected_text: str = ""
 
     clipboard: str = ""
-
+    task_deadline: Optional[float] = None  # Absolute deadline timestamp (time.time())
     metadata: dict[str, Any] = field(default_factory=dict)
 
 

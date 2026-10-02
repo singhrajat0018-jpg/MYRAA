@@ -14,6 +14,7 @@ No Planner logic.
 
 from __future__ import annotations
 
+import time
 from dataclasses import dataclass
 from typing import Optional
 from .models import ApplicationInfo
@@ -42,11 +43,21 @@ class ApplicationLocator:
     def __init__(self):
         self.process = ProcessManager()
         self.windows = WindowManager()
+        # Cache for application lookup results with TTL to avoid redundant work
+        self._locate_cache: dict[str, tuple[ApplicationInfo, float]] = {}
+        self._cache_ttl = 1.0  # 1 second TTL for cached results
 
     def locate(self, application: str) -> ApplicationInfo:
-
         app = application.lower().strip()
+        current_time = time.time()
 
+        # Check cache first
+        if app in self._locate_cache:
+            cached_result, timestamp = self._locate_cache[app]
+            if current_time - timestamp < self._cache_ttl:
+                return cached_result
+
+        # Cache miss or expired, perform fresh lookup
         # ------------------------
         # Window Lookup
         # ------------------------
@@ -70,7 +81,7 @@ class ApplicationLocator:
         # Build Result
         # ------------------------
 
-        return ApplicationInfo(
+        result = ApplicationInfo(
 
             name=application,
 
@@ -90,6 +101,18 @@ class ApplicationLocator:
 
             title=matched_window.title if matched_window else None,
         )
+
+        # Store in cache
+        self._locate_cache[app] = (result, current_time)
+
+        # Clean up old cache entries (simple cleanup: remove if older than 2*TTL)
+        # In a production system, we might want a more sophisticated approach
+        cutoff_time = current_time - (self._cache_ttl * 2)
+        expired_keys = [key for key, (_, timestamp) in self._locate_cache.items() if timestamp < cutoff_time]
+        for key in expired_keys:
+            del self._locate_cache[key]
+
+        return result
 
     def focus(self, application: str) -> bool:
 

@@ -1,0 +1,1 @@
+- [Fix AI Manager presentation creation routing](fix-ai-manager-presentation.md) — Fixed presentation creation detection in AI Manager 3.0 to correctly route to creation_document

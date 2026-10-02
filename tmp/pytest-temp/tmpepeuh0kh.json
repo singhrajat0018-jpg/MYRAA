@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1788694499.8396692,
+  "records": [
+    {
+      "id": "c9f01d7a-5be9-4d38-9a6f-2e38c60ff37a",
+      "type": "preference",
+      "content": "User preference: theme = dark",
+      "summary": "",
+      "source": "config",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788694499.7896566,
+      "updated_at": 1788694499.7896566,
+      "last_accessed_at": 1788694499.790093,
+      "event_time": null,
+      "importance": 0.75,
+      "confidence": 0.8500000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.9999999998312121,
+      "access_count": 1,
+      "version": 2,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": "099626d6-c1b9-4f82-b600-84d6cadcbc5d",
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "81633c02ea4ae105d1478790051974bff0e36949abd00790268a84bb0e15e98d"
+    }
+  ]
+}

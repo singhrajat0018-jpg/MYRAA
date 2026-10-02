@@ -1,52 +1,37 @@
+from dataclasses import dataclass
+from pathlib import Path
+
 from desktop_agent.brain.knowledge.database.knowledge_db import KnowledgeDB
 from desktop_agent.brain.knowledge.indexer.symbol_indexer import SymbolIndexer
 
 
-def main():
+@dataclass
+class Module:
+    workspace: str
+    name: str
+    root: str
 
-    db = KnowledgeDB()
+
+def test_symbol_indexer_persists_symbols_from_module(tmp_path: Path, monkeypatch):
+    module_root = tmp_path / "desktop_agent"
+    module_root.mkdir()
+    (module_root / "main.py").write_text(
+        "class Assistant:\n"
+        "    def speak(self):\n"
+        "        pass\n",
+        encoding="utf-8",
+    )
+    db_path = tmp_path / "knowledge.db"
 
     indexer = SymbolIndexer()
+    indexer.db.close()
+    indexer.db = KnowledgeDB(db_path)
 
-    modules = db.get_modules()
+    total = indexer.index(Module("MYRAA", "desktop_agent", str(module_root)))
+    rows = indexer.db.get_symbols()
 
-    print()
+    assert total == 2
+    assert [row["name"] for row in rows] == ["Assistant", "speak"]
+    assert [row["symbol_type"] for row in rows] == ["class", "method"]
 
-    print(f"Found {len(modules)} modules")
-
-    print()
-
-    total = 0
-
-    for module_data in modules:
-
-        class Module:
-            pass
-
-        module = Module()
-
-        module.workspace = module_data["workspace"]
-        module.name = module_data["name"]
-        module.root = module_data["root"]
-
-        print(f"Indexing {module.name}...")
-
-        count = indexer.index(module)
-
-        total += count
-
-    print()
-
-    print("=" * 50)
-    print(f"TOTAL SYMBOLS INDEXED : {total}")
-    print("=" * 50)
-
-    print()
-
-    rows = db.get_symbols()
-
-    print(f"Database contains {len(rows)} symbols")
-
-
-if __name__ == "__main__":
-    main()
+    indexer.db.close()

@@ -164,5 +164,5 @@ class CognitiveCycle:
             request.summary,
         )
 
-        # TODO:
+        # TODO: Re-enable when brain execution pipeline is fully integrated
         # self.brain.execution.execute(request)

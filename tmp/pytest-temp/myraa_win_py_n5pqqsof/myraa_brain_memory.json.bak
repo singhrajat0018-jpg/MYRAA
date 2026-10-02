@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "saved_at": 1789196021.4109948,
+  "records": [
+    {
+      "id": "376dd2e7-c2e3-49c1-8a4b-22d7936a1e91",
+      "type": "semantic",
+      "content": "the user owns a blue bicycle in Berlin",
+      "summary": "the user owns a blue bicycle in Berlin",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789196021.3986166,
+      "updated_at": 1789196021.3986182,
+      "last_accessed_at": 1789196021.398619,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "the user owns a blue bicycle in Berlin",
+        "cycling-berlin"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "f6a402b50068165d242e1940d3ba63328b237308d0505925f178120660b886d8"
+    }
+  ]
+}

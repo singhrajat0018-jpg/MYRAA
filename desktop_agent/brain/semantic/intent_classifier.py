@@ -16,7 +16,6 @@ It only predicts the user's intent.
 
 Future versions may use:
 
-- Gemini
 - Local LLM
 - Embedding Model
 - Fine-tuned classifier

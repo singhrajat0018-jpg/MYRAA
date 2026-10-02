@@ -182,7 +182,32 @@ def open_application(args: Dict[str, Any]) -> Dict[str, Any]:
     if not name:
         raise ToolError("Parameter 'name' (application name) is required.")
 
-    spec = _resolve_app(str(name))
+    try:
+
+        spec = _resolve_app(str(name))
+
+    except ToolError:
+
+        # "Open YouTube" names a WEBSITE, not an application. Resolve it through
+        # the ONE website resolver (tools_websites) and hand it to the Windows
+        # default browser instead of failing with "Unrecognized application".
+        from urllib.parse import urlparse
+
+        from .tools_websites import open_url, resolve_site
+
+        site_url = resolve_site(str(name))
+
+        if site_url is None:
+            raise
+
+        resolved = open_url(site_url, tool="openApplication")
+
+        return {
+            "result": f"Opened {resolved} in the default browser.",
+            "url": resolved,
+            "website": urlparse(resolved).netloc,
+            "application": "default_browser",
+        }
 
     # -------- Desktop V3 --------
 

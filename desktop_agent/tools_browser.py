@@ -1,399 +1,464 @@
-"""
-Browser automation via Playwright.
+﻿"""
+Browser-agnostic website control â€” opens URLs in the user's default browser.
 
-Runs a single persistent headed Chromium instance owned by this agent
-(independent of the in-app holographic BrowserAgent and the separate
-local-agent.js Playwright server on :3001).
+MYRAA does NOT own a browser. There is no Playwright/Puppeteer/Selenium, no
+embedded or bundled browser, no browser automation server. The user's real
+Chrome/Edge/Firefox (the Windows OS default browser) is opened via the OS
+default-browser handler, and the Windows window itself is observed and driven
+through MYRAA's existing vision + mouse/keyboard interaction layer.
 
-Capabilities: open/navigate, new/close tabs, search, click, type, fill forms,
-back/forward, scroll. Lazy-initialized; robust to closed pages.
+Open capability (single authority):
+    tools_websites.open_url  ->  webbrowser.open  ->  OS default browser
+
+In-page interaction (single authority):
+    UniversalController (universal_control/) â€” the ONE vision-based automation
+    engine, container-created, executing through the registry dispatcher so
+    every action passes PermissionManager and is vision-verified afterwards.
+
+NOT supported (kept explicitly unsupported, never faked):
+    DOM selectors, element-level automation, guaranteed tab semantics.
+    desktopBrowserCloseTab performs a verified Ctrl+W keystroke against the
+    focused browser window; GoBack/GoForward stay unimplemented because
+    sending Alt+Left/Right to an unverified focus target is unsafe.
 """
 
 from __future__ import annotations
 
-import asyncio
-import threading
-from typing import Any, Dict, Optional
-from urllib.parse import quote_plus
+import time
+from typing import Any, Dict
 
 from .registry import STATE, ToolError, register
-
-# A dedicated event loop + thread runs all Playwright coroutines, because
-# Playwright's sync API can deadlock under FastAPI's threadpool. We use the
-# async API marshalled through a single loop.
-_LOOP: Optional[asyncio.AbstractEventLoop] = None
-_LOOP_THREAD: Optional[threading.Thread] = None
-_LOOP_LOCK = threading.Lock()
+from .tools_websites import normalize_open_args, open_url, resolve_site, SITE_URLS
 
 
-def _get_loop() -> "asyncio.AbstractEventLoop":
-    global _LOOP, _LOOP_THREAD
-    with _LOOP_LOCK:
-        if _LOOP is None or _LOOP.is_closed():
-            _LOOP = asyncio.new_event_loop()
-            _LOOP_THREAD = threading.Thread(target=_run_loop, daemon=True)
-            _LOOP_THREAD.start()
-        return _LOOP
+def _uc():
+    """Return the shared UniversalController, or None when unavailable.
+
+    The controller is created once by ApplicationContainer (the composition
+    root) and shared via STATE. In tests/headless contexts there is no
+    container, so callers must degrade gracefully.
+    """
+    return getattr(STATE, "universal_controller", None)
 
 
-def _run_loop() -> None:
-    loop = _LOOP
-    assert loop is not None
-    asyncio.set_event_loop(loop)
+def _uc_unavailable(payload_prefix: str) -> Dict[str, Any]:
+    """Structured result when the vision-based engine is not available."""
+    return {
+        "ok": False,
+        "result": (
+            f"{payload_prefix} requires the vision-based Universal Controller, "
+            "which is not available right now (no continuous-vision session). "
+            "Start MYRAA's vision, or interact with the browser manually."
+        ),
+        "limitation": "universal_control_unavailable",
+        "suggestion": "Enable continuous vision and retry, or act manually.",
+    }
+
+
+def _succeeded(out: Any) -> bool:
+    """True only when a dispatched tool actually succeeded.
+
+    A failure envelope from _dispatch_tool carries ok:False plus a human
+    readable `result` (the error message), so a bare truthiness check on
+    `result` would read failures as successes. Rule:
+      - explicit ok:True                       -> success
+      - explicit ok:False                      -> FAILURE (never overridden)
+      - legacy raw dicts without an ok field   -> success if result non-empty
+    """
+    if not isinstance(out, dict) or not out:
+        return False
+    if "ok" in out:
+        return out["ok"] is True
+    return bool(out.get("result"))
+
+
+def _dispatch_tool(tool: str, args: Dict[str, Any]) -> Dict[str, Any]:
+    """Run an existing registered tool through the authoritative dispatcher.
+
+    Every browser interaction lands here, so validation, PermissionManager
+    policy, and F7 recovery still apply. Failures (tool missing in headless
+    contexts, permission denial, handler error) become a structured
+    ok:False result â€” never a leaked exception inside a browser tool, and
+    never a faked success.
+    """
+    from .registry import dispatch as registry_dispatch
     try:
-        loop.run_forever()
-    finally:
-        try:
-            loop.close()
-        except Exception:
-            pass
-
-
-def _run(coro):
-    """Submit a coroutine to the dedicated Playwright loop and block on it."""
-    loop = _get_loop()
-    future = asyncio.run_coroutine_threadsafe(coro, loop)
-    return future.result(timeout=60)
-
-
-# --- Async Playwright lifecycle ---------------------------------------------
-
-
-async def _ensure_browser_async() -> Any:
-    if STATE.page is not None:
-        try:
-            # Health check: a cheap op; if the page died, recreate.
-            _ = STATE.page.url
-            return STATE.page
-        except Exception:
-            STATE.reset_playwright()
-
-    if STATE.playwright is None:
-        from playwright.async_api import async_playwright
-
-        STATE.playwright = await async_playwright().start()
-
-    if STATE.browser is None:
-        STATE.browser = await STATE.playwright.chromium.launch(
-            headless=False,
-            args=["--start-maximized", "--no-sandbox"],
-        )
-        STATE.context = await STATE.browser.new_context(viewport=None)
-
-    if STATE.context is None:
-        STATE.context = await STATE.browser.new_context(viewport=None)
-
-    pages = STATE.context.pages
-    if pages:
-        STATE.page = pages[-1]
-    else:
-        STATE.page = await STATE.context.new_page()
-    return STATE.page
-
-
-async def _page() -> Any:
-    return await _ensure_browser_async()
-
-
-def _normalize_url(raw: str) -> str:
-    url = raw.strip()
-    if not url:
-        raise ToolError("Empty URL.")
-    if "://" not in url:
-        url = "https://" + url
-    return url
+        out = registry_dispatch(tool, args)
+        if isinstance(out, dict):
+            return out
+        return {"ok": True, "result": str(out)}
+    except ToolError as e:
+        return {"ok": False, "result": str(e), "limitation": "tool_unavailable"}
+    except Exception as e:  # permission denials, handler errors, F7 escalations
+        return {"ok": False, "result": f"{tool} failed: {e}", "limitation": "tool_error"}
 
 
 # --- Handlers ---------------------------------------------------------------
 
 
 @register("desktopBrowserOpen")
-async def browser_open(args: Dict[str, Any]) -> Dict[str, Any]:
-    url = _normalize_url(args.get("url") or "https://www.google.com")
-    page = await _page()
-    try:
-          await page.goto(
-          url,
-          wait_until="domcontentloaded",
-          timeout=20000,
-    )
+def browser_open(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Open a URL or named site in the default browser.
 
-          # Wait until the page finishes loading
-          await page.wait_for_load_state("networkidle")
+    Args:
+        args: Either {"url": "https://example.com"} or {"name": "youtube"}
 
-          # Give dynamic websites (YouTube, Google, etc.) a moment to render
-          await page.wait_for_timeout(2000)
-
-    except Exception as e:
-        raise ToolError(f"Could not open {url}: {e}")
-
-    return {
-    "result": f"Opened {url} in the automation browser.",
-    "url": page.url,
-}
-
-
-@register("desktopBrowserNavigate")
-async def browser_navigate(args: Dict[str, Any]) -> Dict[str, Any]:
-    # Alias of desktopBrowserOpen, retained for clarity.
-    return await browser_open(args)
-
-
-@register("desktopBrowserOpenTab")
-async def browser_open_tab(args: Dict[str, Any]) -> Dict[str, Any]:
-    url = _normalize_url(args.get("url") or "about:blank")
-    await _ensure_browser_async()
-    ctx = STATE.context
-    page = await ctx.new_page()
-    STATE.page = page  # make it active
-    if url != "about:blank":
-        try:
-            await page.goto(url, wait_until="domcontentloaded", timeout=20000)
-        except Exception as e:  # noqa: BLE001
-            raise ToolError(f"Opened tab but navigation failed: {e}")
-        from urllib.parse import urlparse
-
-        host = urlparse(url).netloc
-
-        return {
-            "result": f"New tab opened at {url}.",
-            "url": url,
-            "website": host,
-        }
-
-
-@register("desktopBrowserCloseTab")
-async def browser_close_tab(args: Dict[str, Any]) -> Dict[str, Any]:
-    page = await _page()
-    try:
-        await page.close()
-    except Exception:
-        pass
-    pages = STATE.context.pages if STATE.context else []
-    STATE.page = pages[-1] if pages else None
-    if STATE.page is None:
-        return {"result": "Closed the last tab; browser now empty."}
-    return {"result": f"Closed tab. Active tab now: {STATE.page.url}"}
-
-
-@register("desktopBrowserSearch")
-async def browser_search(args: Dict[str, Any]) -> Dict[str, Any]:
-    query = args.get("query") or args.get("q")
-    engine = (args.get("engine") or "google").strip().lower()
-    if not query:
-        raise ToolError("Parameter 'query' is required.")
-    q = quote_plus(str(query))
-    url = {
-        "google": f"https://www.google.com/search?q={q}",
-        "youtube": f"https://www.youtube.com/results?search_query={q}",
-        "github": f"https://github.com/search?q={q}",
-        "duckduckgo": f"https://duckduckgo.com/?q={q}",
-        "bing": f"https://www.bing.com/search?q={q}",
-    }.get(engine)
+    Returns:
+        Dict with result, url, website (domain), and application ("default_browser")
+    """
+    params = normalize_open_args(args)
+    name = params.get("name")
+    url = params.get("url")
+    if not url and name:
+        # ONE resolver for aliases and bare domains (tools_websites).
+        url = resolve_site(name)
+        if url is None:
+            raise ToolError(
+                f"Unknown website '{name}'. Open a URL instead (https://...), or "
+                f"name a known site: {', '.join(sorted(SITE_URLS))}."
+            )
     if not url:
-        raise ToolError(f"Unsupported engine '{engine}'.")
-    page = await _page()
-    try:
-        await page.goto(url, wait_until="domcontentloaded", timeout=20000)
-        await page.wait_for_load_state("networkidle")
-        await page.wait_for_timeout(2000)
-    except Exception as e:  # noqa: BLE001
-        raise ToolError(f"Search navigation failed: {e}")
-    from urllib.parse import urlparse
+        raise ToolError("Provide 'name' (e.g. 'youtube') or 'url'.")
 
-    host = urlparse(page.url).netloc
+    resolved = open_url(url, tool="desktopBrowserOpen")
+
+    # Update STATE for compatibility
+    STATE.last_browser_url = resolved
+
+    from urllib.parse import urlparse
+    host = urlparse(resolved).netloc
 
     return {
-        "result": f"Searched {engine} for '{query}'.",
-        "url": page.url,
+        "result": f"Opened {resolved} in the default browser.",
+        "url": resolved,
         "website": host,
+        "application": "default_browser",
+        "timestamp": time.time(),
     }
 
 
-@register("desktopBrowserClick")
-async def browser_click(args):
+@register("desktopBrowserNavigate")
+def browser_navigate(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Alias of desktopBrowserOpen, retained for clarity."""
+    return browser_open(args)
 
-    selector = args.get("selector")
-    text = args.get("text")
 
-    page = await _page()
+@register("desktopBrowserOpenTab")
+def browser_open_tab(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Open a new tab in the default browser.
 
+    Note: Since we're using the default browser, we can't control tab behavior
+    directly. This opens a new window/tab depending on browser settings.
+    """
+    # For default browser control, we treat this the same as open
+    result = browser_open(args)
+    result["result"] = result["result"].replace("Opened", "Opened new tab/window as")
+    return result
+
+
+def _browser_focus_status() -> Dict[str, Any]:
+    """Passive focus check: is the foreground window a browser?
+
+    Reuses tools_screenshot's foreground-window reader (win32gui). Title-based
+    matching is a heuristic against the common Windows browsers; it is only
+    used to gate destructive keystrokes (close-tab), never to fake state.
+    """
     try:
+        from .tools_screenshot import _active_window_title
+        title = _active_window_title() or ""
+    except Exception:
+        title = ""
+    lowered = title.lower()
+    markers = ("chrome", "edge", "firefox", "opera", "brave", "vivaldi")
+    is_browser = any(m in lowered for m in markers)
+    return {"is_browser": is_browser, "window_title": title, "permission": True}
 
-        if selector:
 
-            await page.locator(selector).first.wait_for(
-                state="visible",
-                timeout=15000,
-            )
+@register("desktopBrowserCloseTab")
+def browser_close_tab(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Close the focused browser tab via a verified Ctrl+W keystroke.
 
-            await page.locator(selector).first.click()
+    MYRAA does not own the browser, so tab closing is performed through the
+    keyboard against the focused browser window. The shortcut is only sent
+    after a foreground-window check confirms the focus really is a browser â€”
+    never a bare hotkey at unverified focus.
+    """
+    
+    focus = _browser_focus_status()
+    if not focus["is_browser"]:
+        return {
+            "ok": False,
+            "result": (
+                "Close-tab refused: the focused window is "
+                f"'{focus['window_title'] or 'unknown'}', which is not a "
+                "browser. Focusing the browser first makes this safe."
+            ),
+            "window_title": focus["window_title"],
+            "limitation": "browser_not_focused",
+            "suggestion": "Say 'focus the browser' (or focus it manually), then retry.",
+        }
 
-        elif text:
+    press = _dispatch_tool("pressKey", {"key": "ctrl+w"})
+    ok = _succeeded(press)
+    return {
+        "ok": ok,
+        "result": (
+            "Closed the focused browser tab (Ctrl+W)."
+            if ok
+            else "Could not send the close-tab keystroke."
+        ),
+        "verification": {
+            "browser_focused": True,
+            "window_title": focus["window_title"],
+        },
+        "limitation": None if ok else "keystroke_failed",
+    }
 
-            locator = page.get_by_text(
-                str(text),
-                exact=False,
-            ).first
 
-            await locator.wait_for(
-                state="visible",
-                timeout=15000,
-            )
+@register("desktopBrowserSearch")
+def browser_search(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Perform a search using the default browser and search engine.
 
-            await locator.scroll_into_view_if_needed()
+    Args:
+        args: {"query": "search terms", "engine": "google|youtube|github|etc."}
 
-            await locator.click(force=True)
+    Returns:
+        Dict with result and url
+    """
+    from .tools_search import search_web
 
-        else:
+    # Delegate to the search tool which uses browser-agnostic open.
+    # search_web is synchronous â€” it must NOT be awaited.
+    search_result = search_web(args)
 
-            raise ToolError(
-                "Provide selector or text."
-            )
-
-    except Exception as e:
-
-        raise ToolError(
-            f"Click failed: {e}"
-        )
+    # Extract the URL from the search result if possible
+    url = ""
+    if "opened " in search_result.get("result", ""):
+        # Extract URL from result string like "opened https://..."
+        import re
+        url_match = re.search(r'opened\s+(https?://[^\s\.]+[^\s]*)', search_result["result"])
+        if url_match:
+            url = url_match.group(1)
 
     return {
-        "result": f"Clicked {selector or text}"
+        "result": search_result["result"],
+        "url": url,
+        "application": "default_browser",
+        "timestamp": time.time(),
+    }
+
+
+# Note: The following are intentionally NOT implemented in browser-agnostic mode:
+# - desktopBrowserFillForm (multi-field semantics; use UC intent directly)
+# - desktopBrowserGoBack / desktopBrowserGoForward (Alt+Left/Right at unverified
+#   focus could act on the wrong window â€” kept explicitly unsupported)
+#
+# Click/Type/Scroll ARE implemented through the ONE vision-based automation
+# engine (UniversalController): screenshot â†’ OCR/vision â†’ target selection â†’
+# mouse/keyboard via the registry dispatcher (PermissionManager-gated) â†’
+# vision verification. They never fake success; without vision they report a
+# structured failure and point at the fix.
+
+
+@register("desktopBrowserClick")
+def browser_click(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Vision-based click: find a visible target and click its coordinates.
+
+    Args:
+        args: {"target": "search box"} (text/type hint) or {"x":.., "y":..}
+    """
+    x, y = args.get("x"), args.get("y")
+    if x is None or y is None:
+        uc = _uc()
+        if uc is None:
+            return _uc_unavailable("Vision-based clicking")
+        target = str(args.get("target") or args.get("element") or "")
+        elem = uc.find_element(target) if target else None
+        if elem is None:
+            # No hint (or hint unmatched): fall back to the highest-confidence
+            # interactive element so a bare "click" intent still works.
+            discovery = uc.discover_elements()
+            interactive = [
+                e for e in (discovery.elements if discovery else [])
+                if getattr(e, "role", None) is not None
+                and getattr(e, "role").name != "NONE"
+            ]
+            if not interactive:
+                return {
+                    "ok": False,
+                    "result": (
+                        f"No visible element matching '{target or 'anything clickable'}' "
+                        "on screen."
+                    ),
+                    "limitation": "target_not_found",
+                    "suggestion": "Describe the visible text of the element to click.",
+                }
+            elem = interactive[0]
+        x, y = elem.center_x, elem.center_y
+        target_desc = (getattr(elem, "label", "") or target or "visible element")
+    else:
+        target_desc = f"({x}, {y})"
+
+    click = _dispatch_tool("leftClick", {"x": int(x), "y": int(y)})
+    ok = _succeeded(click)
+    return {
+        "ok": ok,
+        "result": (
+            f"Clicked {target_desc} at ({x}, {y})."
+            if ok
+            else f"Could not click {target_desc} at ({x}, {y})."
+        ),
+        "clicked": {"x": int(x), "y": int(y), "target": target_desc},
+        "limitation": None if ok else "click_failed",
     }
 
 
 @register("desktopBrowserType")
-async def browser_type(args: Dict[str, Any]) -> Dict[str, Any]:
-    text = args.get("text")
-    selector = args.get("selector")
-    clear_first = bool(args.get("clear", True))
+def browser_type(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Vision-based typing into a visible input field.
+
+    Args:
+        args: {"text": "...", "target": "search box"} (target optional)
+    """
+    text = str(args.get("text", ""))
     if not text:
-        raise ToolError("Parameter 'text' is required.")
-    page = await _page()
-    try:
-        if selector:
-            await page.fill(selector, str(text), timeout=5000)
-        else:
-            if clear_first:
-                await page.keyboard.press("Control+A")
-                await page.keyboard.press("Delete")
-            await page.keyboard.type(str(text))
-    except Exception as e:  # noqa: BLE001
-        raise ToolError(f"Type failed: {e}")
-    return {"result": f"Typed {len(str(text))} characters."}
+        raise ToolError("Provide 'text' to type.")
+    target = str(args.get("target") or args.get("element") or "")
+    uc = _uc()
+    if uc is None:
+        return _uc_unavailable("Vision-based typing")
+
+    # Resolve the field: targeted hint first, else the best visible input.
+    elem = uc.find_element(target) if target else None
+    if elem is None:
+        from .universal_control.ui_element import InteractiveRole
+        discovery = uc.discover_elements()
+        inputs = [
+            e for e in (discovery.elements if discovery else [])
+            if getattr(e, "role", None) == InteractiveRole.INPUT
+        ]
+        elem = inputs[0] if inputs else None
+    if elem is None:
+        return {
+            "ok": False,
+            "result": (
+                f"No visible input field matching '{target or 'any field'}' on screen."
+            ),
+            "limitation": "target_not_found",
+            "suggestion": "Describe the visible label of the input field.",
+        }
+
+    click = _dispatch_tool("leftClick", {"x": int(elem.center_x), "y": int(elem.center_y)})
+    click_ok = _succeeded(click)
+    if not click_ok:
+        return {
+            "ok": False,
+            "result": "Could not focus the input field (click failed).",
+            "limitation": "click_failed",
+        }
+    typed = _dispatch_tool("typeText", {"text": text})
+    ok = _succeeded(typed)
+    label = getattr(elem, "label", "") or "the input field"
+    return {
+        "ok": ok,
+        "result": (
+            f"Typed {len(text)} characters into '{label}'."
+            if ok
+            else "Could not send the text keystrokes."
+        ),
+        "typed": {"into": label, "chars": len(text)},
+        "limitation": None if ok else "type_failed",
+    }
 
 
 @register("desktopBrowserFillForm")
-async def browser_fill_form(args: Dict[str, Any]) -> Dict[str, Any]:
-    """Fill multiple fields. fields = { selector: value, ... }"""
-    fields = args.get("fields")
-    submit = args.get("submit")  # optional selector to click after filling
-    if not isinstance(fields, dict) or not fields:
-        raise ToolError("Parameter 'fields' (object of selector->value) is required.")
-    page = await _page()
-    filled = 0
-    try:
-        for sel, val in fields.items():
-            await page.fill(str(sel), str(val), timeout=5000)
-            filled += 1
-        if submit:
-            await page.click(str(submit), timeout=5000)
-    except Exception as e:  # noqa: BLE001
-        raise ToolError(f"Form fill failed after {filled} field(s): {e}")
-    extra = " and submitted." if submit else "."
-    return {"result": f"Filled {filled} field(s){extra}"}
+def browser_fill_form_stub(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Fill a form â€” requires Universal Control with Vision."""
+    return {
+        "ok": False,
+        "result": "Browser-agnostic mode cannot fill forms directly. "
+                  "Use Universal Control with Continuous Vision for precise browser interaction.",
+        "suggestion": "Use Universal Control for vision-based form filling",
+        "limitation": "browser_agnostic_control",
+    }
 
 
 @register("desktopBrowserGoBack")
-async def browser_go_back(args: Dict[str, Any]) -> Dict[str, Any]:
-    page = await _page()
-    try:
-        await page.go_back(timeout=15000)
-    except Exception as e:  # noqa: BLE001
-        raise ToolError(f"Back failed: {e}")
-    return {"result": f"Went back. Now on {page.url}."}
+def browser_go_back_stub(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Navigate back â€” not available in browser-agnostic mode."""
+    return {
+        "ok": False,
+        "result": "Browser-agnostic mode cannot navigate back. "
+                  "Please use the browser's back button, or use Universal Control with Vision.",
+        "suggestion": "Use Universal Control for vision-based browser navigation",
+        "limitation": "browser_agnostic_control",
+    }
 
 
 @register("desktopBrowserGoForward")
-async def browser_go_forward(args: Dict[str, Any]) -> Dict[str, Any]:
-    page = await _page()
-    try:
-        await page.go_forward(timeout=15000)
-    except Exception as e:  # noqa: BLE001
-        raise ToolError(f"Forward failed: {e}")
-    return {"result": f"Went forward. Now on {page.url}."}
+def browser_go_forward_stub(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Navigate forward â€” not available in browser-agnostic mode."""
+    return {
+        "ok": False,
+        "result": "Browser-agnostic mode cannot navigate forward. "
+                  "Please use the browser's forward button, or use Universal Control with Vision.",
+        "suggestion": "Use Universal Control for vision-based browser navigation",
+        "limitation": "browser_agnostic_control",
+    }
 
 
 @register("desktopBrowserScroll")
-async def browser_scroll(args: Dict[str, Any]) -> Dict[str, Any]:
-    direction = (args.get("direction") or "down").lower()
-    amount = int(args.get("amount", 500))
-    delta = amount if direction != "up" else -amount
-    page = await _page()
+def browser_scroll(args: Dict[str, Any]) -> Dict[str, Any]:
+    """Vision-anchored scroll of the focused page.
+
+    Args:
+        args: {"direction": "up"|"down", "clicks": int} (defaults: down, 3)
+    """
+    direction = "up" if str(args.get("direction", "down")).lower() == "up" else "down"
     try:
-        await page.mouse.wheel(0, delta)
-    except Exception as e:  # noqa: BLE001
-        raise ToolError(f"Scroll failed: {e}")
-    return {"result": f"Scrolled {direction} {amount}px."}
+        clicks = int(args.get("clicks", 3))
+    except (TypeError, ValueError):
+        clicks = 3
+    clicks = max(-10, min(10, clicks))
 
+    # Scroll lands at the current cursor position (where the user is already
+    # looking). If the cursor position cannot be read, fall back to the vision
+    # engine to anchor the cursor over the page before scrolling.
+    pos = _dispatch_tool("mousePosition", {})
+    if not _succeeded(pos):
+        uc = _uc()
+        if uc is None:
+            return _uc_unavailable("Vision-anchored scrolling")
+        discovery = uc.discover_elements()
+        if not (discovery and discovery.elements):
+            return {
+                "ok": False,
+                "result": "Could not anchor the scroll: no visual state available.",
+                "limitation": "vision_unavailable",
+            }
+        anchor = discovery.elements[0]
+        _dispatch_tool("moveMouse", {"x": int(anchor.center_x), "y": int(anchor.center_y)})
 
-# Wrap the async handlers so FastAPI's sync threadpool path can call them.
-# Each @register'd async function above is replaced by a sync wrapper below.
-def _sync_wrap(async_fn):
-    def wrapper(args: Dict[str, Any]) -> Dict[str, Any]:
-        return _run(async_fn(args))
-
-    wrapper.__name__ = async_fn.__name__
-    wrapper.__doc__ = async_fn.__doc__
-    return wrapper
-
-
-# Re-register the async handlers as synchronous wrappers so the registry
-# dispatcher (which is sync) can call them uniformly.
-from .registry import TOOLS  # noqa: E402
-
-for _name in [
-    "desktopBrowserOpen",
-    "desktopBrowserNavigate",
-    "desktopBrowserOpenTab",
-    "desktopBrowserCloseTab",
-    "desktopBrowserSearch",
-    "desktopBrowserClick",
-    "desktopBrowserType",
-    "desktopBrowserFillForm",
-    "desktopBrowserGoBack",
-    "desktopBrowserGoForward",
-    "desktopBrowserScroll",
-]:
-    _orig = TOOLS[_name]
-    if asyncio.iscoroutinefunction(_orig):
-        TOOLS[_name] = _sync_wrap(_orig)
+    scroll = _dispatch_tool("scrollMouse", {"clicks": clicks if direction == "down" else -clicks})
+    ok = _succeeded(scroll)
+    return {
+        "ok": ok,
+        "result": (
+            f"Scrolled {direction} ({clicks} clicks)."
+            if ok
+            else "Could not send the scroll input."
+        ),
+        "scrolled": {"direction": direction, "clicks": clicks},
+        "limitation": None if ok else "scroll_failed",
+    }
 
 
 def shutdown_browser() -> None:
-    """Cleanly stop the Playwright browser (called on app shutdown)."""
-    if STATE.browser is None:
-        return
-
-    async def _stop():
-        try:
-            if STATE.browser:
-                await STATE.browser.close()
-        except Exception:
-            pass
-        try:
-            if STATE.playwright:
-                await STATE.playwright.stop()
-        except Exception:
-            pass
-        STATE.reset_playwright()
-
-    try:
-        _run(_stop())
-    except Exception:
-        STATE.reset_playwright()
+    """No-op: MYRAA owns no browser. The OS manages the default browser."""
+    return None
 
 
+# For compatibility with existing code that expects these exports
 __all__ = [
     "browser_open",
     "browser_navigate",
@@ -402,9 +467,9 @@ __all__ = [
     "browser_search",
     "browser_click",
     "browser_type",
-    "browser_fill_form",
-    "browser_go_back",
-    "browser_go_forward",
     "browser_scroll",
+    "browser_fill_form_stub",
+    "browser_go_back_stub",
+    "browser_go_forward_stub",
     "shutdown_browser",
 ]

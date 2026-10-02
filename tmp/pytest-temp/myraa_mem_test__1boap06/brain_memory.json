@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "saved_at": 1788697699.7402322,
+  "episodic": {
+    "next_id": 1,
+    "events": []
+  },
+  "semantic": {
+    "facts": {
+      "user_name": {
+        "key": "user_name",
+        "value": "Rahul",
+        "confidence": 1.0,
+        "source": "brain",
+        "created_at": 1788697699.7353551,
+        "updated_at": 1788697699.7353554,
+        "metadata": {}
+      },
+      "leak": {
+        "key": "leak",
+        "value": "client_secret=superS3cretValue",
+        "confidence": 1.0,
+        "source": "brain",
+        "created_at": 1788697699.740229,
+        "updated_at": 1788697699.7402291,
+        "metadata": {}
+      }
+    }
+  }
+}

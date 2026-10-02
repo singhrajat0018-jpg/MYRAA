@@ -1,0 +1,40 @@
+{
+  "coding": {
+    "total_calls": 1,
+    "success_count": 1,
+    "failure_count": 0,
+    "total_latency_ms": 10.0,
+    "avg_latency_ms": 10.0,
+    "last_success": 1789830153.4655306,
+    "last_failure": 0.0,
+    "last_used": 1789830153.4655318,
+    "recent_errors": [],
+    "history": [
+      {
+        "type": "success",
+        "latency_ms": 10.0,
+        "timestamp": 1789830153.4655328
+      }
+    ]
+  },
+  "research": {
+    "total_calls": 1,
+    "success_count": 0,
+    "failure_count": 1,
+    "total_latency_ms": 0.0,
+    "avg_latency_ms": 0.0,
+    "last_success": 0.0,
+    "last_failure": 1789830153.4676855,
+    "last_used": 1789830153.4676867,
+    "recent_errors": [
+      "error"
+    ],
+    "history": [
+      {
+        "type": "failure",
+        "error": "error",
+        "timestamp": 1789830153.4676905
+      }
+    ]
+  }
+}

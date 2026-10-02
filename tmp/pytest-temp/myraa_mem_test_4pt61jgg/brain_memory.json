@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "saved_at": 1788279931.9588544,
+  "episodic": {
+    "next_id": 2,
+    "events": [
+      {
+        "id": 1,
+        "timestamp": 1788279931.9588406,
+        "category": "general",
+        "title": "user talked about NIFTY strategy",
+        "description": "",
+        "importance": 0.5,
+        "metadata": {}
+      }
+    ]
+  },
+  "semantic": {
+    "facts": {}
+  }
+}

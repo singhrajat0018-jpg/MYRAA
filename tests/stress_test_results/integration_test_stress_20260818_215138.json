@@ -1,0 +1,24 @@
+{
+  "test_name": "integration_test_stress",
+  "status": "completed",
+  "start_time": 1787070095.3511267,
+  "end_time": 1787070098.3525963,
+  "duration_seconds": 3.001469612121582,
+  "max_memory_mb": 210.02734375,
+  "avg_memory_mb": 210.02734375,
+  "max_cpu_percent": 1.6,
+  "avg_cpu_percent": 1.0666666666666667,
+  "iterations_completed": 3,
+  "errors_encountered": 0,
+  "warnings_encountered": 1,
+  "metrics": {},
+  "error_details": [],
+  "warning_details": [
+    {
+      "type": "memory_exceeded",
+      "timestamp": 1787070098.3526456,
+      "max_memory_mb": 210.02734375,
+      "limit_mb": 100.0
+    }
+  ]
+}

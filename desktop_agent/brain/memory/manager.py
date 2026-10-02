@@ -6,14 +6,19 @@ Single entry point for every memory operation.
 
 from __future__ import annotations
 
+import logging
+
 from .working_memory import WorkingMemory
 from .episodic_memory import EpisodicMemory
 from .semantic_memory import SemanticMemory
+from . import persistence
+
+log = logging.getLogger(__name__)
 
 
 class MemoryManager:
 
-    def __init__(self):
+    def __init__(self, store_path: str | None = None, blackboard: object | None = None):
 
         self.working = WorkingMemory()
 
@@ -21,19 +26,49 @@ class MemoryManager:
 
         self.semantic = SemanticMemory()
 
+        self.blackboard = blackboard
+
+        self._store_path = store_path or persistence.default_memory_file()
+
+        persistence.load_memory_manager(self, self._store_path)
+
+    # ------------------------------------------
+
+    def _persist(self):
+
+        """Atomically persist long-term memory to disk (never raises)."""
+
+        persistence.save_memory_manager(self, self._store_path)
+
     # ------------------------------------------
 
     def remember_event(self, event):
+
+        if persistence.is_sensitive_text(event):
+            log.warning("[Memory] Rejected sensitive event (never stored).")
+            return False
 
         self.working.add(event)
 
         self.episodic.record(event)
 
+        self._persist()
+
+        return True
+
     # ------------------------------------------
 
-    def remember_fact(self, fact):
+    def remember_fact(self, key, value=None):
 
-        self.semantic.store(fact)
+        if persistence.is_sensitive_text(str(key)) or persistence.is_sensitive_text(value):
+            log.warning("[Memory] Rejected sensitive fact (never stored).")
+            return False
+
+        self.semantic.store(key, value)
+
+        self._persist()
+
+        return True
 
     # ------------------------------------------
 
@@ -59,6 +94,8 @@ class MemoryManager:
 
         self.semantic.clear()
 
+        self._persist()
+
     def remember_reflection(
 
         self,
@@ -66,6 +103,10 @@ class MemoryManager:
         reflection,
 
     ):
+
+        if persistence.is_sensitive_text(reflection):
+            log.warning("[Memory] Rejected sensitive reflection (never stored).")
+            return False
 
         self.working.add(
 
@@ -83,15 +124,28 @@ class MemoryManager:
 
         )
 
+        self._persist()
+
+        return True
+
     def process_reflection(self):
 
-        reflection = self.blackboard.read(
+        if self.blackboard is None:
 
-            "reflection",
+            return
 
-            "latest",
+        try:
 
-        )
+            reflection = self.blackboard.read(
+
+                "reflection",
+
+                "latest",
+
+            )
+        except Exception as exc:  # noqa: BLE001
+            log.debug("process_reflection read failed: %s", exc)
+            return
 
         if reflection is None:
 
@@ -104,3 +158,11 @@ class MemoryManager:
             category="reflection",
 
         )
+
+        self.episodic.record(
+
+            reflection,
+
+        )
+
+        self._persist()

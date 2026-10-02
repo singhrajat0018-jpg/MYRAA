@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "saved_at": 1788694497.4942067,
+  "records": [
+    {
+      "id": "915c1dc9-0b89-40af-996a-b55382cfe458",
+      "type": "semantic",
+      "content": "Approved: launch date set to Monday",
+      "summary": "launch date set to Monday",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788694497.4437778,
+      "updated_at": 1788694497.443778,
+      "last_accessed_at": 1788694497.4439285,
+      "event_time": null,
+      "importance": 0.7,
+      "confidence": 0.76,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.9999999999417751,
+      "access_count": 1,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "Approved"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "53ee777daed4847987b2bae34b54c9f0f3420c3b0f8282db9419dcd0244c8936"
+    }
+  ]
+}

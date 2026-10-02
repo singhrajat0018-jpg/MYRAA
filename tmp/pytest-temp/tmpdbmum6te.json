@@ -1,0 +1,83 @@
+{
+  "version": 2,
+  "saved_at": 1788693042.2908378,
+  "records": [
+    {
+      "id": "8eeb9557-4d98-4c45-ac0c-f4391c7dceab",
+      "type": "semantic",
+      "content": "normal text",
+      "summary": "normal text",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788693042.2394896,
+      "updated_at": 1788693042.23949,
+      "last_accessed_at": 1788693042.2394903,
+      "event_time": null,
+      "importance": 0.8,
+      "confidence": 0.9,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "user_defined",
+      "metadata": {
+        "password": "hunter2"
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "47a9f81216b16e545748e40b5ac084534ca336b7d3d6b8d18b6dcb19b67b3e89"
+    },
+    {
+      "id": "ba514dea-dfde-4bb8-8420-d216c4a08df4",
+      "type": "semantic",
+      "content": "clean memory",
+      "summary": "clean memory",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788693042.2395442,
+      "updated_at": 1788693042.2395444,
+      "last_accessed_at": 1788693042.2395444,
+      "event_time": null,
+      "importance": 0.8,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "user_defined",
+      "metadata": {
+        "conflict_resolution": "mark_conflict",
+        "conflicts_with": [
+          "8eeb9557-4d98-4c45-ac0c-f4391c7dceab"
+        ]
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "af50c00fa63f0daa481691f221368f21788dcbcdd4ed35ae62045c5afd62c472"
+    }
+  ]
+}

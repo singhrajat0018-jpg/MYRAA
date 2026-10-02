@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "saved_at": 1789195759.5006492,
+  "records": [
+    {
+      "id": "f623fed9-9f50-4255-a9fd-04086874ed45",
+      "type": "semantic",
+      "content": "precious fact",
+      "summary": "precious fact",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789195759.4981594,
+      "updated_at": 1789195759.4981596,
+      "last_accessed_at": 1789195759.4981596,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "precious fact",
+        "win-test"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "e4ada2e7e5c3c80a4dfdd009e9e2c856e5d5fe511b0becc3a0b95e6121cd3a9d"
+    }
+  ]
+}

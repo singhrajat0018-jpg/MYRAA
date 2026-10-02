@@ -1,0 +1,1214 @@
+{
+  "rules": [
+    {
+      "rule_id": "r1",
+      "alert_type": "portfolio_movement",
+      "symbol": "",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Alert on 3%+ stock move",
+      "created_at": ""
+    },
+    {
+      "rule_id": "r2",
+      "alert_type": "drawdown",
+      "symbol": "",
+      "threshold": 5.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Alert on 5%+ portfolio drawdown",
+      "created_at": ""
+    },
+    {
+      "rule_id": "r3",
+      "alert_type": "report_ready",
+      "symbol": "",
+      "threshold": 0.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Daily report notification",
+      "created_at": ""
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T03:15:08.775594+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T03:18:10.726560+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T03:20:22.422423+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T04:30:10.877931+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T05:43:55.587490+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T06:39:33.472291+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T06:51:48.558309+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T07:47:40.622434+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T12:00:29.881947+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T13:44:36.305044+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T13:54:34.148736+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T14:17:07.213885+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T14:20:03.298030+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T14:44:56.964145+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-22T15:38:59.811970+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T01:32:01.570038+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T01:34:52.120433+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T01:46:35.597606+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T04:29:33.331886+00:00"
+    },
+    {
+      "rule_id": "test_rule_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Test rule",
+      "created_at": "2026-08-23T04:38:34.053204+00:00"
+    },
+    {
+      "rule_id": "test_rule_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Test rule",
+      "created_at": "2026-08-23T04:47:42.426944+00:00"
+    },
+    {
+      "rule_id": "test_rule_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Test rule",
+      "created_at": "2026-08-23T04:50:16.501924+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T04:52:32.223604+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T04:54:42.595408+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T04:57:55.260265+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T04:59:40.567614+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T05:02:58.674865+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T05:07:14.721470+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T05:18:08.067415+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T05:19:35.584455+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T05:48:25.166666+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T05:49:44.521534+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T15:12:53.073008+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T15:27:59.434638+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T15:36:38.618892+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T15:39:41.735330+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T15:56:12.193756+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T16:00:40.876426+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T16:25:25.111383+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T16:30:20.960380+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T16:46:25.053279+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T16:50:13.789007+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-23T17:11:20.129787+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-23T17:15:36.244517+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-24T11:23:36.990795+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-08-24T11:26:44.596514+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-25T08:39:32.517543+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-25T13:14:12.938675+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-31T13:17:11.940609+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-31T13:20:31.741503+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-31T13:23:35.287245+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-31T14:15:35.871579+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-31T14:19:29.297808+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-08-31T15:42:01.752005+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-01T14:01:07.879021+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-01T14:42:26.801966+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-01T14:46:04.338789+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-01T14:48:54.588190+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-01T14:53:47.446961+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-01T14:56:41.268154+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-01T15:10:43.504530+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-01T15:13:28.635941+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-01T15:20:52.204332+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-01T15:23:50.352423+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-01T15:53:20.206768+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-01T15:57:47.801467+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-01T16:26:23.354272+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-01T16:31:16.698757+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-06T11:05:04.152887+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-06T11:09:04.015896+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-06T11:17:30.948182+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-06T11:29:48.156650+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-06T11:33:25.019531+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-06T11:36:07.964577+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-06T11:39:50.589904+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-06T11:54:04.917275+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-06T11:58:34.715616+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-06T12:29:03.444304+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-06T12:32:50.454824+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-06T12:39:53.472815+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-06T12:43:15.392479+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-06T12:53:25.705323+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-06T13:01:02.964604+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-06T13:04:57.398670+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-06T13:06:48.326996+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-06T13:10:57.613250+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-12T04:11:43.437203+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-12T04:14:32.562811+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-12T04:25:25.753258+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-12T04:30:57.783166+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-12T05:36:39.523561+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-12T05:39:20.232173+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-12T05:42:06.406466+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-12T05:44:36.408595+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-12T05:57:35.890684+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-12T06:00:31.444728+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-12T06:11:42.815661+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-12T06:14:54.302169+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-12T07:30:33.537232+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-12T07:35:33.950769+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-12T08:32:11.818701+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-12T08:33:18.444607+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-19T05:10:47.562764+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-19T05:15:41.298645+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-19T05:36:26.109011+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-19T05:40:21.106939+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-19T05:40:39.977745+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-19T05:43:50.926023+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-19T07:56:07.266624+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-19T08:00:31.294420+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-19T15:02:30.403752+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-19T15:10:18.518536+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-19T15:15:24.227512+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-19T15:22:18.265989+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-20T05:07:25.725484+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-20T05:16:14.289292+00:00"
+    },
+    {
+      "rule_id": "test1",
+      "alert_type": "breakout",
+      "symbol": "RELIANCE",
+      "threshold": 2700,
+      "direction": "above",
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-09-20T05:28:41.168919+00:00"
+    },
+    {
+      "rule_id": "prod_test_1",
+      "alert_type": "portfolio_movement",
+      "symbol": "RELIANCE",
+      "threshold": 3.0,
+      "direction": "above",
+      "enabled": true,
+      "description": "Production test rule",
+      "created_at": "2026-09-20T05:31:37.954899+00:00"
+    }
+  ]
+}

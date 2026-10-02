@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "saved_at": 1788693040.2028832,
+  "records": [
+    {
+      "id": "174f1394-867c-4739-b28a-067e79770d7d",
+      "type": "semantic",
+      "content": "Team size: 5",
+      "summary": "5",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788693040.1525555,
+      "updated_at": 1788693040.1525562,
+      "last_accessed_at": 1788693040.1528332,
+      "event_time": null,
+      "importance": 0.7,
+      "confidence": 0.76,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.9999999998923805,
+      "access_count": 1,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "Team size"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "500407a840acd6c83f4290d6f1e6dba266cf10cc85907c4effccac4a9e3fac30"
+    }
+  ]
+}

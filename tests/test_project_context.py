@@ -1,17 +1,31 @@
-from desktop_agent.core.app_context import registry
+from desktop_agent.brain.knowledge.services.project_context import ProjectContext
+from desktop_agent.brain.knowledge.services.project_brain import ProjectBrain
 
-brain = registry.get("project_brain")
 
-ctx = brain.describe("MYRAA")
+class FakeProjectContextService:
+    def __init__(self, context):
+        self.context = context
 
-print("\n=== Project Context ===")
-print(ctx)
+    def get_project(self, project_name: str):
+        if project_name == self.context.name:
+            return self.context
+        return None
 
-print("\n=== Languages ===")
-print(brain.languages("MYRAA"))
 
-print("\n=== Frameworks ===")
-print(brain.frameworks("MYRAA"))
+def test_project_brain_surfaces_project_context():
+    context = ProjectContext(
+        name="MYRAA",
+        root="desktop_agent",
+        languages=["Python"],
+        frameworks=["FastAPI"],
+        entry_points=["main.py"],
+    )
+    brain = ProjectBrain(FakeProjectContextService(context))
 
-print("\n=== Entry Points ===")
-print(brain.entry_points("MYRAA"))
+    assert brain.describe("MYRAA") is not None
+    assert brain.languages("MYRAA") == ["Python"]
+    assert brain.frameworks("MYRAA") == ["FastAPI"]
+    assert brain.entry_points("MYRAA") == ["main.py"]
+    assert brain.languages("missing") == []
+    assert brain.frameworks("missing") == []
+    assert brain.entry_points("missing") == []

@@ -9,10 +9,8 @@ class BaseSemanticProvider(ABC):
     """
     Interface for every semantic provider.
 
-    Gemini
-    Local LLM
-    Ollama
-    Future MCE Model
+    Ollama (local LLM)
+    Future: additional local providers
     """
 
     @abstractmethod

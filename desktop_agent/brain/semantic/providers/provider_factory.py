@@ -1,30 +1,28 @@
 """
-Semantic Provider Factory
+Semantic Provider Factory — Local-Only
 """
 
 from __future__ import annotations
-
-from desktop_agent.brain.ai import AIManager
-
-from .ollama_provider import OllamaSemanticProvider
-from .gemini_provider import GeminiSemanticProvider
 
 
 class ProviderFactory:
 
     @staticmethod
-    def create():
+    def create(ai=None):
+        if ai is None:
+            from desktop_agent.brain.ai.ai_manager import AIManager
+            ai = AIManager()
 
-        ai = AIManager()
+        # Route through the authoritative AIManager contract: local Ollama only.
+        provider = ai.resolve_provider(
+            hints={"categories": ["conversational", "local"]}
+        )
 
-        provider = ai.active_provider()
+        if provider is None:
+            return None
 
         if provider.name == "ollama":
+            from .ollama_provider import OllamaSemanticProvider
             return OllamaSemanticProvider(ai)
 
-        if provider.name == "gemini":
-            return GeminiSemanticProvider(ai)
-
-        raise RuntimeError(
-            f"Unsupported provider: {provider.name}"
-        )
+        return None

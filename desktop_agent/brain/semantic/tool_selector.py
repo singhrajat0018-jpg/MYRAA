@@ -7,7 +7,10 @@ before they reach the planner.
 
 from __future__ import annotations
 
+import logging
 import os
+
+log = logging.getLogger(__name__)
 
 from .semantic_models import SemanticTask
 
@@ -39,10 +42,8 @@ class ToolSelector:
     @classmethod
     def process(cls, task: SemanticTask) -> SemanticTask:
 
-        print("=" * 60)
-        print("ToolSelector running")
-        print(task.metadata)
-        print("=" * 60)
+        log.debug("ToolSelector running")
+        log.debug("Task metadata: %s", task.metadata)
 
         action = task.metadata.get("action")
         params = task.metadata.get("parameters", {})
@@ -62,8 +63,8 @@ class ToolSelector:
 
                 alias = cls.APP_ALIASES.get(name.lower())
 
-                print("Requested App :", name)
-                print("Resolved Alias:", alias)
+                log.debug("Requested App: %s", name)
+                log.debug("Resolved Alias: %s", alias)
 
                 if alias is not None:
                     params["name"] = alias
@@ -73,7 +74,7 @@ class ToolSelector:
         # -------------------------------------------------
 
         if action == "readFile":
-            print("Converting readFile -> openFile")
+            log.debug("Converting readFile -> openFile")
             path = params.get("path")
 
             if isinstance(path, str):

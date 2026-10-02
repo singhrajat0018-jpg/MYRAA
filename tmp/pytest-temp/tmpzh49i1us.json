@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "saved_at": 1789187570.316264,
+  "records": [
+    {
+      "id": "dd53565b-bc7c-4235-84ca-4729d4a3e165",
+      "type": "preference",
+      "content": "I prefer Hinglish",
+      "summary": "I prefer Hinglish",
+      "source": "user_command",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789187570.2620318,
+      "updated_at": 1789187570.262033,
+      "last_accessed_at": 1789187570.262033,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 1.0,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "user_explicit"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "user_defined",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "0877a9ebaf611472d6e54a81fbe027f95091f7c9568f9a9992f439b6d91e7f1c"
+    }
+  ]
+}

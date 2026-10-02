@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1788693042.3577561,
+  "records": [
+    {
+      "id": "c214e20f-a2cd-4650-87b1-7e4f5cbef9db",
+      "type": "semantic",
+      "content": "my phone number",
+      "summary": "my phone number",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788693042.3056386,
+      "updated_at": 1788693042.30564,
+      "last_accessed_at": 1788693042.3056402,
+      "event_time": null,
+      "importance": 0.8,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "user_defined",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "775ba534a6aaeca8d9c09214cc683432f2652a156b944f94416a4be4c3a0afb6"
+    }
+  ]
+}

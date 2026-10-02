@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import json
+import logging
 
 from ..semantic_models import SemanticTask, Intent
 from .base import BaseSemanticProvider
 from ...ai.ai_manager import AIManager
 from ..semantic_models import Entity, EntityType
+
+log = logging.getLogger(__name__)
 
 SYSTEM_PROMPT = """
 You are MYRAA's semantic parser.
@@ -117,14 +120,10 @@ class OllamaSemanticProvider(BaseSemanticProvider):
 
         # Pydantic v2
         if hasattr(SemanticTask, "model_validate"):
-            print("\n========== OLLAMA PARSED DATA ==========")
-            print(data)
-            print("=======================================\n")
+            log.debug("OLLAMA PARSED DATA: %s", data)
 
         try:
-            print("\n========== OLLAMA PARSED DATA ==========")
-            print(data)
-            print("========================================\n")
+            log.debug("OLLAMA PARSED DATA: %s", data)
 
             INTENT_MAP = {
                 "openWebsite": Intent.OPEN_WEBSITE,
@@ -156,9 +155,7 @@ class OllamaSemanticProvider(BaseSemanticProvider):
                 metadata=data.get("parameters", {}),
             )
 
-            print("\n========== SEMANTIC TASK ==========")
-            print(task)
-            print("===================================\n")
+            log.debug("Semantic task: %s", task)
 
             url = data.get("parameters", {}).get("url")
 
@@ -172,9 +169,6 @@ class OllamaSemanticProvider(BaseSemanticProvider):
             return task
 
         except Exception as e:
-            print("\n========== SEMANTIC BUILD FAILED ==========")
-            print(e)
-            print("Raw data:", data)
-            print("===========================================\n")
+            log.warning("Semantic build failed: %s, raw_data=%s", e, data)
             raise
 

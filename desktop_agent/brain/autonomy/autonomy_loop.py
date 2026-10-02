@@ -41,7 +41,7 @@ from .initiative_adapter import InitiativeAdapter
 from .observation_engine import ObservationEngine
 from .event_detector import EventDetector
 from .prediction_engine import PredictionEngine
-from .initiative_engine import InitiativeEngine
+from .initiative_engine import InitiativeEngine, InitiativeType
 from .initiative_manager import InitiativeManager
 
 class AutonomyLoop:
@@ -283,6 +283,18 @@ class AutonomyLoop:
             ):
                 continue
 
+            # Safety gate: block EXECUTE-type initiatives in autonomous mode
+            # unless the policy explicitly allows execution.
+            if initiative.type == InitiativeType.EXECUTE:
+                if not self.policy.can_execute(self.state):
+                    import logging
+                    logging.getLogger(__name__).warning(
+                        "[Autonomy] BLOCKED EXECUTE initiative (mode=%s): %s",
+                        self.state.mode,
+                        initiative.description,
+                    )
+                    continue
+
             task = self.adapter.convert(
                 initiative,
             )
@@ -305,9 +317,10 @@ class AutonomyLoop:
                 print("[Autonomy] Brain finished")
                 self.state.plans_created += 1
 
-            except Exception:
+            except Exception as e:
 
-                pass
+                import logging
+                logging.getLogger(__name__).exception("[Autonomy] Brain processing failed: %s", e)
         # ----------------------------------------------
         # Reflection
         # ----------------------------------------------
@@ -338,9 +351,10 @@ class AutonomyLoop:
 
                 self.state.reflections += 1
 
-            except Exception:
+            except Exception as e:
 
-                pass
+                import logging
+                logging.getLogger(__name__).exception("[Autonomy] Reflection failed: %s", e)
 
         # ----------------------------------------------
         # Learning
@@ -372,9 +386,10 @@ class AutonomyLoop:
 
                 self.state.learning_events += 1
 
-            except Exception:
+            except Exception as e:
 
-                pass
+                import logging
+                logging.getLogger(__name__).exception("[Autonomy] Learning failed: %s", e)
 
         self.state.cycles += 1
 

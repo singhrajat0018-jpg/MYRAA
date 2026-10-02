@@ -18,71 +18,77 @@ import os
 import platform
 import subprocess
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from .registry import ToolError, register
 
-HOME = Path(os.path.expanduser("~"))
+# Cache for resolved paths to avoid redundant filesystem operations
+_PATH_RESOLUTION_CACHE: Dict[str, Path] = {}
+_SAFE_ROOTS_RESOLVED: List[Path] = []
+_SAFE_ROOTS_INITIALIZED = False
 
-# Roots under which file operations are freely permitted.
-SAFE_ROOTS: List[Path] = [
-    HOME,
-    HOME / "Desktop",
-    HOME / "Documents",
-    HOME / "Downloads",
-    HOME / "Pictures",
-    HOME / "Music",
-    HOME / "Videos",
-    Path(os.getcwd()),  # project root
-]
+def _initialize_safe_roots() -> List[Path]:
+    """Initialize and cache the resolved safe roots."""
+    global _SAFE_ROOTS_RESOLVED, _SAFE_ROOTS_INITIALIZED
+    if _SAFE_ROOTS_INITIALIZED:
+        return _SAFE_ROOTS_RESOLVED
+
+    HOME = Path(os.path.expanduser("~"))
+
+    # Detect OneDrive folders if available
+    ONEDRIVE = os.environ.get("OneDrive")
+
+    DESKTOP = (
+        Path(ONEDRIVE) / "Desktop"
+        if ONEDRIVE and (Path(ONEDRIVE) / "Desktop").exists()
+        else HOME / "Desktop"
+    )
+
+    DOCUMENTS = (
+        Path(ONEDRIVE) / "Documents"
+        if ONEDRIVE and (Path(ONEDRIVE) / "Documents").exists()
+        else HOME / "Documents"
+    )
+
+    PICTURES = (
+        Path(ONEDRIVE) / "Pictures"
+        if ONEDRIVE and (Path(ONEDRIVE) / "Pictures").exists()
+        else HOME / "Pictures"
+    )
+
+    _SAFE_ROOTS_RESOLVED = [
+        HOME,
+        DESKTOP,
+        DOCUMENTS,
+        HOME / "Downloads",
+        PICTURES,
+        HOME / "Music",
+        HOME / "Videos",
+        Path(os.getcwd()),  # project root
+    ]
+    _SAFE_ROOTS_INITIALIZED = True
+    return _SAFE_ROOTS_RESOLVED
+
+# Initialize safe roots on module load
+SAFE_ROOTS: List[Path] = _initialize_safe_roots()
 
 # Friendly folder aliases -> resolved path.
-HOME = Path(os.path.expanduser("~"))
-
-# Detect OneDrive folders if available
-ONEDRIVE = os.environ.get("OneDrive")
-
-DESKTOP = (
-    Path(ONEDRIVE) / "Desktop"
-    if ONEDRIVE and (Path(ONEDRIVE) / "Desktop").exists()
-    else HOME / "Desktop"
-)
-
-DOCUMENTS = (
-    Path(ONEDRIVE) / "Documents"
-    if ONEDRIVE and (Path(ONEDRIVE) / "Documents").exists()
-    else HOME / "Documents"
-)
-
-PICTURES = (
-    Path(ONEDRIVE) / "Pictures"
-    if ONEDRIVE and (Path(ONEDRIVE) / "Pictures").exists()
-    else HOME / "Pictures"
-)
-
-SAFE_ROOTS: List[Path] = [
-    HOME,
-    DESKTOP,
-    DOCUMENTS,
-    HOME / "Downloads",
-    PICTURES,
-    HOME / "Music",
-    HOME / "Videos",
-    Path(os.getcwd()),
-]
-
 FOLDER_ALIASES: Dict[str, Path] = {
-    "desktop": DESKTOP,
-    "documents": DOCUMENTS,
-    "downloads": HOME / "Downloads",
-    "pictures": PICTURES,
-    "photos": PICTURES,
-    "music": HOME / "Music",
-    "videos": HOME / "Videos",
-    "home": HOME,
+    "desktop": SAFE_ROOTS[1],  # DESKTOP
+    "documents": SAFE_ROOTS[2],  # DOCUMENTS
+    "downloads": SAFE_ROOTS[3],  # HOME / "Downloads"
+    "pictures": SAFE_ROOTS[4],  # PICTURES
+    "photos": SAFE_ROOTS[4],  # PICTURES (alias)
+    "music": SAFE_ROOTS[5],  # HOME / "Music"
+    "videos": SAFE_ROOTS[6],  # HOME / "Videos"
+    "home": SAFE_ROOTS[0],  # HOME
     "this pc": Path("C:\\"),
     "c drive": Path("C:\\"),
 }
+
+# Cache for folder resolution to avoid redundant stat calls
+_FOLDER_RESOLUTION_CACHE: Dict[str, Path] = {}
+_MAX_CACHE_SIZE = 100
 
 def _resolve_folder(name_or_path: Optional[str]) -> Path:
     if not name_or_path:
@@ -91,15 +97,33 @@ def _resolve_folder(name_or_path: Optional[str]) -> Path:
     value = str(name_or_path).strip()
     key = value.lower()
 
+    # Check cache first
+    if key in _FOLDER_RESOLUTION_CACHE:
+        return _FOLDER_RESOLUTION_CACHE[key]
+
     # Known aliases
     if key in FOLDER_ALIASES:
-        return FOLDER_ALIASES[key]
+        result = FOLDER_ALIASES[key]
+        _FOLDER_RESOLUTION_CACHE[key] = result
+        # Evict oldest entry if cache is too large
+        if len(_FOLDER_RESOLUTION_CACHE) > _MAX_CACHE_SIZE:
+            # Remove the first inserted item (FIFO)
+            oldest_key = next(iter(_FOLDER_RESOLUTION_CACHE))
+            del _FOLDER_RESOLUTION_CACHE[oldest_key]
+        return result
 
     p = Path(os.path.expandvars(os.path.expanduser(value)))
 
     # Absolute path
     if p.is_absolute():
-        return p.resolve()
+        result = p.resolve()
+        _FOLDER_RESOLUTION_CACHE[key] = result
+        # Evict oldest entry if cache is too large
+        if len(_FOLDER_RESOLUTION_CACHE) > _MAX_CACHE_SIZE:
+            # Remove the first inserted item (FIFO)
+            oldest_key = next(iter(_FOLDER_RESOLUTION_CACHE))
+            del _FOLDER_RESOLUTION_CACHE[oldest_key]
+        return result
 
     # Check inside common folders first
     for base in [
@@ -109,22 +133,50 @@ def _resolve_folder(name_or_path: Optional[str]) -> Path:
         FOLDER_ALIASES["pictures"],
         FOLDER_ALIASES["videos"],
         FOLDER_ALIASES["music"],
-        HOME,
+        SAFE_ROOTS[0],
     ]:
         candidate = base / value
         if candidate.exists():
-            return candidate.resolve()
+            result = candidate.resolve()
+            _FOLDER_RESOLUTION_CACHE[key] = result
+            # Evict oldest entry if cache is too large
+            if len(_FOLDER_RESOLUTION_CACHE) > _MAX_CACHE_SIZE:
+                # Remove the first inserted item (FIFO)
+                oldest_key = next(iter(_FOLDER_RESOLUTION_CACHE))
+                del _FOLDER_RESOLUTION_CACHE[oldest_key]
+            return result
 
     # Last fallback
-    return p.resolve()
+    result = p.resolve()
+    _FOLDER_RESOLUTION_CACHE[key] = result
+    # Evict oldest entry if cache is too large
+    if len(_FOLDER_RESOLUTION_CACHE) > _MAX_CACHE_SIZE:
+        # Remove the first inserted item (FIFO)
+        oldest_key = next(iter(_FOLDER_RESOLUTION_CACHE))
+        del _FOLDER_RESOLUTION_CACHE[oldest_key]
+    return result
 
 
 def _resolve_file(path: Optional[str], *, must_exist: bool = False) -> Path:
     if not path:
         raise ToolError("Parameter 'path' is required.")
+
+    # Check cache first
+    cache_key = str(path) + ("::must_exist" if must_exist else "")
+    if cache_key in _PATH_RESOLUTION_CACHE:
+        return _PATH_RESOLUTION_CACHE[cache_key]
+
     p = Path(os.path.expandvars(os.path.expanduser(str(path)))).resolve()
     if must_exist and not p.exists():
         raise ToolError(f"File does not exist: {p}")
+
+    # Cache the result
+    _PATH_RESOLUTION_CACHE[cache_key] = p
+    # Evict oldest entry if cache is too large
+    if len(_PATH_RESOLUTION_CACHE) > _MAX_CACHE_SIZE:
+        # Remove the first inserted item (FIFO)
+        oldest_key = next(iter(_PATH_RESOLUTION_CACHE))
+        del _PATH_RESOLUTION_CACHE[oldest_key]
     return p
 
 
@@ -132,12 +184,10 @@ def _ensure_safe(p: Path, allow_anywhere: bool = False) -> None:
     if allow_anywhere:
         return
     real = str(p)
-    for root in SAFE_ROOTS:
-        try:
-            root_real = str(root.resolve())
-        except Exception:
-            continue
-        if real == root_real or real.startswith(root_real + os.sep):
+    # Use pre-resolved safe roots (already resolved in SAFE_ROOTS)
+    for root_real in SAFE_ROOTS:
+        root_real_str = str(root_real)
+        if real == root_real_str or real.startswith(root_real_str + os.sep):
             return
     raise ToolError(
         f"Path '{p}' is outside MYRAA's safe folders (Desktop, Documents, "
@@ -253,7 +303,7 @@ def open_folder(args: Dict[str, Any]) -> Dict[str, Any]:
         raise ToolError(f"Folder does not exist: {folder}")
     # Explorer on Windows, open elsewhere.
     if platform.system() == "Windows":
-        subprocess.Popen(f'explorer "{folder}"', shell=True, close_fds=True)
+        subprocess.Popen(["explorer", str(folder)], close_fds=True)
     elif platform.system() == "Darwin":
         subprocess.Popen(["open", str(folder)], close_fds=True)
     else:

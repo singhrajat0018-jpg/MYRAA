@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1789198632.8049042,
+  "records": [
+    {
+      "id": "47c4025e-7762-4ec4-bf4c-cf8ffd06cc18",
+      "type": "semantic",
+      "content": "user level fact",
+      "summary": "user level fact",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789198632.8040087,
+      "updated_at": 1789198632.8040094,
+      "last_accessed_at": 1789198632.80401,
+      "event_time": null,
+      "importance": 0.8,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "user_defined",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "130b60f70c387a3a4b8302cc5735dd7b3964bfae4e8337b82ef147464bf510fc"
+    }
+  ]
+}

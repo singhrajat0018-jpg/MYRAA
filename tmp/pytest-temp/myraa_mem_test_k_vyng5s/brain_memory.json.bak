@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "saved_at": 1789198178.1025507,
+  "episodic": {
+    "next_id": 2,
+    "events": [
+      {
+        "id": 1,
+        "timestamp": 1789198178.1025379,
+        "category": "general",
+        "title": "a useful event",
+        "description": "",
+        "importance": 0.5,
+        "metadata": {}
+      }
+    ]
+  },
+  "semantic": {
+    "facts": {
+      "user_name": {
+        "key": "user_name",
+        "value": "Rahul",
+        "confidence": 1.0,
+        "source": "brain",
+        "created_at": 1789198178.0957544,
+        "updated_at": 1789198178.0957549,
+        "metadata": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1788699993.428285,
+  "records": [
+    {
+      "id": "de472acf-1d3a-4453-81ea-56a10eabca75",
+      "type": "semantic",
+      "content": "The budget for Q1 is $120K",
+      "summary": "",
+      "source": "finance_team",
+      "source_reference": null,
+      "scope": "project",
+      "project_id": "PROJECT_X",
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788699993.3770103,
+      "updated_at": 1788699993.3781285,
+      "last_accessed_at": 1788699993.3781579,
+      "event_time": null,
+      "importance": 0.7,
+      "confidence": 0.8200000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.9999999995571044,
+      "access_count": 1,
+      "version": 2,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "bd1dbc12a56b413a4819123711c79abb23359f0ba141d3faf92fb9e5a9803f44"
+    }
+  ]
+}

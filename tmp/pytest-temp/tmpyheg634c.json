@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1789882388.349751,
+  "records": [
+    {
+      "id": "b2c82d0f-122f-4f9c-8249-6e8d5728b8e2",
+      "type": "episodic",
+      "content": "Same event happened",
+      "summary": "Consolidated event: Same event happened",
+      "source": "observer",
+      "source_reference": null,
+      "scope": "session",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789882388.299503,
+      "updated_at": 1789882388.299503,
+      "last_accessed_at": 1789882388.2995875,
+      "event_time": null,
+      "importance": 0.5333333333333333,
+      "confidence": 0.76,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.9999999999673462,
+      "access_count": 1,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "184dd6ac6e3b4e8040c347efd92374407db468af24aedd4e6c5da1dde2bb8546"
+    }
+  ]
+}

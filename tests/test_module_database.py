@@ -1,22 +1,40 @@
 from pathlib import Path
 
 from desktop_agent.brain.knowledge.database.knowledge_db import KnowledgeDB
-from desktop_agent.brain.knowledge.indexer.module_indexer import ModuleIndexer
+from desktop_agent.brain.knowledge.module_models.module_info import ModuleInfo
 
 
-db = KnowledgeDB()
+def test_knowledge_db_saves_and_loads_modules(tmp_path: Path):
+    db = KnowledgeDB(tmp_path / "knowledge.db")
 
-indexer = ModuleIndexer(db)
+    db.save_module(
+        ModuleInfo(
+            workspace="MYRAA",
+            name="desktop_agent",
+            root=str(tmp_path / "desktop_agent"),
+            languages=["Python"],
+            frameworks=["FastAPI"],
+            dependencies=[],
+            entry_points=["main.py"],
+            package_managers=["requirements.txt"],
+            build_tools=[],
+            confidence=1.0,
+        )
+    )
 
-indexer.index(
-    "MYRAA",
-    Path.cwd(),
-)
+    assert db.get_modules() == [
+        {
+            "workspace": "MYRAA",
+            "name": "desktop_agent",
+            "root": str(tmp_path / "desktop_agent"),
+            "languages": ["Python"],
+            "frameworks": ["FastAPI"],
+            "dependencies": [],
+            "entry_points": ["main.py"],
+            "package_managers": ["requirements.txt"],
+            "build_tools": [],
+            "confidence": 1.0,
+        }
+    ]
 
-print()
-
-print("========== DATABASE ==========")
-
-for module in db.get_modules():
-
-    print(module)
+    db.close()

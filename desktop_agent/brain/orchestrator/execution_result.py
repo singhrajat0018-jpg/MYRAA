@@ -42,6 +42,11 @@ class ExecutionResult:
     last_tool: str = ""
 
     last_message: str = ""
+
+    # The actual tool-handler output (dict / text / structured data), when the
+    # dispatcher produced one. Preserved so /execute callers and the Node bridge
+    # can report exactly what happened, not just that a step completed.
+    result: Any = None
     # ---------------------------------------------
 
     @property

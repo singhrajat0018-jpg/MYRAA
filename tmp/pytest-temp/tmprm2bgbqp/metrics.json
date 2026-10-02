@@ -1,0 +1,25 @@
+{
+  "coding": {
+    "total_calls": 2,
+    "success_count": 2,
+    "failure_count": 0,
+    "total_latency_ms": 30.0,
+    "avg_latency_ms": 15.0,
+    "last_success": 1789187128.6862512,
+    "last_failure": 0.0,
+    "last_used": 1789187128.686252,
+    "recent_errors": [],
+    "history": [
+      {
+        "type": "success",
+        "latency_ms": 10.0,
+        "timestamp": 1789187128.6833286
+      },
+      {
+        "type": "success",
+        "latency_ms": 20.0,
+        "timestamp": 1789187128.6862535
+      }
+    ]
+  }
+}

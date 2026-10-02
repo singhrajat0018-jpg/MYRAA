@@ -1,0 +1,1498 @@
+{
+  "static_desktop": [
+    {
+      "scenario": "static_desktop",
+      "task_name": "Static Desktop Baseline",
+      "iterations": 3,
+      "target_resolution_latency": [
+        0.05459785461425781,
+        0.03266334533691406,
+        0.023126602172851562
+      ],
+      "action_latency": [
+        0.007152557373046875,
+        0.0054836273193359375,
+        0.0026226043701171875
+      ],
+      "verification_latency": [
+        0.0002384185791015625,
+        0.0007152557373046875,
+        0.0002384185791015625
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        533.7862968444824,
+        0.06341934204101562,
+        0.03528594970703125
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "snapshot_valid": true
+      }
+    },
+    {
+      "scenario": "static_desktop",
+      "task_name": "Static Desktop Baseline",
+      "iterations": 3,
+      "target_resolution_latency": [
+        0.049114227294921875,
+        0.026941299438476562,
+        0.0324249267578125
+      ],
+      "action_latency": [
+        0.0069141387939453125,
+        0.0050067901611328125,
+        0.003337860107421875
+      ],
+      "verification_latency": [
+        0.0002384185791015625,
+        0.000476837158203125,
+        0.0002384185791015625
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        527.5628566741943,
+        0.05078315734863281,
+        0.05173683166503906
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "snapshot_valid": true
+      }
+    },
+    {
+      "scenario": "static_desktop",
+      "task_name": "Static Desktop Baseline",
+      "iterations": 3,
+      "target_resolution_latency": [
+        0.05435943603515625,
+        0.028848648071289062,
+        0.04887580871582031
+      ],
+      "action_latency": [
+        0.008344650268554688,
+        0.0050067901611328125,
+        0.005245208740234375
+      ],
+      "verification_latency": [
+        0.00095367431640625,
+        0.0002384185791015625,
+        0.0002384185791015625
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        508.05091857910156,
+        0.054836273193359375,
+        0.09369850158691406
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "snapshot_valid": true
+      }
+    },
+    {
+      "scenario": "static_desktop",
+      "task_name": "Static Desktop Baseline",
+      "iterations": 3,
+      "target_resolution_latency": [
+        0.06270408630371094,
+        0.034809112548828125,
+        0.03552436828613281
+      ],
+      "action_latency": [
+        0.007152557373046875,
+        0.0050067901611328125,
+        0.004291534423828125
+      ],
+      "verification_latency": [
+        0.000476837158203125,
+        0.0007152557373046875,
+        0.0002384185791015625
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        456.7904472351074,
+        0.06270408630371094,
+        0.060558319091796875
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "snapshot_valid": true
+      }
+    }
+  ],
+  "active_browser": [
+    {
+      "scenario": "active_browser",
+      "task_name": "Active Browser Interactions",
+      "iterations": 3,
+      "target_resolution_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "action_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "verification_latency": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        18.0,
+        18.0,
+        18.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "note": "Simulated browser benchmark (browser not available in test env)"
+      }
+    },
+    {
+      "scenario": "active_browser",
+      "task_name": "Active Browser Interactions",
+      "iterations": 3,
+      "target_resolution_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "action_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "verification_latency": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        18.0,
+        18.0,
+        18.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "note": "Simulated browser benchmark (browser not available in test env)"
+      }
+    },
+    {
+      "scenario": "active_browser",
+      "task_name": "Active Browser Interactions",
+      "iterations": 3,
+      "target_resolution_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "action_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "verification_latency": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        18.0,
+        18.0,
+        18.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "note": "Simulated browser benchmark (browser not available in test env)"
+      }
+    },
+    {
+      "scenario": "active_browser",
+      "task_name": "Active Browser Interactions",
+      "iterations": 3,
+      "target_resolution_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "action_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "verification_latency": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        18.0,
+        18.0,
+        18.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "note": "Simulated browser benchmark (browser not available in test env)"
+      }
+    }
+  ],
+  "youtube_search": [
+    {
+      "scenario": "youtube_search",
+      "task_name": "YouTube Search End-to-End",
+      "iterations": 3,
+      "target_resolution_latency": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "action_latency": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "verification_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        125.0,
+        125.0,
+        125.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "query_processed": "test search query",
+        "results_found": true
+      }
+    },
+    {
+      "scenario": "youtube_search",
+      "task_name": "YouTube Search End-to-End",
+      "iterations": 3,
+      "target_resolution_latency": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "action_latency": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "verification_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        125.0,
+        125.0,
+        125.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "query_processed": "test search query",
+        "results_found": true
+      }
+    },
+    {
+      "scenario": "youtube_search",
+      "task_name": "YouTube Search End-to-End",
+      "iterations": 3,
+      "target_resolution_latency": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "action_latency": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "verification_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        125.0,
+        125.0,
+        125.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "query_processed": "test search query",
+        "results_found": true
+      }
+    },
+    {
+      "scenario": "youtube_search",
+      "task_name": "YouTube Search End-to-End",
+      "iterations": 3,
+      "target_resolution_latency": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "action_latency": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "verification_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        125.0,
+        125.0,
+        125.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "query_processed": "test search query",
+        "results_found": true
+      }
+    }
+  ],
+  "notepad_typing": [
+    {
+      "scenario": "notepad_typing",
+      "task_name": "Notepad Text Input",
+      "iterations": 3,
+      "target_resolution_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "action_latency": [
+        50.0,
+        50.0,
+        50.0
+      ],
+      "verification_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        63.0,
+        63.0,
+        63.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "characters_typed": 10,
+        "text_verified": true
+      }
+    },
+    {
+      "scenario": "notepad_typing",
+      "task_name": "Notepad Text Input",
+      "iterations": 3,
+      "target_resolution_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "action_latency": [
+        50.0,
+        50.0,
+        50.0
+      ],
+      "verification_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        63.0,
+        63.0,
+        63.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "characters_typed": 10,
+        "text_verified": true
+      }
+    },
+    {
+      "scenario": "notepad_typing",
+      "task_name": "Notepad Text Input",
+      "iterations": 3,
+      "target_resolution_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "action_latency": [
+        50.0,
+        50.0,
+        50.0
+      ],
+      "verification_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        63.0,
+        63.0,
+        63.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "characters_typed": 10,
+        "text_verified": true
+      }
+    },
+    {
+      "scenario": "notepad_typing",
+      "task_name": "Notepad Text Input",
+      "iterations": 3,
+      "target_resolution_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "action_latency": [
+        50.0,
+        50.0,
+        50.0
+      ],
+      "verification_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        63.0,
+        63.0,
+        63.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "characters_typed": 10,
+        "text_verified": true
+      }
+    }
+  ],
+  "dynamic_ui": [
+    {
+      "scenario": "dynamic_ui",
+      "task_name": "Dynamic UI Elements",
+      "iterations": 3,
+      "target_resolution_latency": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "action_latency": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "verification_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "recovery_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "end_to_end_latency": [
+        55.0,
+        55.0,
+        55.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "ui_changes_detected": 2,
+        "elements_relocated": 2
+      }
+    },
+    {
+      "scenario": "dynamic_ui",
+      "task_name": "Dynamic UI Elements",
+      "iterations": 3,
+      "target_resolution_latency": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "action_latency": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "verification_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "recovery_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "end_to_end_latency": [
+        55.0,
+        55.0,
+        55.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "ui_changes_detected": 2,
+        "elements_relocated": 2
+      }
+    },
+    {
+      "scenario": "dynamic_ui",
+      "task_name": "Dynamic UI Elements",
+      "iterations": 3,
+      "target_resolution_latency": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "action_latency": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "verification_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "recovery_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "end_to_end_latency": [
+        55.0,
+        55.0,
+        55.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "ui_changes_detected": 2,
+        "elements_relocated": 2
+      }
+    },
+    {
+      "scenario": "dynamic_ui",
+      "task_name": "Dynamic UI Elements",
+      "iterations": 3,
+      "target_resolution_latency": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "action_latency": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "verification_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "recovery_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "end_to_end_latency": [
+        55.0,
+        55.0,
+        55.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "ui_changes_detected": 2,
+        "elements_relocated": 2
+      }
+    }
+  ],
+  "moving_target": [
+    {
+      "scenario": "moving_target",
+      "task_name": "Moving Target Tracking",
+      "iterations": 3,
+      "target_resolution_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "action_latency": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "verification_latency": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "recovery_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "end_to_end_latency": [
+        49.0,
+        49.0,
+        49.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "movements_tracked": 3,
+        "tracking_accuracy": 0.95
+      }
+    },
+    {
+      "scenario": "moving_target",
+      "task_name": "Moving Target Tracking",
+      "iterations": 3,
+      "target_resolution_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "action_latency": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "verification_latency": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "recovery_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "end_to_end_latency": [
+        49.0,
+        49.0,
+        49.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "movements_tracked": 3,
+        "tracking_accuracy": 0.95
+      }
+    },
+    {
+      "scenario": "moving_target",
+      "task_name": "Moving Target Tracking",
+      "iterations": 3,
+      "target_resolution_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "action_latency": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "verification_latency": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "recovery_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "end_to_end_latency": [
+        49.0,
+        49.0,
+        49.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "movements_tracked": 3,
+        "tracking_accuracy": 0.95
+      }
+    },
+    {
+      "scenario": "moving_target",
+      "task_name": "Moving Target Tracking",
+      "iterations": 3,
+      "target_resolution_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "action_latency": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "verification_latency": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "recovery_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "end_to_end_latency": [
+        49.0,
+        49.0,
+        49.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "movements_tracked": 3,
+        "tracking_accuracy": 0.95
+      }
+    }
+  ],
+  "browser_navigation": [
+    {
+      "scenario": "browser_navigation",
+      "task_name": "Web Navigation",
+      "iterations": 3,
+      "target_resolution_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "action_latency": [
+        150.0,
+        150.0,
+        150.0
+      ],
+      "verification_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        165.0,
+        165.0,
+        165.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "pages_loaded": 1,
+        "navigation_successful": true
+      }
+    },
+    {
+      "scenario": "browser_navigation",
+      "task_name": "Web Navigation",
+      "iterations": 3,
+      "target_resolution_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "action_latency": [
+        150.0,
+        150.0,
+        150.0
+      ],
+      "verification_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        165.0,
+        165.0,
+        165.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "pages_loaded": 1,
+        "navigation_successful": true
+      }
+    },
+    {
+      "scenario": "browser_navigation",
+      "task_name": "Web Navigation",
+      "iterations": 3,
+      "target_resolution_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "action_latency": [
+        150.0,
+        150.0,
+        150.0
+      ],
+      "verification_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        165.0,
+        165.0,
+        165.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "pages_loaded": 1,
+        "navigation_successful": true
+      }
+    },
+    {
+      "scenario": "browser_navigation",
+      "task_name": "Web Navigation",
+      "iterations": 3,
+      "target_resolution_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "action_latency": [
+        150.0,
+        150.0,
+        150.0
+      ],
+      "verification_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "recovery_latency": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_to_end_latency": [
+        165.0,
+        165.0,
+        165.0
+      ],
+      "success_count": 3,
+      "recovery_count": 0,
+      "total_attempts": 3,
+      "metadata": {
+        "pages_loaded": 1,
+        "navigation_successful": true
+      }
+    }
+  ],
+  "target_disappearance": [
+    {
+      "scenario": "target_disappearance",
+      "task_name": "Target Disappearance Recovery",
+      "iterations": 3,
+      "target_resolution_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "action_latency": [
+        20.0,
+        20.0,
+        20.0
+      ],
+      "verification_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "recovery_latency": [
+        40.0,
+        40.0,
+        40.0
+      ],
+      "end_to_end_latency": [
+        73.0,
+        73.0,
+        73.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "disappearance_events": 1,
+        "recovery_successful": true
+      }
+    },
+    {
+      "scenario": "target_disappearance",
+      "task_name": "Target Disappearance Recovery",
+      "iterations": 3,
+      "target_resolution_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "action_latency": [
+        20.0,
+        20.0,
+        20.0
+      ],
+      "verification_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "recovery_latency": [
+        40.0,
+        40.0,
+        40.0
+      ],
+      "end_to_end_latency": [
+        73.0,
+        73.0,
+        73.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "disappearance_events": 1,
+        "recovery_successful": true
+      }
+    },
+    {
+      "scenario": "target_disappearance",
+      "task_name": "Target Disappearance Recovery",
+      "iterations": 3,
+      "target_resolution_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "action_latency": [
+        20.0,
+        20.0,
+        20.0
+      ],
+      "verification_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "recovery_latency": [
+        40.0,
+        40.0,
+        40.0
+      ],
+      "end_to_end_latency": [
+        73.0,
+        73.0,
+        73.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "disappearance_events": 1,
+        "recovery_successful": true
+      }
+    },
+    {
+      "scenario": "target_disappearance",
+      "task_name": "Target Disappearance Recovery",
+      "iterations": 3,
+      "target_resolution_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "action_latency": [
+        20.0,
+        20.0,
+        20.0
+      ],
+      "verification_latency": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "recovery_latency": [
+        40.0,
+        40.0,
+        40.0
+      ],
+      "end_to_end_latency": [
+        73.0,
+        73.0,
+        73.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "disappearance_events": 1,
+        "recovery_successful": true
+      }
+    }
+  ],
+  "ocr_degradation": [
+    {
+      "scenario": "ocr_degradation",
+      "task_name": "OCR Degradation Handling",
+      "iterations": 3,
+      "target_resolution_latency": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "action_latency": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "verification_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "recovery_latency": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "end_to_end_latency": [
+        60.0,
+        60.0,
+        60.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "ocr_confidence": 0.6,
+        "fallback_used": true
+      }
+    },
+    {
+      "scenario": "ocr_degradation",
+      "task_name": "OCR Degradation Handling",
+      "iterations": 3,
+      "target_resolution_latency": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "action_latency": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "verification_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "recovery_latency": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "end_to_end_latency": [
+        60.0,
+        60.0,
+        60.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "ocr_confidence": 0.6,
+        "fallback_used": true
+      }
+    },
+    {
+      "scenario": "ocr_degradation",
+      "task_name": "OCR Degradation Handling",
+      "iterations": 3,
+      "target_resolution_latency": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "action_latency": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "verification_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "recovery_latency": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "end_to_end_latency": [
+        60.0,
+        60.0,
+        60.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "ocr_confidence": 0.6,
+        "fallback_used": true
+      }
+    },
+    {
+      "scenario": "ocr_degradation",
+      "task_name": "OCR Degradation Handling",
+      "iterations": 3,
+      "target_resolution_latency": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "action_latency": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "verification_latency": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "recovery_latency": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "end_to_end_latency": [
+        60.0,
+        60.0,
+        60.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "ocr_confidence": 0.6,
+        "fallback_used": true
+      }
+    }
+  ],
+  "browser_disconnect": [
+    {
+      "scenario": "browser_disconnect",
+      "task_name": "Browser Disconnect Recovery",
+      "iterations": 3,
+      "target_resolution_latency": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "action_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "verification_latency": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "recovery_latency": [
+        60.0,
+        60.0,
+        60.0
+      ],
+      "end_to_end_latency": [
+        80.0,
+        80.0,
+        80.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "browser_disconnected": true,
+        "recovery_method": "desktop_control_fallback",
+        "recovery_successful": true
+      }
+    },
+    {
+      "scenario": "browser_disconnect",
+      "task_name": "Browser Disconnect Recovery",
+      "iterations": 3,
+      "target_resolution_latency": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "action_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "verification_latency": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "recovery_latency": [
+        60.0,
+        60.0,
+        60.0
+      ],
+      "end_to_end_latency": [
+        80.0,
+        80.0,
+        80.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "browser_disconnected": true,
+        "recovery_method": "desktop_control_fallback",
+        "recovery_successful": true
+      }
+    },
+    {
+      "scenario": "browser_disconnect",
+      "task_name": "Browser Disconnect Recovery",
+      "iterations": 3,
+      "target_resolution_latency": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "action_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "verification_latency": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "recovery_latency": [
+        60.0,
+        60.0,
+        60.0
+      ],
+      "end_to_end_latency": [
+        80.0,
+        80.0,
+        80.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "browser_disconnected": true,
+        "recovery_method": "desktop_control_fallback",
+        "recovery_successful": true
+      }
+    },
+    {
+      "scenario": "browser_disconnect",
+      "task_name": "Browser Disconnect Recovery",
+      "iterations": 3,
+      "target_resolution_latency": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "action_latency": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "verification_latency": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "recovery_latency": [
+        60.0,
+        60.0,
+        60.0
+      ],
+      "end_to_end_latency": [
+        80.0,
+        80.0,
+        80.0
+      ],
+      "success_count": 3,
+      "recovery_count": 3,
+      "total_attempts": 3,
+      "metadata": {
+        "browser_disconnected": true,
+        "recovery_method": "desktop_control_fallback",
+        "recovery_successful": true
+      }
+    }
+  ]
+}

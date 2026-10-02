@@ -1,8 +1,6 @@
 # MYRAA Desktop Control Agent — Python dependencies
 # Install with the Python 3.11 interpreter, e.g.:
 #   "C:\Users\MSI\AppData\Local\Programs\Python\Python311\python.exe" -m pip install -r requirements.txt
-# Then install the Playwright browser once:
-#   "C:\...\Python311\python.exe" -m playwright install chromium
 #
 # NOTE: pytesseract also requires the Tesseract OCR engine to be installed
 #       on Windows (https://github.com/UB-Mannheim/tesseract/wiki). OCR tools
@@ -12,7 +10,6 @@
 fastapi==0.115.6
 uvicorn[standard]==0.34.0
 pyautogui==0.9.54
-playwright==1.49.1
 psutil==6.1.1
 pywin32==308
 pyperclip==1.9.0
@@ -24,3 +21,19 @@ Send2Trash==1.8.3
 python-multipart==0.0.20
 # Best-effort NVIDIA GPU stats; optional import (graceful fallback if absent)
 nvidia-ml-py3==7.352.0
+# Trading Intelligence — market data
+yfinance==0.2.50
+# Voice — Gemini Live API ONLY (sole active voice provider)
+google-genai==2.14.0
+# Research — Tavily primary provider (imported by research_router / knowledge providers;
+# omitted previously, so a fresh install failed to import ResearchRouter).
+tavily-python==0.7.27
+# Screen capture + OCR / vision pipeline (mss fast screen grab, numpy frames, OpenCV image ops)
+mss==10.2.0
+numpy>=1.26
+opencv-python>=4.10
+# Config / env loading (imported by config/settings.py)
+python-dotenv==1.2.2
+# HTTP for model providers (Ollama provider, research providers) and file watching
+requests>=2.31
+watchdog>=4.0

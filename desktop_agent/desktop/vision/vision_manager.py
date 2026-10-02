@@ -1,29 +1,16 @@
 """
-MYRAA Vision V3
+MYRAA Vision V3 — Vision Manager
 
-Vision Manager
+Coordinates vision analysis by consuming the canonical
+ScreenShareEngine (single capture authority).
 
-Coordinates the complete live vision pipeline.
-
-Responsibilities
-----------------
-- Live Capture lifecycle
-- Frame processing pipeline
-- Desktop state updates
-- Screen transition detection
-- Vision event publishing
-
-This class never performs OCR, layout analysis or
-fusion directly. It only orchestrates the vision
-subsystems.
-
-Author
-------
-MYRAA Vision
+Phase 3.3: VisionManager no longer owns a capture engine.
+It reads frames from ScreenShareEngine and performs analysis.
 """
 
 from __future__ import annotations
 from .vision_pipeline import VisionPipeline
+import logging
 import threading
 import time
 
@@ -35,7 +22,6 @@ from .ocr_engine import OCREngine
 # appropriate backend import bhi yahan hoga
 from .desktop_state import DesktopState
 from .frame_difference import FrameDifference
-from .live_capture import LiveCaptureEngine
 from .screen_analyzer import (
     ScreenAnalyzer,
     ScreenSummary,
@@ -48,6 +34,9 @@ from .vision_context import (
     VisionContext,
     VisionContextBuilder,
 )
+
+
+log = logging.getLogger(__name__)
 
 
 # ==========================================================
@@ -77,9 +66,9 @@ class VisionManagerConfig:
 
 
 class VisionManager:
-
     """
-    Coordinates MYRAA's complete vision pipeline.
+    Vision analysis layer. Consumes ScreenShareEngine as the single
+    capture source. No longer owns a capture engine or capture thread.
     """
 
     # ------------------------------------------------------
@@ -87,8 +76,6 @@ class VisionManager:
     def __init__(
 
         self,
-
-        capture: Optional[LiveCaptureEngine] = None,
 
         frame_difference: Optional[FrameDifference] = None,
 
@@ -105,10 +92,8 @@ class VisionManager:
         self.config = config or VisionManagerConfig()
 
         # ------------------------------------------
-        # Core engines
+        # Analysis engines (NO capture engine)
         # ------------------------------------------
-
-        self.capture = capture or LiveCaptureEngine()
 
         self.frame_difference = (
             frame_difference or FrameDifference()
@@ -180,16 +165,17 @@ class VisionManager:
     # ======================================================
     # Lifecycle
     # ======================================================
-
-    def start(self):
+    def start(self, screen_share=None):
 
         """
-        Starts MYRAA live vision.
+        Start vision analysis. Consumes ScreenShareEngine for frames.
+        Does NOT start a capture engine — ScreenShareEngine is the source.
         """
 
         with self._lock:
 
             if self.running:
+
                 return
 
             self.running = True
@@ -198,9 +184,7 @@ class VisionManager:
 
             self._stop_event.clear()
 
-            if self.config.auto_start_capture:
-
-                self.capture.start()
+            self._screen_share = screen_share
 
             self._thread = threading.Thread(
 
@@ -215,23 +199,21 @@ class VisionManager:
             self._thread.start()
 
     # ------------------------------------------------------
-
     def stop(self):
 
         """
-        Stops live vision.
+        Stop vision analysis. Does NOT stop ScreenShareEngine.
         """
 
         with self._lock:
 
             if not self.running:
+
                 return
 
             self.running = False
 
             self._stop_event.set()
-
-            self.capture.stop()
 
             if self._thread is not None:
 
@@ -293,9 +275,9 @@ class VisionManager:
 
     def _vision_loop(self):
         """
-        Background vision worker.
+        Background vision worker — reads from ScreenShareEngine.
         """
-        print("[Vision] Loop started")
+        log.debug("Vision loop started (consuming ScreenShareEngine)")
         frame_interval = 1.0 / max(
             self.config.target_fps,
             1,
@@ -314,13 +296,13 @@ class VisionManager:
 
                 continue
 
-            start = time.perf_counter()
+            # Read frame from ScreenShareEngine (single capture authority)
+            if self._screen_share is None:
+                time.sleep(0.1)
+                continue
 
-            frame = self.capture.latest_image()
-            print(
-                "[Vision] latest_image =",
-                frame is not None
-            )
+            frame = self._screen_share.latest_image()
+            log.debug("latest_image = %s", frame is not None)
 
             if frame is None:
 
@@ -344,33 +326,9 @@ class VisionManager:
 
                 if self.config.debug:
 
-                    print(
+                    log.debug("Vision error: %s", exc)
 
-                        "[Vision]",
-
-                        exc,
-
-                    )
-
-            elapsed = (
-
-                time.perf_counter()
-
-                - start
-
-            )
-
-            remaining = (
-
-                frame_interval
-
-                - elapsed
-
-            )
-
-            if remaining > 0:
-
-                time.sleep(remaining)
+            time.sleep(frame_interval)
 
     # ======================================================
     # Frame Processing
@@ -389,7 +347,7 @@ class VisionManager:
         """
         Complete frame pipeline.
         """
-        print("[Vision] Processing frame")
+        log.debug("Processing frame")
         self.frame_index += 1
 
         # --------------------------------------
@@ -507,7 +465,7 @@ class VisionManager:
     # ======================================================
 
     def _publish_state(self):
-        print("[Vision] Publishing DesktopState")
+        log.debug("Publishing DesktopState")
         for callback in self._vision_callbacks:
 
             try:

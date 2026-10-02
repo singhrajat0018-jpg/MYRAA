@@ -1,6 +1,19 @@
-# Environment
+# Environment (NEVER commit secrets)
 .env
 .env.*
+secrets.json
+
+# Runtime data (personal memories, settings, conversations — NEVER commit PII)
+memories.json
+memories.json.bak
+settings.json
+conversation_history.json
+conversation_history.json.bak
+conversations/
+conversations_backup/
+capabilities/
+runtime/
+*.corrupt.*
 
 # Node
 node_modules/
@@ -8,6 +21,8 @@ node_modules/
 # Build
 dist/
 release/
+build/
+out/
 
 # Logs
 logs/
@@ -40,12 +55,11 @@ out/
 .vscode/
 .idea/
 
-node_modules/
-dist/
-build/
-node_modules/
-dist/
-release/
+# Packaging artifacts
 agent_dist/
 _internal/
 *.exe
+
+# Duplicate / backup copies
+*- Copy.*
+*- Copy

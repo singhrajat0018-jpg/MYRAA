@@ -10,9 +10,9 @@ Notes:
   must be listed as a hiddenimport or PyInstaller will not bundle it.
 - pywin32 / pycaw / comtypes have runtime-only submodules that also need to be
   declared explicitly.
-- Playwright is intentionally NOT bundled here: its ~300MB Chromium is only used
-  by the optional desktopBrowser* tools, whose imports are lazy and degrade
-  gracefully. Every other capability works without it.
+- Playwright is intentionally NOT bundled here (excluded below): MYRAA owns no
+  browser engine — URLs open in the Windows default browser and in-page
+  interaction is vision-based. Every capability works without Playwright.
 - console=False → the agent runs with no console window (silent background).
 """
 

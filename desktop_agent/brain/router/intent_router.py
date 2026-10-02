@@ -1,13 +1,16 @@
 from __future__ import annotations
+import logging
 
 from .route_result import RouteResult
 from . import command_patterns as p
 import re
 
+log = logging.getLogger(__name__)
+
 class IntentRouter:
 
     def route(self, text: str) -> RouteResult:
-        print(f"[ROUTER] Input: {repr(text)}")
+        log.debug("Input: %r", text)
         
         text = text.strip().lower()
 
@@ -20,7 +23,7 @@ class IntentRouter:
 
             query = match.group(1).strip()
 
-            print("[ROUTER] Matched: YOUTUBE SEARCH")
+            log.debug("Matched: YOUTUBE SEARCH")
 
             return RouteResult(
 
@@ -81,7 +84,7 @@ class IntentRouter:
             )
 
         if p.YOUTUBE_PATTERN.match(text):
-            print("[ROUTER] Matched: YOUTUBE")
+            log.debug("Matched: YOUTUBE")
             return RouteResult(
                 handled=True,
                 action="openWebsite",
@@ -91,7 +94,7 @@ class IntentRouter:
             )
 
         if p.CHROME_PATTERN.match(text):
-            print("[ROUTER] Matched: CHROME")
+            log.debug("Matched: CHROME")
             return RouteResult(
                 handled=True,
                 action="openApplication",
@@ -101,7 +104,7 @@ class IntentRouter:
             )
 
         if p.NOTEPAD_PATTERN.match(text):
-            print("[ROUTER] Matched: NOTEPAD")
+            log.debug("Matched: NOTEPAD")
             return RouteResult(
                 handled=True,
                 action="openApplication",
@@ -111,7 +114,7 @@ class IntentRouter:
             )
 
         if p.VSCODE_PATTERN.match(text):
-            print("[ROUTER] Matched: VSCODE")
+            log.debug("Matched: VSCODE")
             return RouteResult(
                 handled=True,
                 action="openApplication",
@@ -121,7 +124,7 @@ class IntentRouter:
             )
 
         if p.DESKTOP_PATTERN.match(text):
-            print("[ROUTER] Matched: DESKTOP")
+            log.debug("Matched: DESKTOP")
             return RouteResult(
                 handled=True,
                 action="openFolder",
@@ -131,7 +134,7 @@ class IntentRouter:
             )
 
         if p.DOWNLOADS_PATTERN.match(text):
-            print("[ROUTER] Matched: DOWNLOADS")
+            log.debug("Matched: DOWNLOADS")
             return RouteResult(
                 handled=True,
                 action="openFolder",
@@ -139,5 +142,43 @@ class IntentRouter:
                     "name": "Downloads",
                 },
             )
-        print("[ROUTER] No match")
+
+        # --------------------------------------------------------------
+        # Generic website open (single authority resolver).
+        # "open gmail", "visit reddit", "go to chatgpt",
+        # "open youtube in my browser" -> OPEN_URL with the canonical URL.
+        # Applications above keep precedence, so "open chrome" stays an app.
+        # --------------------------------------------------------------
+        site = self._resolve_website(text)
+        if site:
+            log.debug("Matched: OPEN_WEBSITE %s", site)
+            return RouteResult(
+                handled=True,
+                action="openWebsite",
+                parameters={"url": site},
+            )
+
+        log.debug("No match")
         return RouteResult()
+
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _resolve_website(text: str) -> str | None:
+        """Resolve a website-open command through the ONE website resolver.
+
+        The site table lives only in desktop_agent.tools_websites; this method
+        never keeps its own copy of any alias.
+        """
+        match = p.OPEN_WEBSITE_PATTERN.match(text)
+        if not match:
+            return None
+        candidate = p.BROWSER_CLAUSE_PATTERN.sub("", match.group(1)).strip()
+        candidate = candidate.strip(" .,!?\"'")
+        if not candidate:
+            return None
+        try:
+            from desktop_agent.tools_websites import resolve_site
+        except Exception:  # pragma: no cover - import guard
+            return None
+        return resolve_site(candidate)

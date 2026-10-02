@@ -1,0 +1,1996 @@
+[
+  {
+    "input_text": "Hello",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Hi",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Hey",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Hello Myraa",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Hey Myra",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "How are you",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Good morning",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Thanks",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Thank you",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Bye",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Goodbye",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "What can you do",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Who are you",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Stay with me",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "I'm bored",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Let's talk",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "OK",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Sure",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Yes",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "No",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Please",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "What's up",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Sup",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "Nice to meet you",
+    "input_type": "user_message",
+    "task_type": "conversation",
+    "response_mode": "fast_answer",
+    "information_source": "none",
+    "complexity": "trivial",
+    "model_route": "fastcore_direct",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "conversation"
+    },
+    "final_label": "conversation",
+    "dataset_family": "conversation"
+  },
+  {
+    "input_text": "What is Python",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "simple",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "knowledge"
+  },
+  {
+    "input_text": "What is RAM",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "simple",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "knowledge"
+  },
+  {
+    "input_text": "What is recursion",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "simple",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "knowledge"
+  },
+  {
+    "input_text": "Who is Alan Turing",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "simple",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "knowledge"
+  },
+  {
+    "input_text": "What is a CPU",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "simple",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "knowledge"
+  },
+  {
+    "input_text": "Explain OOP",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "simple",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "knowledge"
+  },
+  {
+    "input_text": "Define function",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "simple",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "knowledge"
+  },
+  {
+    "input_text": "How does a CPU work",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "simple",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "knowledge"
+  },
+  {
+    "input_text": "What is machine learning",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "simple",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "knowledge"
+  },
+  {
+    "input_text": "Difference between Python and Java",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "knowledge"
+  },
+  {
+    "input_text": "Latest Python version",
+    "input_type": "user_message",
+    "task_type": "current_information",
+    "response_mode": "research",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "web_search"
+    ],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "current_information"
+    },
+    "final_label": "current_information",
+    "dataset_family": "current"
+  },
+  {
+    "input_text": "Current stock price of Apple",
+    "input_type": "user_message",
+    "task_type": "trading_task",
+    "response_mode": "trading",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_large",
+    "safety_class": "financial",
+    "tools_required": true,
+    "tool_names": [
+      "trading_engine"
+    ],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "trading_task"
+    },
+    "final_label": "trading_task",
+    "dataset_family": "current"
+  },
+  {
+    "input_text": "Today's news",
+    "input_type": "user_message",
+    "task_type": "current_information",
+    "response_mode": "research",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "current_information"
+    },
+    "final_label": "current_information",
+    "dataset_family": "current"
+  },
+  {
+    "input_text": "What happened today",
+    "input_type": "user_message",
+    "task_type": "current_information",
+    "response_mode": "research",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "current_information"
+    },
+    "final_label": "current_information",
+    "dataset_family": "current"
+  },
+  {
+    "input_text": "Recent breakthroughs in AI",
+    "input_type": "user_message",
+    "task_type": "current_information",
+    "response_mode": "research",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "web_search"
+    ],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "current_information"
+    },
+    "final_label": "current_information",
+    "dataset_family": "current"
+  },
+  {
+    "input_text": "Market live updates",
+    "input_type": "user_message",
+    "task_type": "trading_task",
+    "response_mode": "trading",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_large",
+    "safety_class": "financial",
+    "tools_required": true,
+    "tool_names": [
+      "trading_engine"
+    ],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "trading_task"
+    },
+    "final_label": "trading_task",
+    "dataset_family": "current"
+  },
+  {
+    "input_text": "Open Notepad",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "openApplication"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "desktop"
+  },
+  {
+    "input_text": "Close Chrome",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "closeApplication"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "desktop"
+  },
+  {
+    "input_text": "Volume up",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "system_control"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "desktop"
+  },
+  {
+    "input_text": "Mute",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "system_control"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "desktop"
+  },
+  {
+    "input_text": "Shutdown the PC",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "power_action"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "desktop"
+  },
+  {
+    "input_text": "Take a screenshot",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "screenshot"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "desktop"
+  },
+  {
+    "input_text": "Copy selected text",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "clipboard"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "desktop"
+  },
+  {
+    "input_text": "Minimize window",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "window_control"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "desktop"
+  },
+  {
+    "input_text": "Click the button",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "input_control"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "desktop"
+  },
+  {
+    "input_text": "Brightness down",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "system_control"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "desktop"
+  },
+  {
+    "input_text": "Open YouTube",
+    "input_type": "user_message",
+    "task_type": "browser_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "browser"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "browser_action"
+    },
+    "final_label": "browser_action",
+    "dataset_family": "browser"
+  },
+  {
+    "input_text": "Search on Google",
+    "input_type": "user_message",
+    "task_type": "browser_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "browser"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "browser_action"
+    },
+    "final_label": "browser_action",
+    "dataset_family": "browser"
+  },
+  {
+    "input_text": "Navigate to github.com",
+    "input_type": "user_message",
+    "task_type": "browser_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "browser"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "browser_action"
+    },
+    "final_label": "browser_action",
+    "dataset_family": "browser"
+  },
+  {
+    "input_text": "Browse websites",
+    "input_type": "user_message",
+    "task_type": "browser_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "browser"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "browser_action"
+    },
+    "final_label": "browser_action",
+    "dataset_family": "browser"
+  },
+  {
+    "input_text": "Watch a video on YouTube",
+    "input_type": "user_message",
+    "task_type": "browser_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "browser"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "browser_action"
+    },
+    "final_label": "browser_action",
+    "dataset_family": "browser"
+  },
+  {
+    "input_text": "Create a file called test.txt",
+    "input_type": "user_message",
+    "task_type": "file_task",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "createFile"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "file_task"
+    },
+    "final_label": "file_task",
+    "dataset_family": "file"
+  },
+  {
+    "input_text": "Read the config file",
+    "input_type": "user_message",
+    "task_type": "file_task",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "readFile"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "file_task"
+    },
+    "final_label": "file_task",
+    "dataset_family": "file"
+  },
+  {
+    "input_text": "Delete old logs",
+    "input_type": "user_message",
+    "task_type": "file_task",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "deleteFile"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "file_task"
+    },
+    "final_label": "file_task",
+    "dataset_family": "file"
+  },
+  {
+    "input_text": "Rename report.docx to final.docx",
+    "input_type": "user_message",
+    "task_type": "file_task",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "renameFile"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "file_task"
+    },
+    "final_label": "file_task",
+    "dataset_family": "file"
+  },
+  {
+    "input_text": "List files in Documents",
+    "input_type": "user_message",
+    "task_type": "file_task",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "listFiles"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "file_task"
+    },
+    "final_label": "file_task",
+    "dataset_family": "file"
+  },
+  {
+    "input_text": "What's on my screen",
+    "input_type": "user_message",
+    "task_type": "vision_task",
+    "response_mode": "vision",
+    "information_source": "screen",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "screenshot",
+      "vision"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "vision_task"
+    },
+    "final_label": "vision_task",
+    "dataset_family": "vision"
+  },
+  {
+    "input_text": "What do you see",
+    "input_type": "user_message",
+    "task_type": "vision_task",
+    "response_mode": "vision",
+    "information_source": "screen",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "screenshot",
+      "vision"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "vision_task"
+    },
+    "final_label": "vision_task",
+    "dataset_family": "vision"
+  },
+  {
+    "input_text": "Read this chart",
+    "input_type": "user_message",
+    "task_type": "vision_task",
+    "response_mode": "vision",
+    "information_source": "screen",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "screenshot",
+      "vision"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "vision_task"
+    },
+    "final_label": "vision_task",
+    "dataset_family": "vision"
+  },
+  {
+    "input_text": "Analyze this screenshot",
+    "input_type": "user_message",
+    "task_type": "vision_task",
+    "response_mode": "vision",
+    "information_source": "screen",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "screenshot",
+      "vision"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "vision_task"
+    },
+    "final_label": "vision_task",
+    "dataset_family": "vision"
+  },
+  {
+    "input_text": "OCR this image",
+    "input_type": "user_message",
+    "task_type": "vision_task",
+    "response_mode": "vision",
+    "information_source": "screen",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "screenshot",
+      "vision"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "vision_task"
+    },
+    "final_label": "vision_task",
+    "dataset_family": "vision"
+  },
+  {
+    "input_text": "Analyze NIFTY",
+    "input_type": "user_message",
+    "task_type": "trading_task",
+    "response_mode": "trading",
+    "information_source": "local_model",
+    "complexity": "moderate",
+    "model_route": "local_large",
+    "safety_class": "financial",
+    "tools_required": true,
+    "tool_names": [
+      "trading_engine"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "trading_task"
+    },
+    "final_label": "trading_task",
+    "dataset_family": "trading"
+  },
+  {
+    "input_text": "What is the stock price of Reliance",
+    "input_type": "user_message",
+    "task_type": "trading_task",
+    "response_mode": "trading",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_large",
+    "safety_class": "financial",
+    "tools_required": true,
+    "tool_names": [
+      "trading_engine"
+    ],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "trading_task"
+    },
+    "final_label": "trading_task",
+    "dataset_family": "trading"
+  },
+  {
+    "input_text": "Show my portfolio",
+    "input_type": "user_message",
+    "task_type": "trading_task",
+    "response_mode": "trading",
+    "information_source": "local_model",
+    "complexity": "moderate",
+    "model_route": "local_large",
+    "safety_class": "financial",
+    "tools_required": true,
+    "tool_names": [
+      "trading_engine"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "trading_task"
+    },
+    "final_label": "trading_task",
+    "dataset_family": "trading"
+  },
+  {
+    "input_text": "Bank NIFTY trend",
+    "input_type": "user_message",
+    "task_type": "trading_task",
+    "response_mode": "trading",
+    "information_source": "local_model",
+    "complexity": "moderate",
+    "model_route": "local_large",
+    "safety_class": "financial",
+    "tools_required": true,
+    "tool_names": [
+      "trading_engine"
+    ],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "trading_task"
+    },
+    "final_label": "trading_task",
+    "dataset_family": "trading"
+  },
+  {
+    "input_text": "Build a Python project",
+    "input_type": "user_message",
+    "task_type": "coding_task",
+    "response_mode": "coding",
+    "information_source": "tool_execution",
+    "complexity": "complex",
+    "model_route": "local_large",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "code_execution"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "coding_task"
+    },
+    "final_label": "coding_task",
+    "dataset_family": "coding"
+  },
+  {
+    "input_text": "Write a script to sort files",
+    "input_type": "user_message",
+    "task_type": "coding_task",
+    "response_mode": "coding",
+    "information_source": "tool_execution",
+    "complexity": "complex",
+    "model_route": "local_large",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "code_execution"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "coding_task"
+    },
+    "final_label": "coding_task",
+    "dataset_family": "coding"
+  },
+  {
+    "input_text": "Debug this code",
+    "input_type": "user_message",
+    "task_type": "coding_task",
+    "response_mode": "coding",
+    "information_source": "tool_execution",
+    "complexity": "complex",
+    "model_route": "local_large",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "code_execution"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "coding_task"
+    },
+    "final_label": "coding_task",
+    "dataset_family": "coding"
+  },
+  {
+    "input_text": "Create a web scraper",
+    "input_type": "user_message",
+    "task_type": "coding_task",
+    "response_mode": "coding",
+    "information_source": "tool_execution",
+    "complexity": "complex",
+    "model_route": "local_large",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "code_execution"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "coding_task"
+    },
+    "final_label": "coding_task",
+    "dataset_family": "coding"
+  },
+  {
+    "input_text": "Design a futuristic bike",
+    "input_type": "user_message",
+    "task_type": "design_task",
+    "response_mode": "design",
+    "information_source": "local_model",
+    "complexity": "complex",
+    "model_route": "local_large",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "design_intelligence"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "design_task"
+    },
+    "final_label": "design_task",
+    "dataset_family": "design"
+  },
+  {
+    "input_text": "Sketch a motorcycle concept",
+    "input_type": "user_message",
+    "task_type": "design_task",
+    "response_mode": "design",
+    "information_source": "local_model",
+    "complexity": "complex",
+    "model_route": "local_large",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "design_intelligence"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "design_task"
+    },
+    "final_label": "design_task",
+    "dataset_family": "design"
+  },
+  {
+    "input_text": "Create a 3D model of a chair",
+    "input_type": "user_message",
+    "task_type": "design_task",
+    "response_mode": "design",
+    "information_source": "local_model",
+    "complexity": "complex",
+    "model_route": "local_large",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "design_intelligence"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "design_task"
+    },
+    "final_label": "design_task",
+    "dataset_family": "design"
+  },
+  {
+    "input_text": "Search for Python documentation",
+    "input_type": "user_message",
+    "task_type": "web_research",
+    "response_mode": "research",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "web_search"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "web_research"
+    },
+    "final_label": "web_research",
+    "dataset_family": "research"
+  },
+  {
+    "input_text": "Find official NVIDIA page",
+    "input_type": "user_message",
+    "task_type": "web_research",
+    "response_mode": "research",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "web_search"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "web_research"
+    },
+    "final_label": "web_research",
+    "dataset_family": "research"
+  },
+  {
+    "input_text": "Research latest AI models",
+    "input_type": "user_message",
+    "task_type": "web_research",
+    "response_mode": "research",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "web_search"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "web_research"
+    },
+    "final_label": "web_research",
+    "dataset_family": "research"
+  },
+  {
+    "input_text": "Compare React and Vue",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "research"
+  },
+  {
+    "input_text": "Hello, can you search Python",
+    "input_type": "user_message",
+    "task_type": "browser_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "browser"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "browser_action"
+    },
+    "final_label": "browser_action",
+    "dataset_family": "hard_negative"
+  },
+  {
+    "input_text": "Tell me about today's Python news",
+    "input_type": "user_message",
+    "task_type": "current_information",
+    "response_mode": "research",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "current_information"
+    },
+    "final_label": "current_information",
+    "dataset_family": "hard_negative"
+  },
+  {
+    "input_text": "Can you open the Python website",
+    "input_type": "user_message",
+    "task_type": "browser_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "browser"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "browser_action"
+    },
+    "final_label": "browser_action",
+    "dataset_family": "hard_negative"
+  },
+  {
+    "input_text": "What is the latest version of Python",
+    "input_type": "user_message",
+    "task_type": "current_information",
+    "response_mode": "research",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "web_search"
+    ],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "current_information"
+    },
+    "final_label": "current_information",
+    "dataset_family": "hard_negative"
+  },
+  {
+    "input_text": "Search YouTube for AI news",
+    "input_type": "user_message",
+    "task_type": "browser_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "simple",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "browser"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "browser_action"
+    },
+    "final_label": "browser_action",
+    "dataset_family": "hard_negative"
+  },
+  {
+    "input_text": "Read the screen and tell me what's there",
+    "input_type": "user_message",
+    "task_type": "vision_task",
+    "response_mode": "vision",
+    "information_source": "screen",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "screenshot",
+      "vision"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "vision_task"
+    },
+    "final_label": "vision_task",
+    "dataset_family": "hard_negative"
+  },
+  {
+    "input_text": "Create a file with today's news",
+    "input_type": "user_message",
+    "task_type": "file_task",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "moderate",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "file_task"
+    },
+    "final_label": "file_task",
+    "dataset_family": "hard_negative"
+  },
+  {
+    "input_text": "What's the weather like today",
+    "input_type": "user_message",
+    "task_type": "current_information",
+    "response_mode": "research",
+    "information_source": "tavily",
+    "complexity": "moderate",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [],
+    "freshness_required": true,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "current_information"
+    },
+    "final_label": "current_information",
+    "dataset_family": "hard_negative"
+  },
+  {
+    "input_text": "Open Notepad and write a Python script",
+    "input_type": "user_message",
+    "task_type": "desktop_action",
+    "response_mode": "action",
+    "information_source": "tool_execution",
+    "complexity": "moderate",
+    "model_route": "deterministic",
+    "safety_class": "safe",
+    "tools_required": true,
+    "tool_names": [
+      "openApplication"
+    ],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "desktop_action"
+    },
+    "final_label": "desktop_action",
+    "dataset_family": "hard_negative"
+  },
+  {
+    "input_text": "Explain how to use the open command",
+    "input_type": "user_message",
+    "task_type": "direct_knowledge",
+    "response_mode": "fast_answer",
+    "information_source": "local_model",
+    "complexity": "simple",
+    "model_route": "local_small",
+    "safety_class": "safe",
+    "tools_required": false,
+    "tool_names": [],
+    "freshness_required": false,
+    "entities": {},
+    "escalate": false,
+    "confidence": 0.9,
+    "teacher_votes": {
+      "deterministic": "direct_knowledge"
+    },
+    "final_label": "direct_knowledge",
+    "dataset_family": "hard_negative"
+  }
+]

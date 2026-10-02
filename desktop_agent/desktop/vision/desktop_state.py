@@ -49,11 +49,23 @@ class DesktopState:
 
     confidence: float = 0.0
 
-    active_window: str = ""
-
+    active_window_title: str = ""
+    active_window_hwnd: Optional[int] = None
     active_application: str = ""
 
+    # ScreenState attached by perception layer for backward compatibility
+    _screen_state: Optional[Any] = None
+
     metadata: Dict[str, Any] = field(default_factory=dict)
+
+    @property
+    def active_window(self) -> dict:
+        """Backwards compatible active_window property."""
+        return {
+            "title": self.active_window_title,
+            "application": self.active_application,
+            "hwnd": self.active_window_hwnd
+        }
 
     # ------------------------------------------------------
 
@@ -107,7 +119,8 @@ class DesktopState:
         screen_summary: ScreenSummary,
         changed_regions: Optional[List[Any]] = None,
         screen_hash: str = "",
-        active_window: str = "",
+        active_window_title: str = "",
+        active_window_hwnd: Optional[int] = None,
         active_application: str = "",
         confidence: Optional[float] = None,
     ) -> None:
@@ -127,8 +140,8 @@ class DesktopState:
 
         self.screen_hash = screen_hash
 
-        self.active_window = active_window
-
+        self.active_window_title = active_window_title
+        self.active_window_hwnd = active_window_hwnd
         self.active_application = active_application
 
         self.confidence = (
@@ -136,6 +149,20 @@ class DesktopState:
             if confidence is not None
             else screen_summary.confidence
         )
+
+    # ------------------------------------------------------
+
+    @property
+    def screen_state(self) -> Optional[Any]:
+        """
+        ScreenState attached to this DesktopState (set by Perception layer).
+        """
+        return getattr(self, '_screen_state', None)
+
+    @screen_state.setter
+    def screen_state(self, value: Any) -> None:
+        """Set ScreenState on this DesktopState."""
+        self._screen_state = value
 
     # ------------------------------------------------------
 
@@ -158,9 +185,14 @@ class DesktopState:
 
         self.confidence = 0.0
 
-        self.active_window = ""
+        self.active_window_title = ""
+
+        self.active_window_hwnd = None
 
         self.active_application = ""
+
+        if hasattr(self, '_screen_state'):
+            delattr(self, '_screen_state')
 
         self.metadata.clear()
 

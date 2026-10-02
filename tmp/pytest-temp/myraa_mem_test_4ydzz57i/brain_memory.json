@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "saved_at": 1789882060.033965,
+  "episodic": {
+    "next_id": 1,
+    "events": []
+  },
+  "semantic": {
+    "facts": {
+      "user_name": {
+        "key": "user_name",
+        "value": "Rahul",
+        "confidence": 1.0,
+        "source": "brain",
+        "created_at": 1789882060.0300672,
+        "updated_at": 1789882060.0300672,
+        "metadata": {}
+      },
+      "safe_note": {
+        "key": "safe_note",
+        "value": {
+          "value": "lasagna",
+          "count": 3
+        },
+        "confidence": 1.0,
+        "source": "brain",
+        "created_at": 1789882060.033962,
+        "updated_at": 1789882060.033962,
+        "metadata": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1788694885.7816958,
+  "records": [
+    {
+      "id": "993d6e6a-f30a-4705-b180-775d6996b209",
+      "type": "episodic",
+      "content": "User's current goal is to finish project",
+      "summary": "",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788694885.7303905,
+      "updated_at": 1788694885.7303908,
+      "last_accessed_at": 1788694885.730391,
+      "event_time": null,
+      "importance": 0.8,
+      "confidence": 0.8200000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 2,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": "cb517fb5-f753-4f1d-9097-bca77a414fe0",
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "20cca8cebaed70f6664f649effe3635ae6ee578002fcbe62bd6af38a28f8a3ef"
+    }
+  ]
+}

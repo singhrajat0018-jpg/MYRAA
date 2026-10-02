@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "saved_at": 1789804526.800943,
+  "records": [
+    {
+      "id": "67cdf46c-53a6-4731-ada9-f758d35d9022",
+      "type": "semantic",
+      "content": "the user practices acoustic guitar every evening",
+      "summary": "the user practices acoustic guitar every evening",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789804521.564505,
+      "updated_at": 1789804521.5645056,
+      "last_accessed_at": 1789804521.5645056,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "guitar",
+        "the user practices acoustic guitar every evening"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "d178c30416341dbe3a99900d1e96661ea9ce666d151c1c239775ff98543a79d1"
+    },
+    {
+      "id": "d414bdd0-6a4f-4499-b687-5b6d5fc60521",
+      "type": "semantic",
+      "content": "the user kayaks on the lake in summer",
+      "summary": "the user kayaks on the lake in summer",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789804521.5685358,
+      "updated_at": 1789804521.5685358,
+      "last_accessed_at": 1789804521.5685358,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "the user kayaks on the lake in summer",
+        "kayak"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {
+        "conflict_resolution": "mark_conflict",
+        "conflicts_with": [
+          "67cdf46c-53a6-4731-ada9-f758d35d9022"
+        ]
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "dd1b7511f95b1e80136bf596d4047c99df7e9bf7a4cc463b966c7bc1d2a62bbb"
+    }
+  ]
+}

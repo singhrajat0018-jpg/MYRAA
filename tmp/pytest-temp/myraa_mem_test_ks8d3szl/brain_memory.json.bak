@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "saved_at": 1789804505.9479744,
+  "episodic": {
+    "next_id": 2,
+    "events": [
+      {
+        "id": 1,
+        "timestamp": 1789804505.9479516,
+        "category": "general",
+        "title": "user asked about NIFTY",
+        "description": "",
+        "importance": 0.5,
+        "metadata": {}
+      }
+    ]
+  },
+  "semantic": {
+    "facts": {
+      "user_name": {
+        "key": "user_name",
+        "value": "Rahul",
+        "confidence": 1.0,
+        "source": "brain",
+        "created_at": 1789804505.9342093,
+        "updated_at": 1789804505.9342103,
+        "metadata": {}
+      }
+    }
+  }
+}

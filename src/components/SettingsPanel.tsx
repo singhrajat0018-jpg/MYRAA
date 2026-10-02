@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import {
   Settings,
   X,
@@ -125,26 +125,28 @@ export function SettingsPanel({ isOpen, onClose, settings, onChange, themeColor 
     return () => clearInterval(id);
   }, [isOpen]);
 
-  const getThemeBadgeGlow = () => {
+  // Memoized theme badge glow to prevent recalculation on every render
+  const getThemeBadgeGlow = useMemo(() => {
     switch (themeColor) {
       case "violet": return "border-purple-500/30 text-purple-400 bg-purple-500/10";
       case "crimson": return "border-rose-500/30 text-rose-400 bg-rose-500/10";
       case "emerald": return "border-emerald-500/30 text-emerald-400 bg-emerald-500/10";
       case "celestial": return "border-sky-500/30 text-sky-400 bg-sky-500/10";
-      case "gold": return "border-amber-500/30 text-amber-400 bg-amber-500/10";
+      case "gold": return "border-cyan-500/30 text-cyan-400 bg-cyan-500/10";
       case "rose": return "border-pink-500/30 text-pink-400 bg-pink-500/10";
       case "charcoal":
       default:
         return "border-indigo-500/30 text-indigo-400 bg-indigo-500/10";
     }
-  };
+  }, [themeColor]);
 
-  const tabs: { id: SettingsTab; label: string; icon: any }[] = [
+  // Memoized tabs configuration to prevent recreation on every render
+  const tabs = useMemo<{ id: SettingsTab; label: string; icon: any }[]>(() => [
     { id: "general", label: "GENERAL", icon: Power },
     { id: "voice", label: "VOICE", icon: Mic },
     { id: "system", label: "SYSTEM", icon: Cpu },
     { id: "about", label: "ABOUT", icon: Info },
-  ];
+  ], []);
 
   return (
     <AnimatePresence>
@@ -170,7 +172,7 @@ export function SettingsPanel({ isOpen, onClose, settings, onChange, themeColor 
             {/* Header */}
             <div className="p-6 border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className={`p-2.5 rounded-xl border ${getThemeBadgeGlow()}`}>
+                <div className={`p-2.5 rounded-xl border ${getThemeBadgeGlow}`}>
                   <Settings size={22} className="animate-spin [animation-duration:6s]" />
                 </div>
                 <div>
@@ -415,9 +417,9 @@ export function SettingsPanel({ isOpen, onClose, settings, onChange, themeColor 
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl border border-amber-500/15 bg-amber-500/5 flex items-start gap-2">
-                    <AlertTriangle size={12} className="text-amber-400 shrink-0 mt-0.5" />
-                    <span className="text-[10px] font-mono text-amber-300/70 leading-relaxed">
+                  <div className="p-3 rounded-xl border border-cyan-500/15 bg-cyan-500/5 flex items-start gap-2">
+                    <AlertTriangle size={12} className="text-cyan-400 shrink-0 mt-0.5" />
+                    <span className="text-[10px] font-mono text-cyan-300/70 leading-relaxed">
                       Keep this tab active for wake-word detection. Microphone access
                       is required for voice activation.
                     </span>

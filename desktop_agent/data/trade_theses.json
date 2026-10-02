@@ -1,0 +1,34 @@
+[
+  {
+    "thesis_id": "test_001",
+    "symbol": "TEST_STORE",
+    "direction": "LONG",
+    "entry_rationale": "Test thesis",
+    "invalidation": "Stop at 95",
+    "date_created": "2026-09-20T05:28:41.533222",
+    "date_resolved": null,
+    "outcome": "",
+    "entry_price": 100,
+    "exit_price": 0.0,
+    "pnl_percent": 0.0,
+    "status": "ACTIVE",
+    "post_trade_review": "",
+    "tags": []
+  },
+  {
+    "thesis_id": "test_002",
+    "symbol": "TEST_ACTIVE",
+    "direction": "LONG",
+    "entry_rationale": "Active test",
+    "invalidation": "Stop at 95",
+    "date_created": "2026-09-20T05:28:41.535668",
+    "date_resolved": null,
+    "outcome": "",
+    "entry_price": 100,
+    "exit_price": 0.0,
+    "pnl_percent": 0.0,
+    "status": "ACTIVE",
+    "post_trade_review": "",
+    "tags": []
+  }
+]

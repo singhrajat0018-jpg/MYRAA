@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "saved_at": 1789186583.176039,
+  "records": [
+    {
+      "id": "cb9540f1-26b0-44eb-92d3-c327c602b53b",
+      "type": "semantic",
+      "content": "user_role: developer",
+      "summary": "developer",
+      "source": "brain",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789186583.122375,
+      "updated_at": 1789186583.122375,
+      "last_accessed_at": 1789186583.1223752,
+      "event_time": null,
+      "importance": 0.7,
+      "confidence": 1.0,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "user_role"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {
+        "key": "user_role"
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "b72eec2de6024621acdcb27bd2055f4f7f3bea4abc4e6aa666a8f0c938c52543"
+    }
+  ]
+}

@@ -50,9 +50,10 @@ class SemanticMemory:
     Long-term knowledge storage.
     """
 
-    def __init__(self):
+    def __init__(self, max_facts: int = 10000):
 
         self._knowledge: dict[str, Knowledge] = {}
+        self._max_facts = max_facts
 
         self._lock = threading.RLock()
 
@@ -93,6 +94,13 @@ class SemanticMemory:
                     item.metadata.update(metadata)
 
                 return item
+
+            # If we're at capacity, remove the oldest entry (simple FIFO eviction)
+            if len(self._knowledge) >= self._max_facts:
+                # Remove the oldest item based on created_at timestamp
+                oldest_key = min(self._knowledge.keys(),
+                               key=lambda k: self._knowledge[k].created_at)
+                del self._knowledge[oldest_key]
 
             item = Knowledge(
 

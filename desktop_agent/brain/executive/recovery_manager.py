@@ -115,26 +115,37 @@ class RecoveryManager:
     ) -> bool:
         """
         Generic recovery behaviour.
+
+        Returns True only on the first 2 attempts; after that, returns False
+        to prevent infinite retry loops on permanently-failing tools.
         """
+        # Track attempts per tool to prevent infinite loops
+        if not hasattr(self, "_default_recovery_counts"):
+            self._default_recovery_counts = {}
+
+        count = self._default_recovery_counts.get(tool_name, 0) + 1
+        self._default_recovery_counts[tool_name] = count
 
         logger.info(
-            "Using default recovery for %s",
+            "Default recovery for %s (attempt %d/3)",
             tool_name,
+            count,
         )
 
-        try:
-
-            # Small cooldown before next attempt
-            time.sleep(1)
-
-            return True
-
-        except Exception:
-
-            logger.exception(
-                "Default recovery failed."
+        if count > 3:
+            logger.warning(
+                "Default recovery exhausted for %s after %d attempts",
+                tool_name,
+                count,
             )
+            self._default_recovery_counts[tool_name] = 0
+            return False
 
+        try:
+            time.sleep(min(count, 2))
+            return True
+        except Exception:
+            logger.exception("Recovery sleep failed for %s", tool_name)
             return False
 
     # ---------------------------------------------------------

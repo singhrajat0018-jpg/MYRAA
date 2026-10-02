@@ -1,0 +1,515 @@
+{
+  "coding": {
+    "total_calls": 149,
+    "success_count": 149,
+    "failure_count": 0,
+    "total_latency_ms": 11026.0,
+    "avg_latency_ms": 74.0,
+    "last_success": 1789830153.4367797,
+    "last_failure": 0.0,
+    "last_used": 1789830153.4367802,
+    "recent_errors": [],
+    "history": [
+      {
+        "type": "success",
+        "latency_ms": 49.0,
+        "timestamp": 1789830152.8770971
+      },
+      {
+        "type": "success",
+        "latency_ms": 50.0,
+        "timestamp": 1789830152.8825145
+      },
+      {
+        "type": "success",
+        "latency_ms": 51.0,
+        "timestamp": 1789830152.8864958
+      },
+      {
+        "type": "success",
+        "latency_ms": 52.0,
+        "timestamp": 1789830152.8890421
+      },
+      {
+        "type": "success",
+        "latency_ms": 53.0,
+        "timestamp": 1789830152.8931992
+      },
+      {
+        "type": "success",
+        "latency_ms": 54.0,
+        "timestamp": 1789830152.8975196
+      },
+      {
+        "type": "success",
+        "latency_ms": 55.0,
+        "timestamp": 1789830152.9016845
+      },
+      {
+        "type": "success",
+        "latency_ms": 56.0,
+        "timestamp": 1789830152.907003
+      },
+      {
+        "type": "success",
+        "latency_ms": 57.0,
+        "timestamp": 1789830152.912444
+      },
+      {
+        "type": "success",
+        "latency_ms": 58.0,
+        "timestamp": 1789830152.9190593
+      },
+      {
+        "type": "success",
+        "latency_ms": 59.0,
+        "timestamp": 1789830152.9265096
+      },
+      {
+        "type": "success",
+        "latency_ms": 60.0,
+        "timestamp": 1789830152.9310362
+      },
+      {
+        "type": "success",
+        "latency_ms": 61.0,
+        "timestamp": 1789830152.934148
+      },
+      {
+        "type": "success",
+        "latency_ms": 62.0,
+        "timestamp": 1789830152.941348
+      },
+      {
+        "type": "success",
+        "latency_ms": 63.0,
+        "timestamp": 1789830152.9473736
+      },
+      {
+        "type": "success",
+        "latency_ms": 64.0,
+        "timestamp": 1789830152.9581919
+      },
+      {
+        "type": "success",
+        "latency_ms": 65.0,
+        "timestamp": 1789830152.9617743
+      },
+      {
+        "type": "success",
+        "latency_ms": 66.0,
+        "timestamp": 1789830152.9647818
+      },
+      {
+        "type": "success",
+        "latency_ms": 67.0,
+        "timestamp": 1789830152.9698157
+      },
+      {
+        "type": "success",
+        "latency_ms": 68.0,
+        "timestamp": 1789830152.975185
+      },
+      {
+        "type": "success",
+        "latency_ms": 69.0,
+        "timestamp": 1789830152.9801316
+      },
+      {
+        "type": "success",
+        "latency_ms": 70.0,
+        "timestamp": 1789830152.9879138
+      },
+      {
+        "type": "success",
+        "latency_ms": 71.0,
+        "timestamp": 1789830152.991189
+      },
+      {
+        "type": "success",
+        "latency_ms": 72.0,
+        "timestamp": 1789830152.9935195
+      },
+      {
+        "type": "success",
+        "latency_ms": 73.0,
+        "timestamp": 1789830152.996592
+      },
+      {
+        "type": "success",
+        "latency_ms": 74.0,
+        "timestamp": 1789830152.9998977
+      },
+      {
+        "type": "success",
+        "latency_ms": 75.0,
+        "timestamp": 1789830153.0042965
+      },
+      {
+        "type": "success",
+        "latency_ms": 76.0,
+        "timestamp": 1789830153.0098445
+      },
+      {
+        "type": "success",
+        "latency_ms": 77.0,
+        "timestamp": 1789830153.0132241
+      },
+      {
+        "type": "success",
+        "latency_ms": 78.0,
+        "timestamp": 1789830153.018194
+      },
+      {
+        "type": "success",
+        "latency_ms": 79.0,
+        "timestamp": 1789830153.0222423
+      },
+      {
+        "type": "success",
+        "latency_ms": 80.0,
+        "timestamp": 1789830153.0254312
+      },
+      {
+        "type": "success",
+        "latency_ms": 81.0,
+        "timestamp": 1789830153.030876
+      },
+      {
+        "type": "success",
+        "latency_ms": 82.0,
+        "timestamp": 1789830153.0366974
+      },
+      {
+        "type": "success",
+        "latency_ms": 83.0,
+        "timestamp": 1789830153.0416236
+      },
+      {
+        "type": "success",
+        "latency_ms": 84.0,
+        "timestamp": 1789830153.0473995
+      },
+      {
+        "type": "success",
+        "latency_ms": 85.0,
+        "timestamp": 1789830153.050994
+      },
+      {
+        "type": "success",
+        "latency_ms": 86.0,
+        "timestamp": 1789830153.054739
+      },
+      {
+        "type": "success",
+        "latency_ms": 87.0,
+        "timestamp": 1789830153.0580008
+      },
+      {
+        "type": "success",
+        "latency_ms": 88.0,
+        "timestamp": 1789830153.0607374
+      },
+      {
+        "type": "success",
+        "latency_ms": 89.0,
+        "timestamp": 1789830153.0636444
+      },
+      {
+        "type": "success",
+        "latency_ms": 90.0,
+        "timestamp": 1789830153.0672133
+      },
+      {
+        "type": "success",
+        "latency_ms": 91.0,
+        "timestamp": 1789830153.0709412
+      },
+      {
+        "type": "success",
+        "latency_ms": 92.0,
+        "timestamp": 1789830153.074494
+      },
+      {
+        "type": "success",
+        "latency_ms": 93.0,
+        "timestamp": 1789830153.0800788
+      },
+      {
+        "type": "success",
+        "latency_ms": 94.0,
+        "timestamp": 1789830153.0857136
+      },
+      {
+        "type": "success",
+        "latency_ms": 95.0,
+        "timestamp": 1789830153.0891404
+      },
+      {
+        "type": "success",
+        "latency_ms": 96.0,
+        "timestamp": 1789830153.094753
+      },
+      {
+        "type": "success",
+        "latency_ms": 97.0,
+        "timestamp": 1789830153.0977843
+      },
+      {
+        "type": "success",
+        "latency_ms": 98.0,
+        "timestamp": 1789830153.1014383
+      },
+      {
+        "type": "success",
+        "latency_ms": 99.0,
+        "timestamp": 1789830153.105589
+      },
+      {
+        "type": "success",
+        "latency_ms": 100.0,
+        "timestamp": 1789830153.1101248
+      },
+      {
+        "type": "success",
+        "latency_ms": 101.0,
+        "timestamp": 1789830153.116956
+      },
+      {
+        "type": "success",
+        "latency_ms": 102.0,
+        "timestamp": 1789830153.122506
+      },
+      {
+        "type": "success",
+        "latency_ms": 103.0,
+        "timestamp": 1789830153.1289265
+      },
+      {
+        "type": "success",
+        "latency_ms": 104.0,
+        "timestamp": 1789830153.1345925
+      },
+      {
+        "type": "success",
+        "latency_ms": 105.0,
+        "timestamp": 1789830153.1393232
+      },
+      {
+        "type": "success",
+        "latency_ms": 106.0,
+        "timestamp": 1789830153.143133
+      },
+      {
+        "type": "success",
+        "latency_ms": 107.0,
+        "timestamp": 1789830153.1483848
+      },
+      {
+        "type": "success",
+        "latency_ms": 108.0,
+        "timestamp": 1789830153.1525126
+      },
+      {
+        "type": "success",
+        "latency_ms": 109.0,
+        "timestamp": 1789830153.1574657
+      },
+      {
+        "type": "success",
+        "latency_ms": 110.0,
+        "timestamp": 1789830153.160775
+      },
+      {
+        "type": "success",
+        "latency_ms": 111.0,
+        "timestamp": 1789830153.1656976
+      },
+      {
+        "type": "success",
+        "latency_ms": 112.0,
+        "timestamp": 1789830153.1690645
+      },
+      {
+        "type": "success",
+        "latency_ms": 113.0,
+        "timestamp": 1789830153.1748428
+      },
+      {
+        "type": "success",
+        "latency_ms": 114.0,
+        "timestamp": 1789830153.1792123
+      },
+      {
+        "type": "success",
+        "latency_ms": 115.0,
+        "timestamp": 1789830153.1853487
+      },
+      {
+        "type": "success",
+        "latency_ms": 116.0,
+        "timestamp": 1789830153.198977
+      },
+      {
+        "type": "success",
+        "latency_ms": 117.0,
+        "timestamp": 1789830153.213639
+      },
+      {
+        "type": "success",
+        "latency_ms": 118.0,
+        "timestamp": 1789830153.2261186
+      },
+      {
+        "type": "success",
+        "latency_ms": 119.0,
+        "timestamp": 1789830153.2364311
+      },
+      {
+        "type": "success",
+        "latency_ms": 120.0,
+        "timestamp": 1789830153.2560987
+      },
+      {
+        "type": "success",
+        "latency_ms": 121.0,
+        "timestamp": 1789830153.2659996
+      },
+      {
+        "type": "success",
+        "latency_ms": 122.0,
+        "timestamp": 1789830153.2735925
+      },
+      {
+        "type": "success",
+        "latency_ms": 123.0,
+        "timestamp": 1789830153.2919114
+      },
+      {
+        "type": "success",
+        "latency_ms": 124.0,
+        "timestamp": 1789830153.2983003
+      },
+      {
+        "type": "success",
+        "latency_ms": 125.0,
+        "timestamp": 1789830153.3039
+      },
+      {
+        "type": "success",
+        "latency_ms": 126.0,
+        "timestamp": 1789830153.3090315
+      },
+      {
+        "type": "success",
+        "latency_ms": 127.0,
+        "timestamp": 1789830153.3195405
+      },
+      {
+        "type": "success",
+        "latency_ms": 128.0,
+        "timestamp": 1789830153.328622
+      },
+      {
+        "type": "success",
+        "latency_ms": 129.0,
+        "timestamp": 1789830153.3375487
+      },
+      {
+        "type": "success",
+        "latency_ms": 130.0,
+        "timestamp": 1789830153.3436573
+      },
+      {
+        "type": "success",
+        "latency_ms": 131.0,
+        "timestamp": 1789830153.3482194
+      },
+      {
+        "type": "success",
+        "latency_ms": 132.0,
+        "timestamp": 1789830153.354672
+      },
+      {
+        "type": "success",
+        "latency_ms": 133.0,
+        "timestamp": 1789830153.3613017
+      },
+      {
+        "type": "success",
+        "latency_ms": 134.0,
+        "timestamp": 1789830153.3662472
+      },
+      {
+        "type": "success",
+        "latency_ms": 135.0,
+        "timestamp": 1789830153.370621
+      },
+      {
+        "type": "success",
+        "latency_ms": 136.0,
+        "timestamp": 1789830153.3747053
+      },
+      {
+        "type": "success",
+        "latency_ms": 137.0,
+        "timestamp": 1789830153.3790097
+      },
+      {
+        "type": "success",
+        "latency_ms": 138.0,
+        "timestamp": 1789830153.382224
+      },
+      {
+        "type": "success",
+        "latency_ms": 139.0,
+        "timestamp": 1789830153.38832
+      },
+      {
+        "type": "success",
+        "latency_ms": 140.0,
+        "timestamp": 1789830153.3959355
+      },
+      {
+        "type": "success",
+        "latency_ms": 141.0,
+        "timestamp": 1789830153.4013162
+      },
+      {
+        "type": "success",
+        "latency_ms": 142.0,
+        "timestamp": 1789830153.4064848
+      },
+      {
+        "type": "success",
+        "latency_ms": 143.0,
+        "timestamp": 1789830153.4100745
+      },
+      {
+        "type": "success",
+        "latency_ms": 144.0,
+        "timestamp": 1789830153.4153259
+      },
+      {
+        "type": "success",
+        "latency_ms": 145.0,
+        "timestamp": 1789830153.4258592
+      },
+      {
+        "type": "success",
+        "latency_ms": 146.0,
+        "timestamp": 1789830153.428853
+      },
+      {
+        "type": "success",
+        "latency_ms": 147.0,
+        "timestamp": 1789830153.4314957
+      },
+      {
+        "type": "success",
+        "latency_ms": 148.0,
+        "timestamp": 1789830153.436782
+      }
+    ]
+  }
+}

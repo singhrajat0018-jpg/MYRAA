@@ -62,6 +62,7 @@ def request_power_action(args: Dict[str, Any]) -> Dict[str, Any]:
     label = ACTION_LABEL[action]
     return {
         "requires_confirmation": True,
+        "action": action,
         "token": token,
         "expires_in_seconds": int(TOKEN_TTL_SECONDS),
         "result": (

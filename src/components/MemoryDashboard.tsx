@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { Memory, MemoryCategory } from "../lib/memoryTypes";
-import { 
-  Brain, 
-  X, 
-  Trash2, 
-  Plus, 
-  User, 
-  Heart, 
-  Target, 
-  Briefcase, 
-  Users, 
-  Flame, 
+import {
+  Brain,
+  X,
+  Trash2,
+  Plus,
+  User,
+  Heart,
+  Target,
+  Briefcase,
+  Users,
+  Flame,
   Sparkles,
   RefreshCw
 } from "lucide-react";
@@ -39,69 +39,73 @@ export function MemoryDashboard({
   const [isAdding, setIsAdding] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  // Category Configuration
-  const categoryConfig: Record<MemoryCategory, { label: string; icon: any; color: string; bg: string }> = {
-    identity: { 
-      label: "Identity Core", 
-      icon: User, 
-      color: "text-amber-400 border-amber-500/25", 
-      bg: "bg-amber-500/5 hover:bg-amber-500/10" 
+  // Memoized category configuration to prevent recreation on every render
+  const categoryConfig = useMemo<Record<MemoryCategory, { label: string; icon: any; color: string; bg: string }>>(() => ({
+    identity: {
+      label: "Identity Core",
+      icon: User,
+      color: "text-cyan-400 border-cyan-500/25",
+      bg: "bg-cyan-500/5 hover:bg-cyan-500/10"
     },
-    preference: { 
-      label: "Preferences", 
-      icon: Heart, 
-      color: "text-pink-400 border-pink-500/25", 
-      bg: "bg-pink-500/5 hover:bg-pink-500/10" 
+    preference: {
+      label: "Preferences",
+      icon: Heart,
+      color: "text-pink-400 border-pink-500/25",
+      bg: "bg-pink-500/5 hover:bg-pink-500/10"
     },
-    goal: { 
-      label: "Life Goals", 
-      icon: Target, 
-      color: "text-emerald-400 border-emerald-500/25", 
-      bg: "bg-emerald-500/5 hover:bg-emerald-500/10" 
+    goal: {
+      label: "Life Goals",
+      icon: Target,
+      color: "text-emerald-400 border-emerald-500/25",
+      bg: "bg-emerald-500/5 hover:bg-emerald-500/10"
     },
-    project: { 
-      label: "Active Projects", 
-      icon: Briefcase, 
-      color: "text-cyan-400 border-cyan-500/25", 
-      bg: "bg-cyan-500/5 hover:bg-cyan-500/10" 
+    project: {
+      label: "Active Projects",
+      icon: Briefcase,
+      color: "text-cyan-400 border-cyan-500/25",
+      bg: "bg-cyan-500/5 hover:bg-cyan-500/10"
     },
-    relationship: { 
-      label: "Relationships", 
-      icon: Users, 
-      color: "text-purple-400 border-purple-500/25", 
-      bg: "bg-purple-500/5 hover:bg-purple-500/10" 
+    relationship: {
+      label: "Relationships",
+      icon: Users,
+      color: "text-purple-400 border-purple-500/25",
+      bg: "bg-purple-500/5 hover:bg-purple-500/10"
     },
-    emotional: { 
-      label: "Milestones", 
-      icon: Flame, 
-      color: "text-red-400 border-red-500/25", 
-      bg: "bg-red-500/5 hover:bg-red-500/10" 
+    emotional: {
+      label: "Milestones",
+      icon: Flame,
+      color: "text-red-400 border-red-500/25",
+      bg: "bg-red-500/5 hover:bg-red-500/10"
     },
-    behavior: { 
-      label: "Behaviors & Habits", 
-      icon: Brain, 
-      color: "text-indigo-400 border-indigo-500/25", 
-      bg: "bg-indigo-500/5 hover:bg-indigo-500/10" 
+    behavior: {
+      label: "Behaviors & Habits",
+      icon: Brain,
+      color: "text-indigo-400 border-indigo-500/25",
+      bg: "bg-indigo-500/5 hover:bg-indigo-500/10"
     },
-  };
+  }), []);
 
-  const getThemeBadgeGlow = () => {
+  // Memoized theme badge glow to prevent recalculation
+  const getThemeBadgeGlow = useCallback(() => {
     switch (themeColor) {
       case "violet": return "border-purple-500/30 text-purple-400 bg-purple-500/10";
       case "crimson": return "border-rose-500/30 text-rose-400 bg-rose-500/10";
       case "emerald": return "border-emerald-500/30 text-emerald-400 bg-emerald-500/10";
       case "celestial": return "border-sky-500/30 text-sky-400 bg-sky-500/10";
-      case "gold": return "border-amber-500/30 text-amber-400 bg-amber-500/10";
+      case "gold": return "border-cyan-500/30 text-cyan-400 bg-cyan-500/10";
       case "rose": return "border-pink-500/30 text-pink-400 bg-pink-500/10";
       case "charcoal":
       default:
         return "border-indigo-500/30 text-indigo-400 bg-indigo-500/10";
     }
-  };
+  }, [themeColor]);
 
-  const filteredMemories = activeTab === "all" 
-    ? memories 
-    : memories.filter(m => m.category === activeTab);
+  // Memoized filtered memories to prevent recalculation on every render
+  const filteredMemories = useMemo(() => {
+    return activeTab === "all"
+      ? memories
+      : memories.filter(m => m.category === activeTab);
+  }, [activeTab, memories]);
 
   const handleManualAdd = async (e: React.FormEvent) => {
     e.preventDefault();

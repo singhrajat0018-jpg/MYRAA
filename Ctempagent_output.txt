@@ -1,0 +1,300 @@
+[15:38:09] [INFO] Loaded 89 desktop tools: _cancelPowerTimer, activateWindow, analyzeScreenshot, brightnessDown, brightnessUp, clearClipboard, closeApplication, closeWindow, copyFile, copySelected, createFile, createProjectFolder, createPythonFile, currentDateTime, deleteFile, desktopBrowserClick, desktopBrowserCloseTab, desktopBrowserFillForm, desktopBrowserGoBack, desktopBrowserGoForward, desktopBrowserNavigate, desktopBrowserOpen, desktopBrowserOpenTab, desktopBrowserScroll, desktopBrowserSearch, desktopBrowserType, disableAutoStart, doubleClick, dragMouse, enableAutoStart, executePowerAction, getAutoStartStatus, getClipboard, gitAdd, gitBranch, gitCheckout, gitCommit, gitDiff, gitLog, gitPull, gitPush, gitStatus, gpuInfo, hotkey, keyDown, keyUp, leftClick, listFiles, maximizeWindow, middleClick, minimizeWindow, mousePosition, moveFile, moveMouse, muteToggle, openApplication, openFile, openFolder, openWebsite, pasteClipboard, pressKey, readFile, readScreen, renameFile, requestPowerAction, restoreWindow, rightClick, runCommand, runPythonScript, runShellCommand, saveScreenshot, scrollMouse, searchFiles, searchGitHub, searchGoogle, searchWeb, searchYouTube, setBrightness, setVolume, switchApplication, systemInfo, takeRegionScreenshot, takeScreenshot, temperatureInfo, typeText, volumeDown, volumeUp, writeCodeFile, writeFile
+[15:38:12] [INFO] [Memory] Loaded 44 memories from C:\Users\singh\OneDrive\Desktop\MYRAA\myraa_brain_memory.json
+[15:38:21] [INFO] BrainBridge initialized.
+[15:38:21] [INFO] ExecutionBrain initialized.
+[15:38:30] [INFO] Registered neural model: vision_specialist_v1 (vision)
+[15:38:30] [INFO] Registered neural model: trading_specialist_v1 (trading)
+[15:38:30] [INFO] Registered neural model: voice_specialist_v1 (voice)
+[15:38:30] [INFO] Registered neural model: prediction_specialist_v1 (prediction)
+[15:38:30] [INFO] Registered neural model: personalization_specialist_v1 (personalization)
+[15:38:30] [INFO] Registered neural model: design_specialist_v1 (design)
+[15:38:30] [INFO] Registered neural model: multimodal_specialist_v1 (multimodal)
+[15:38:31] [INFO] DiagnosticsEngine initialised (interval=60.0s)
+[15:38:31] [INFO] RootCauseAnalyzer initialised
+[15:38:31] [INFO] HealingEngine initialized
+[15:38:31] [INFO] SelfEngineeringEngine initialized (root=C:\Users\singh\.myraa\sandboxes)
+[15:38:31] [INFO] PatchGenerator initialized
+[15:38:31] [INFO] SelfHealingTelemetry initialised (max_events=500)
+[15:38:31] [INFO] SelfHealingManager initialised
+[15:38:31] [INFO] Registered health check: brain_engine
+[15:38:31] [INFO] Registered health check: memory
+[15:38:31] [INFO] Registered health check: vision
+[15:38:31] [INFO] Registered health check: neural_engine
+[15:38:31] [INFO] Registered health check: trading_engine
+[15:38:31] [INFO] Registered health check: self_healing
+[15:38:31] [INFO] Check interval updated to 120.0s
+[15:38:31] [INFO] DiagnosticsEngine enabled
+[15:38:31] [INFO] MYRAA Brain initialized successfully.
+[15:38:31] [INFO] Default market provider: yahoo
+[15:38:31] [INFO] Active provider changed to yahoo
+INFO:     Started server process [5420]
+INFO:     Waiting for application startup.
+[15:38:36] [INFO] MYRAA Desktop Control Agent v1.0.0 starting.
+[15:38:36] [INFO] BrainBridge started.
+[15:38:37] [INFO] Runtime started.
+[15:38:37] [INFO] Memory consolidation loop started (every 60.0s).
+[15:38:37] [INFO] Vision pipeline started.
+[15:38:37] [INFO] Starting Observer Manager...
+[15:38:37] [INFO] Observer loop started.
+INFO:     Application startup complete.
+[15:38:37] [INFO] [Memory] Consolidation pass complete: {'working_to_episodic': 0, 'episodic_to_semantic': 1, 'working_skipped': 0, 'episodic_skipped': 1, 'timestamp': 1787479717.1612906, 'decay': {'checked': 0, 'expired': 0, 'archived': 0, 'transitioned': 0}}
+ERROR:    [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8765): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+INFO:     Waiting for application shutdown.
+[15:38:37] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:37] [ERROR] [Memory] Failed to persist memories: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json.tmp' -> 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json'
+[15:38:37] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:37] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:38] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:38] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:38] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:39] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:39] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:39] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:39] [ERROR] [Memory] Failed to persist memories: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json.tmp' -> 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json'
+[15:38:40] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:40] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:40] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:40] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:41] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:41] [ERROR] [Memory] Failed to persist memories: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json.tmp' -> 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json'
+[15:38:41] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:41] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:41] [INFO] BrainBridge stopped.
+[15:38:41] [INFO] Runtime stopped.
+[15:38:41] [INFO] Stopping Observer Manager...
+[15:38:42] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:42] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:42] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:42] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:43] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:43] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:43] [ERROR] [Memory] Failed to persist memories: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json.tmp' -> 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json'
+[15:38:43] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:43] [ERROR] [Memory] Failed to persist memories: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json.tmp' -> 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json'
+[15:38:44] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:44] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:44] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:44] [ERROR] [Memory] Failed to persist memories: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json.tmp' -> 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json'
+[15:38:44] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:44] [INFO] [Vision] DesktopState received.
+[15:38:45] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:45] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:45] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:45] [ERROR] [Memory] Failed to persist memories: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json.tmp' -> 'C:\\Users\\singh\\OneDrive\\Desktop\\MYRAA\\myraa_brain_memory.json'
+[15:38:45] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:46] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:46] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:46] [ERROR] [Autonomy] Reflection failed: 'ReflectionEngine' object has no attribute 'reflect'
+Traceback (most recent call last):
+  File "C:\Users\singh\OneDrive\Desktop\MYRAA\desktop_agent\brain\autonomy\autonomy_loop.py", line 342, in cycle
+    self.reflection.reflect(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReflectionEngine' object has no attribute 'reflect'
+[15:38:46] [INFO] MYRAA stopped.
+INFO:     Application shutdown complete.
+
+========== BRAIN ENGINE ==========
+WorkingMemory ID: 1519969684512
+=================================
+
+============================================================
+DecisionEngine instance: <desktop_agent.brain.decision.decision_engine.DecisionEngine object at 0x00000161E532E3C0>
+DecisionEngine class   : <class 'desktop_agent.brain.decision.decision_engine.DecisionEngine'>
+DecisionEngine module  : desktop_agent.brain.decision.decision_engine
+DecisionEngine file    : desktop_agent.brain.decision.decision_engine
+============================================================
+[DEBUG] Finance service initialized
+[DEBUG] Screen capture components initialized
+[DEBUG] Observer registry created
+[DEBUG] Stock observer registered
+[DEBUG] Screen observer registered: ScreenObserver(name='screen_observer')
+[DEBUG] Observer manager created with 2 observers
+[DEBUG] Observer names: ['stock_observer', 'screen_observer']
+[Capture] Thread started
+[Capture] Capturing...
+[Vision] Loop started
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Vision] latest_image = False
+[Capture] Frame: True
+[Vision] latest_image = True
+[Vision] Processing frame
+[Capture] Capturing...
+[Capture] Frame: True
+[Vision] Publishing DesktopState

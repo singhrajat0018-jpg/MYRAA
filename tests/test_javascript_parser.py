@@ -1,23 +1,21 @@
 from pathlib import Path
 
-from desktop_agent.brain.knowledge.parser.javascript_parser import (
-    JavaScriptParser,
-)
+from desktop_agent.brain.knowledge.parser.javascript_parser import JavaScriptParser
 
-ROOT = Path("electron")
 
-for ext in ("*.js", "*.jsx", "*.mjs", "*.cjs"):
+def test_javascript_parser_extracts_supported_symbols(tmp_path: Path):
+    source = tmp_path / "sample.js"
+    source.write_text(
+        "export class Bridge {}\n"
+        "function boot() {}\n"
+        "export const route = () => {}\n",
+        encoding="utf-8",
+    )
 
-    for file in ROOT.rglob(ext):
+    symbols = JavaScriptParser.parse(str(source), "MYRAA", "electron")
 
-        print("=" * 60)
-        print(file)
-
-        symbols = JavaScriptParser.parse(
-            str(file),
-            "MYRAA",
-            "electron",
-        )
-
-        for s in symbols:
-            print(s.symbol_type, s.name)
+    assert [(symbol.symbol_type, symbol.name, symbol.exported) for symbol in symbols] == [
+        ("class", "Bridge", True),
+        ("function", "boot", False),
+        ("function", "route", True),
+    ]

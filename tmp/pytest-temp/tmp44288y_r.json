@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "saved_at": 1788699994.0517695,
+  "records": [
+    {
+      "id": "76d9f60f-6d5d-4d19-9949-eff555663db6",
+      "type": "semantic",
+      "content": "project_stack: react",
+      "summary": "react",
+      "source": "brain",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788699993.9974864,
+      "updated_at": 1788699993.9974866,
+      "last_accessed_at": 1788699993.9974866,
+      "event_time": null,
+      "importance": 0.7,
+      "confidence": 1.0,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "project_stack"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {
+        "key": "project_stack"
+      },
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "c14e3233c126324933f1755f0dfa4d86fe3e356e31ffd406b4e6a55fa39989f0"
+    }
+  ]
+}

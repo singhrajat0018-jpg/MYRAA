@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "saved_at": 1788694884.506144,
+  "records": [
+    {
+      "id": "ba489731-dfbf-47fa-bcef-4815ab9efdfe",
+      "type": "semantic",
+      "content": "tea",
+      "summary": "tea",
+      "source": "user_command",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788694884.2065392,
+      "updated_at": 1788694884.20654,
+      "last_accessed_at": 1788694884.2065403,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 1.0,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "user_explicit"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "user_defined",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "4b1ab4f111daca4691de319567fd59a7659c764d77a07b812e2f8646dcb38810"
+    }
+  ]
+}

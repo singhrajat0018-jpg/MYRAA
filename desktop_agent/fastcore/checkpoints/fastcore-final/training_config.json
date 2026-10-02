@@ -1,0 +1,15 @@
+{
+  "base_model": "Qwen/Qwen3-0.6B",
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "max_length": 256,
+  "batch_size": 4,
+  "learning_rate": 0.0002,
+  "num_epochs": 3,
+  "train_examples": 904,
+  "val_examples": 113,
+  "test_examples": 113,
+  "best_val_loss": 0.03734920399237408,
+  "total_steps": 168
+}

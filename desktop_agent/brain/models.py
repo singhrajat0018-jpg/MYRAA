@@ -108,3 +108,6 @@ class BrainResult:
     duration_ms: float = 0
 
     metadata: Dict[str, Any] = field(default_factory=dict)
+
+    # EPIC-04: which AI provider produced the result ("" = none / not AI).
+    provider: str = ""

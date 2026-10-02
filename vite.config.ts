@@ -12,11 +12,24 @@ export default defineConfig(() => {
       },
     },
     server: {
-      host: '0.0.0.0',
+      host: '127.0.0.1',
       port: 3000,
-      allowedHosts: true as const,
       hmr: process.env.DISABLE_HMR !== 'true',
-      watch: process.env.DISABLE_HMR === 'true' ? null : {},
+      watch: process.env.DISABLE_HMR === 'true'
+        ? null
+        : {
+            // Backend/runtime-generated files only. Never ignore frontend
+            // source - HMR must keep working for src/**.
+            ignored: [
+              '**/runtime/**',
+              '**/*.tmp',
+              '**/*.bak',
+              '**/*.corrupt.*',
+              '**/myraa_brain_memory.json',
+              '**/secrets.json',
+              '**/*.log',
+            ],
+          },
     },
   };
 });

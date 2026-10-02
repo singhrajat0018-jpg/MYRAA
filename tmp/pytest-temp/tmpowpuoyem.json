@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1788693040.722904,
+  "records": [
+    {
+      "id": "d28169df-f277-4981-a32b-0f7190f0e943",
+      "type": "episodic",
+      "content": "Observed: user opened the editor",
+      "summary": "Consolidated event: Observed: user opened the editor",
+      "source": "observer",
+      "source_reference": null,
+      "scope": "session",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788693040.6724298,
+      "updated_at": 1788693040.67243,
+      "last_accessed_at": 1788693040.6726437,
+      "event_time": null,
+      "importance": 0.5333333333333333,
+      "confidence": 0.76,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.9999999999172158,
+      "access_count": 1,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "medium_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "system_observed",
+      "fingerprint": "d73fd8ac219f4fe1d08878c6a9b75c61bedb0d0ebd299de67615a4e7b1161f0f"
+    }
+  ]
+}

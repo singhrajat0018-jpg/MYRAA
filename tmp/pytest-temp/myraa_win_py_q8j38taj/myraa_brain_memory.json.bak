@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "saved_at": 1789830102.957668,
+  "records": [
+    {
+      "id": "9b4239d0-0bf8-49ca-bbe4-c3968939b528",
+      "type": "semantic",
+      "content": "the user practices acoustic guitar every evening",
+      "summary": "the user practices acoustic guitar every evening",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789830102.956639,
+      "updated_at": 1789830102.9566393,
+      "last_accessed_at": 1789830102.9566393,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "the user practices acoustic guitar every evening",
+        "guitar"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "long_term",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "d178c30416341dbe3a99900d1e96661ea9ce666d151c1c239775ff98543a79d1"
+    }
+  ]
+}

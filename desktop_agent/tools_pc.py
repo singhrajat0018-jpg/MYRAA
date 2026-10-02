@@ -18,6 +18,7 @@ import ctypes
 import os
 import platform
 import subprocess
+import threading
 import time
 from typing import Any, Dict, Optional
 
@@ -45,16 +46,19 @@ def _init_pycaw():
         return None
 
 
+_VOL_LOCK = threading.Lock()
+
 def _get_volume_interface():
     global _vol_backend
-    if _vol_backend is None:
-        if platform.system() != "Windows":
-            _vol_backend = "media_keys"
-        else:
-            iface = _init_pycaw()
-            _vol_backend = "pycaw" if iface is not None else "media_keys"
-            if _vol_backend == "pycaw":
-                _VOL_CACHE["iface"] = iface
+    with _VOL_LOCK:
+        if _vol_backend is None:
+            if platform.system() != "Windows":
+                _vol_backend = "media_keys"
+            else:
+                iface = _init_pycaw()
+                _vol_backend = "pycaw" if iface is not None else "media_keys"
+                if _vol_backend == "pycaw":
+                    _VOL_CACHE["iface"] = iface
     return _vol_backend
 
 
@@ -188,6 +192,21 @@ def mute_toggle(args: Dict[str, Any]) -> Dict[str, Any]:
 
 def _run_power(action: str) -> str:
     """Execute the actual OS power command. Caller must have confirmed first."""
+    # Development/test safety guard: block real power actions when MYRAA_TEST_MODE is set
+    test_mode = os.environ.get("MYRAA_TEST_MODE", "").lower()
+    if test_mode in ("1", "true", "yes"):
+        return f"[TEST MODE] Power action '{action}' blocked. No OS power command executed."
+
+    # Hard opt-in guard: a real power action may only run when the operator has
+    # explicitly enabled it with MYRAA_ALLOW_POWER_ACTIONS=1. Without it the
+    # action is refused, so accidental calls (tests, stray requests, the
+    # browser/voice bridge) can never power the machine off.
+    if os.environ.get("MYRAA_ALLOW_POWER_ACTIONS") != "1":
+        return (
+            f"[BLOCKED] Power action '{action}' requires MYRAA_ALLOW_POWER_ACTIONS=1 "
+            "to be set explicitly. No OS power command executed."
+        )
+
     system = platform.system()
     if action == "lock":
         if system == "Windows":

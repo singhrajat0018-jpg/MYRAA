@@ -1,0 +1,17 @@
+{
+  "test_name": "static_desktop_stress",
+  "status": "completed",
+  "start_time": 1786884539.3880138,
+  "end_time": 1786884659.446091,
+  "duration_seconds": 120.05807709693909,
+  "max_memory_mb": 83.734375,
+  "avg_memory_mb": 83.7048828125,
+  "max_cpu_percent": 3.1,
+  "avg_cpu_percent": 0.052500000000000005,
+  "iterations_completed": 120,
+  "errors_encountered": 0,
+  "warnings_encountered": 0,
+  "metrics": {},
+  "error_details": [],
+  "warning_details": []
+}

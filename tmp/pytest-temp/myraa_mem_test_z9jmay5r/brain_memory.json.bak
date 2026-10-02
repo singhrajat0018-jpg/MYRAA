@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "saved_at": 1788698354.241151,
+  "episodic": {
+    "next_id": 1,
+    "events": []
+  },
+  "semantic": {
+    "facts": {
+      "key": {
+        "key": "key",
+        "value": {
+          "nested": [
+            1,
+            2,
+            3
+          ]
+        },
+        "confidence": 1.0,
+        "source": "brain",
+        "created_at": 1788698354.2411482,
+        "updated_at": 1788698354.2411485,
+        "metadata": {}
+      }
+    }
+  }
+}

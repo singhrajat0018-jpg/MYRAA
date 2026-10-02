@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1789186577.7223382,
+  "records": [
+    {
+      "id": "4c9c8be5-4ab7-46cf-878d-cc71f5ded65b",
+      "type": "semantic",
+      "content": "TCS share price around 3800",
+      "summary": "TCS share price around 3800",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789186577.6700647,
+      "updated_at": 1789186577.6700659,
+      "last_accessed_at": 1789186577.670066,
+      "event_time": null,
+      "importance": 0.8,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "user_defined",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "77bd9cd26de21f749c8841b55625576bc46bb15f6e396b1236db61f483a8cc2a"
+    }
+  ]
+}

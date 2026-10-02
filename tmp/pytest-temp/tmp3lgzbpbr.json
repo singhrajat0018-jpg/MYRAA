@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "saved_at": 1788693041.107582,
+  "records": [
+    {
+      "id": "c014549c-d20a-4aa4-b7ba-365a36bcc292",
+      "type": "semantic",
+      "content": "server us-east hai",
+      "summary": "server us-east hai",
+      "source": "user_command",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1788693041.0491965,
+      "updated_at": 1788693041.049198,
+      "last_accessed_at": 1788693041.0491982,
+      "event_time": null,
+      "importance": 0.9,
+      "confidence": 1.0,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [
+        "user_explicit"
+      ],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "user_defined",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "06859218522174cc7596a10d53eb437c35da5445d604b1832ca19512fb1308c0"
+    }
+  ]
+}

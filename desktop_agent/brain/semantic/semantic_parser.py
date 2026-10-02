@@ -6,6 +6,8 @@ Converts natural language into a SemanticTask.
 """
 
 from __future__ import annotations
+import logging
+log = logging.getLogger(__name__)
 from .semantic_models import Intent
 from .providers.provider_factory import ProviderFactory
 from .semantic_models import SemanticContext, SemanticTask
@@ -21,6 +23,7 @@ from pathlib import Path
 from .fast_path import FastPath
 from .skill_resolver import SkillResolver
 from .semantic_cache import SemanticCache
+from desktop_agent.brain.latency_tracing import trace_latency
 
 
 class SemanticParser:
@@ -38,17 +41,15 @@ class SemanticParser:
 
         self.local_parser = LocalSemanticParser()
         self.router = IntentRouter()
-        self.knowledge = registry.get("knowledge_manager")
-        self.resolver = KnowledgeResolver(self.knowledge)
+        # Knowledge manager accessed lazily to avoid module-level initialization
+        self._knowledge_manager = None
         self.fast_path = FastPath()
         self.semantic_cache = SemanticCache()
 
         # ---------------------------------------------------------
         # Live information keywords
         # ---------------------------------------------------------
-
         self.live_information_keywords = (
-
             "price",
             "stock",
             "share",
@@ -75,8 +76,69 @@ class SemanticParser:
             "crude oil",
             "oil price",
         )
+
+    # ---------------------------------------------------------
+    # Conversational fast path — greetings, small talk, thanks,
+    # affirmatives, negatives, wake-word-only, etc.
+    # Mirrors TaskRouter._is_conversational() for the semantic parser.
+    # ---------------------------------------------------------
+    _GREETING_WORDS = frozenset({
+        "hi", "hello", "hey", "hii", "hiii", "hola", "namaste",
+        "sup", "yo", "howdy", "hiya", "greetings", "good morning",
+        "good afternoon", "good evening", "good night", "gm", "gn",
+        "nmx", "nm", "what's up", "whats up", "wassup", "kaise ho",
+        "kya haal", "kaise hai", "theek ho", "kya kar rahe",
+        "aur batao", "suno", "sunno", "arre", "acha", "accha",
+        "theek hai", "bilkul", "haan", "nahi", "nahin", "no",
+        "yes", "yeah", "yep", "nope", "ok", "okay", "sure",
+        "cool", "nice", "awesome", "great", "perfect", "excellent",
+        "good", "wow", "amazing", "fantastic", "brilliant", "wonderful",
+        "thanks", "thank", "thankyou", "thank you", "dhanyavaad",
+        "shukriya", "bye", "goodbye", "see you", "talk to you later",
+        "ttyl", "see ya", "alvida", "phir milenge",
+        "help", "i need help", "can you help", "help me",
+    })
+
+    @classmethod
+    def _is_conversational(cls, text: str) -> bool:
+        t = text.strip().lower()
+        if not t:
+            return False
+        # Exact match
+        if t in cls._GREETING_WORDS:
+            return True
+        # Strip common wake-word prefixes
+        for prefix in ("hey myraa", "hey myra", "myraa", "myra"):
+            if t.startswith(prefix):
+                t = t[len(prefix):].strip().lstrip(",.!?")
+                if not t:
+                    return True  # wake-word only
+                break
+        # Exact match after stripping
+        if t in cls._GREETING_WORDS:
+            return True
+        # Starts with a greeting word
+        first = t.split()[0] if t.split() else ""
+        return first in cls._GREETING_WORDS
+
+    @property
+    def knowledge(self):
+        """Lazy initialization of knowledge_manager to avoid module-level instantiation."""
+        if self._knowledge_manager is None:
+            from desktop_agent.core.app_context import get_knowledge_manager
+            self._knowledge_manager = get_knowledge_manager()
+        return self._knowledge_manager
+
+    @property
+    def resolver(self):
+        """Lazy initialization of KnowledgeResolver."""
+        if not hasattr(self, '_resolver'):
+            self._resolver = KnowledgeResolver(self.knowledge)
+        return self._resolver
+
     # ---------------------------------------------------------
 
+    @trace_latency("action_latency_semantic_parsing")
     def parse(
         self,
         text: str,
@@ -85,15 +147,17 @@ class SemanticParser:
         """
         Parse user text into a SemanticTask.
         """
-
+        import time as _time
+        _tp0 = _time.perf_counter()
         semantic_context = self.context_resolver.build_context(
             context
         )
         cached = self.semantic_cache.get(text)
+        _tp1 = _time.perf_counter()
 
         if cached is not None:
 
-            print("[CACHE] Semantic hit")
+            log.debug("Semantic cache hit")
 
             cached.context = semantic_context
 
@@ -156,7 +220,7 @@ class SemanticParser:
 
             self.semantic_cache.put(text, task)
 
-            print("[LIVE INFO] Routed directly to SearchWeb")
+            log.debug("Live info routed to SearchWeb")
 
             return task
         # ---------------------------------------------------------
@@ -180,6 +244,18 @@ class SemanticParser:
                 text = goal_text
 
                 break
+
+        # After wake-word stripping, if nothing remains, it was a pure
+        # greeting / wake-word — skip the LLM entirely.
+        if not goal_text:
+            log.debug("Wake-word only — returning CHAT intent (no LLM)")
+            return SemanticTask(
+                raw_text=text,
+                normalized_text="",
+                intent=Intent.CHAT,
+                confidence=1.0,
+                context=semantic_context,
+            )
 
         # ---------------------------------------------------------
         # Goal commands
@@ -239,17 +315,32 @@ class SemanticParser:
 
             if self.fast_path.should_skip_llm(task):
 
-                print("[FAST PATH] LLM skipped")
+                log.debug("Fast path: LLM skipped")
                 self.semantic_cache.put(text, task)
                 return task
 
+        # ---------------------------------------------------------
+        # Conversational fast path — skip LLM for greetings/small talk
+        # ---------------------------------------------------------
+        if self._is_conversational(goal_text):
+            log.debug("Conversational fast path: skipping LLM")
+            task = SemanticTask(
+                raw_text=text,
+                normalized_text=goal_text,
+                intent=Intent.CHAT,
+                confidence=1.0,
+                context=semantic_context,
+            )
+            self.semantic_cache.put(text, task)
+            return task
+
         route = self.router.route(text)
 
-        print(f"[SEMANTIC] RouteResult: {route}")
+        log.debug("RouteResult: %s", route)
 
         if route.handled:
 
-            print("[FAST PATH] Router matched")
+            log.debug("Fast path: Router matched")
 
             task = SemanticTask(
 
@@ -299,13 +390,13 @@ class SemanticParser:
                 query = query[len(prefix):]
 
         query = query.strip(" .,!?")
-        print(f"[DEBUG] Trying Knowledge Resolver: {goal_text}")
+        log.debug("Trying Knowledge Resolver: %s", goal_text)
         resolution = self.resolver.resolve(query)
-        print(f"[DEBUG] Resolution: {resolution}")
+        log.debug("Resolution: %s", resolution)
 
         if resolution.resolved:
 
-            print("[FAST PATH] Knowledge resolved")
+            log.debug("Fast path: Knowledge resolved")
 
             resolved_path = Path(resolution.path)
 
@@ -357,17 +448,25 @@ class SemanticParser:
         # ---------------------------------------------------------
         # LLM fallback (natural language only)
         # ---------------------------------------------------------
-        print("[LLM FALLBACK] Sending to Ollama")
-        task = self.provider.parse(text)
-        print("\n========== SEMANTIC PROVIDER RESULT ==========")
-        print("Type :", type(task))
-        print("Value:", task)
-        print("=============================================\n")
+        if self.provider is None:
+            # No AI provider configured/available: fall back to the rule-based
+            # local parser instead of failing the request.
+            task = self.local_parser.parse(text)
+        else:
+            log.debug("LLM fallback: calling semantic provider")
+            task = self.provider.parse(text)
+        log.debug("Semantic provider result type: %s", type(task))
 
         if task is None:
             raise RuntimeError(
                 "Semantic provider returned None instead of a SemanticTask."
             )
+
+        # Unwrap ParserResponse → SemanticTask if needed.
+        from desktop_agent.brain.semantic.providers.parser_response import ParserResponse
+        if isinstance(task, ParserResponse):
+            task = task.task
+
         task.context = semantic_context
 
         task = SemanticActionMapper.populate(task)

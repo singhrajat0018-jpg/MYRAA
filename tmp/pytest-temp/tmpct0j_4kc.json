@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "saved_at": 1789187571.6082797,
+  "records": [
+    {
+      "id": "587a3f10-c221-4e50-b702-02fe79978f6b",
+      "type": "semantic",
+      "content": "clean memory",
+      "summary": "clean memory",
+      "source": "test",
+      "source_reference": null,
+      "scope": "user",
+      "project_id": null,
+      "task_id": null,
+      "conversation_id": null,
+      "created_at": 1789187571.553907,
+      "updated_at": 1789187571.5539076,
+      "last_accessed_at": 1789187571.5539079,
+      "event_time": null,
+      "importance": 0.8,
+      "confidence": 0.9000000000000001,
+      "relevance": 0.5,
+      "salience": 0.5,
+      "recency": 0.5,
+      "access_count": 0,
+      "version": 1,
+      "status": "active",
+      "tags": [],
+      "entities": [],
+      "relations": {},
+      "embedding_reference": null,
+      "sensitivity": "public",
+      "retention_policy": "user_defined",
+      "metadata": {},
+      "supersedes": null,
+      "superseded_by": null,
+      "provenance": "user_explicit",
+      "fingerprint": "af50c00fa63f0daa481691f221368f21788dcbcdd4ed35ae62045c5afd62c472"
+    }
+  ]
+}
