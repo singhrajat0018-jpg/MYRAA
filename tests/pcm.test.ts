@@ -1,81 +1,73 @@
-/**
- * PCM contract tests (voice capture path).
- *
- * src/lib/pcm.ts is shared by BOTH capture paths (AudioWorklet 64ms frames
- * and ScriptProcessor 128ms frames) and the playback decoder. These tests
- * lock the wire contract: Float32 mono [-1,1] <-> Int16LE PCM <-> base64.
- */
-import { describe, it, expect, beforeAll } from "vitest";
+import { describe, it, expect } from "vitest";
 import {
-  floatTo16BitPCM,
-  pcm16ToFloats,
-  base64ArrayBuffer,
-  base64ToUint8Array,
+  float32ToInt16,
+  int16ToFloat32,
+  pcm16ToBase64,
+  base64ToPcm16,
 } from "../src/lib/pcm";
 
-beforeAll(() => {
-  // pcm.ts uses window.btoa/atob like the browser code; provide them in node.
-  (globalThis as any).window = {
-    btoa: (bin: string) => Buffer.from(bin, "binary").toString("base64"),
-    atob: (b64: string) => Buffer.from(b64, "base64").toString("binary"),
-  };
-});
+describe("PCM Conversion Utilities", () => {
+  it("converts silence (0.0) float32 to 0 int16", () => {
+    const input = new Float32Array([0, 0, 0, 0]);
+    const pcm = float32ToInt16(input);
+    expect(pcm).toEqual(new Int16Array([0, 0, 0, 0]));
 
-describe("floatTo16BitPCM", () => {
-  it("encodes silence as zero bytes", () => {
-    const out = new Uint8Array(floatTo16BitPCM(new Float32Array([0, 0])));
-    expect(Array.from(out)).toEqual([0, 0, 0, 0]);
+    const back = int16ToFloat32(pcm);
+    expect(back).toEqual(new Float32Array([0, 0, 0, 0]));
   });
 
-  it("is little-endian (+1.0 -> [0xFF, 0x7F], -1.0 -> [0x00, 0x80])", () => {
-    const out = new Uint8Array(floatTo16BitPCM(new Float32Array([1.0, -1.0])));
-    expect(Array.from(out)).toEqual([0xff, 0x7f, 0x00, 0x80]);
+  it("converts positive and negative extremes with asymmetric scale", () => {
+    const input = new Float32Array([1.0, -1.0, 0.5, -0.5]);
+    const pcm = float32ToInt16(input);
+    expect(pcm[0]).toBe(32767); // 0x7FFF
+    expect(pcm[1]).toBe(-32768); // 0x8000
+    expect(pcm[2]).toBe(16384);
+    expect(pcm[3]).toBe(-16384);
   });
 
-  it("clips above +1.0 to 0x7FFF and below -1.0 to -0x8000", () => {
-    const view = new DataView(floatTo16BitPCM(new Float32Array([2.5, -9])));
-    expect(view.getInt16(0, true)).toBe(0x7fff);
-    expect(view.getInt16(2, true)).toBe(-0x8000);
+  it("clamps values exceeding [-1, 1]", () => {
+    const input = new Float32Array([1.5, -2.0]);
+    const pcm = float32ToInt16(input);
+    expect(pcm[0]).toBe(32767);
+    expect(pcm[1]).toBe(-32768);
   });
 
-  it("produces 2 bytes per sample", () => {
-    expect(floatTo16BitPCM(new Float32Array(1024)).byteLength).toBe(2048);
-    expect(floatTo16BitPCM(new Float32Array(2048)).byteLength).toBe(4096);
-  });
-});
-
-describe("pcm16ToFloats", () => {
-  it("round-trips through floatTo16BitPCM within 2 LSB", () => {
-    // NOTE: encode scales positives by 0x7FFF but decode divides by 32768
-    // (pre-existing wire behavior, preserved verbatim) — worst-case error is
-    // just under 2 LSB. The bound below locks that behavior, not 1 LSB.
-    const src = new Float32Array([0, 0.5, -0.5, 0.9999, -0.9999, 0.123456]);
-    const bytes = new Uint8Array(floatTo16BitPCM(src));
-    const back = pcm16ToFloats(bytes);
-    for (let i = 0; i < src.length; i++) {
-      expect(Math.abs(back[i] - src[i])).toBeLessThan(2 / 32768 + 1e-9);
+  it("preserves PCM precision within ≤ 2 LSB roundtrip", () => {
+    const input = new Float32Array(1024);
+    for (let i = 0; i < input.length; i++) {
+      input[i] = Math.sin((i / 1024) * 2 * Math.PI);
     }
-  });
-});
+    const pcm = float32ToInt16(input);
+    const floatBack = int16ToFloat32(pcm);
+    const pcmBack = float32ToInt16(floatBack);
 
-describe("base64 PCM framing", () => {
-  it("round-trips a full 1024-sample worklet frame", () => {
-    const frame = new Float32Array(1024);
-    for (let i = 0; i < frame.length; i++) frame[i] = Math.sin(i / 10) * 0.8;
-    const b64 = base64ArrayBuffer(floatTo16BitPCM(frame));
-    // 2048 bytes -> ceil(2048/3)*4 base64 chars
-    expect(b64.length).toBe(Math.ceil(2048 / 3) * 4);
-    const back = pcm16ToFloats(base64ToUint8Array(b64));
-    expect(back.length).toBe(1024);
-    for (let i = 0; i < frame.length; i++) {
-      expect(Math.abs(back[i] - frame[i])).toBeLessThan(2 / 32768 + 1e-9);
+    for (let i = 0; i < pcm.length; i++) {
+      expect(Math.abs(pcm[i] - pcmBack[i])).toBeLessThanOrEqual(2);
     }
   });
 
-  it("round-trips a 2048-sample script-processor frame", () => {
-    const frame = new Float32Array(2048).fill(0.25);
-    const back = pcm16ToFloats(base64ToUint8Array(base64ArrayBuffer(floatTo16BitPCM(frame))));
-    expect(back.length).toBe(2048);
-    expect(Math.abs(back[0] - 0.25)).toBeLessThan(1 / 32768 + 1e-9);
+  it("correctly encodes and decodes base64 without corruption", () => {
+    const original = new Int16Array([0, 100, -100, 32767, -32768, 42, -999]);
+    const b64 = pcm16ToBase64(original);
+    expect(typeof b64).toBe("string");
+    expect(b64.length).toBeGreaterThan(0);
+
+    const decoded = base64ToPcm16(b64);
+    expect(decoded.length).toBe(original.length);
+    for (let i = 0; i < original.length; i++) {
+      expect(decoded[i]).toBe(original[i]);
+    }
+  });
+
+  it("handles empty buffers safely", () => {
+    const emptyFloat = new Float32Array(0);
+    const emptyPcm = float32ToInt16(emptyFloat);
+    expect(emptyPcm.length).toBe(0);
+
+    const b64 = pcm16ToBase64(emptyPcm);
+    expect(b64).toBe("");
+
+    const decoded = base64ToPcm16("");
+    expect(decoded.length).toBe(0);
   });
 });

@@ -54,14 +54,14 @@ async function isDesktopAgentAlive(): Promise<boolean> {
 
 // ------------------------------------------------------------
 
-export async function ensureDesktopAgent(): Promise<void> {
+export async function ensureDesktopAgent(throwOnFail = false): Promise<boolean> {
 
     const cacheIsFresh =
         desktopAgentVerified && (Date.now() - lastVerifiedAt) < LIVENESS_TTL_MS;
 
     if (cacheIsFresh) {
 
-        return;
+        return true;
 
     }
 
@@ -70,17 +70,17 @@ export async function ensureDesktopAgent(): Promise<void> {
 
     if (!alive) {
 
-        // Phase 29.7: failure invalidates the cached liveness immediately.
         desktopAgentVerified = false;
         lastVerifiedAt = 0;
 
-        throw new Error(
+        if (throwOnFail) {
+            throw new Error(
+                "Desktop Agent is not running.\n" +
+                "Please start MYRAA using start-myraa.bat."
+            );
+        }
 
-            "Desktop Agent is not running.\n" +
-
-            "Please start MYRAA using start-myraa.bat."
-
-        );
+        return false;
 
     }
 
@@ -90,6 +90,8 @@ export async function ensureDesktopAgent(): Promise<void> {
     console.log(
         "[Desktop Agent] Connected successfully."
     );
+
+    return true;
 
 }
 
@@ -119,7 +121,13 @@ export async function callDesktopAgent(
 
 }> {
 
-    await ensureDesktopAgent();
+    const alive = await ensureDesktopAgent(false);
+    if (!alive) {
+        return {
+            ok: false,
+            error: "Desktop Agent is offline in this environment.",
+        };
+    }
 
     const controller = new AbortController();
 
@@ -214,7 +222,13 @@ export async function callBrain(
 
 }> {
 
-    await ensureDesktopAgent();
+    const alive = await ensureDesktopAgent(false);
+    if (!alive) {
+        return {
+            ok: false,
+            error: "Desktop Agent is offline in this environment.",
+        };
+    }
 
     const requestId =
         opts?.requestId ||

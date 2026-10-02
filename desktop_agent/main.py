@@ -2196,6 +2196,13 @@ async def voice_gemini_stream_ws(websocket: WebSocket):
                             await sess.speak_text(text)
                         except Exception as e:
                             log.warning("[GeminiLive] speak_text failed: %s", e)
+                elif t == "interrupt":
+                    log.info("[GeminiLive] user-initiated interrupt received from Node")
+                    if hasattr(sess, "interrupt"):
+                        try:
+                            sess.interrupt()
+                        except Exception as e:
+                            log.warning("[GeminiLive] sess.interrupt failed: %s", e)
 
         out_task = asyncio.create_task(_pump_out())
         try:

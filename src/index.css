@@ -1,429 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@400;500;600;700&family=Great+Vibes&display=swap');
 @import "tailwindcss";
 
-/* ══════════════════════════════════════════════════════════════
-   MYRAA Design System — Canonical CSS Custom Properties
-   Source of truth: src/design/tokens/index.ts
-   All visual values defined here. Components reference via var().
-   ══════════════════════════════════════════════════════════════ */
-
-:root {
-  /* ── Background ─────────────────────────────────────────── */
-  /* Warm sunset companion theme (reference mock): deep plum glass over peach sky */
-  --color-bg-base: #1a1030;
-  --color-bg-panel: rgba(42, 26, 68, 0.62);
-  --color-bg-card: rgba(58, 38, 92, 0.55);
-  --color-bg-elevated: rgba(72, 48, 110, 0.72);
-  --color-bg-hover: rgba(200, 150, 255, 0.08);
-  --color-bg-active: rgba(200, 150, 255, 0.14);
-  --color-bg-overlay: rgba(20, 10, 35, 0.6);
-
-  /* ── Border ─────────────────────────────────────────────── */
-  --color-border-primary: rgba(216, 180, 254, 0.22);
-  --color-border-secondary: rgba(216, 180, 254, 0.12);
-  --color-border-subtle: rgba(255, 255, 255, 0.09);
-  --color-border-active: rgba(216, 180, 254, 0.5);
-  --color-border-focus: rgba(216, 180, 254, 0.7);
-
-  /* ── Text ───────────────────────────────────────────────── */
-  --color-text-primary: #f5edff;
-  --color-text-secondary: #c9b8e6;
-  --color-text-muted: #9a8ab8;
-  --color-text-accent: #d8b4fe;
-  --color-text-inverse: #1a1030;
-  --color-text-disabled: rgba(245, 237, 255, 0.35);
-
-  /* ── Status ─────────────────────────────────────────────── */
-  --color-status-success: #4ade80;
-  --color-status-success-dim: #22a355;
-  --color-status-warning: #ffaa00;
-  --color-status-warning-dim: #cc8800;
-  --color-status-error: #fb7185;
-  --color-status-error-dim: #cc3355;
-  --color-status-info: #93a7ff;
-  --color-status-info-dim: #5f73cc;
-
-  /* ── Accent ─────────────────────────────────────────────── */
-  --color-accent-primary: #c084fc;
-  --color-accent-primary-dim: #8b5cf6;
-  --color-accent-secondary: #f0abfc;
-  --color-accent-secondary-dim: #c084fc;
-  --color-accent-tertiary: #8b5cf6;
-
-  /* ── MYRAA ──────────────────────────────────────────────── */
-  --color-myraa-glow: rgba(192, 132, 252, 0.22);
-  --color-myraa-glow-strong: rgba(192, 132, 252, 0.38);
-  --color-myraa-core: #c084fc;
-  --color-myraa-voice: #d8b4fe;
-
-  /* ── Companion chat bubbles (reference mock) ────────────── */
-  --myraa-user-bubble: rgba(124, 108, 240, 0.42);
-  --myraa-user-border: rgba(255, 255, 255, 0.16);
-  --myraa-asst-bubble: rgba(255, 255, 255, 0.08);
-  --myraa-asst-border: rgba(255, 255, 255, 0.09);
-  --myraa-panel: rgba(38, 22, 62, 0.66);
-  --myraa-panel-border: rgba(255, 255, 255, 0.12);
-  --myraa-tab-active: #c9a3ff;
-  --myraa-mic: #a78bfa;
-
-  /* ── Spacing ────────────────────────────────────────────── */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 12px;
-  --spacing-lg: 16px;
-  --spacing-xl: 20px;
-  --spacing-xxl: 24px;
-  --spacing-xxxl: 32px;
-
-  /* ── Sizing ─────────────────────────────────────────────── */
-  --size-sidebar: 200px;
-  --size-topbar: 52px;
-  --size-footer: 36px;
-  --size-chat: 280px;
-  --size-core-globe: 420px;
-  --size-core-visualizer: 500px;
-
-  /* ── Radius ─────────────────────────────────────────────── */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-
-  /* ── Elevation / Glow ───────────────────────────────────── */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
-  --glow-sm: 0 0 10px rgba(0, 212, 255, 0.1);
-  --glow-md: 0 0 20px rgba(0, 212, 255, 0.15);
-  --glow-lg: 0 0 30px rgba(0, 212, 255, 0.25);
-  --glow-xl: 0 0 40px rgba(0, 212, 255, 0.35);
-
-  /* ── Opacity ────────────────────────────────────────────── */
-  --opacity-disabled: 0.35;
-  --opacity-overlay: 0.6;
-  --opacity-subtle: 0.05;
-  --opacity-muted: 0.5;
-  --opacity-active: 0.8;
-
-  /* ── Motion ─────────────────────────────────────────────── */
-  --motion-instant: 50ms;
-  --motion-fast: 100ms;
-  --motion-normal: 200ms;
-  --motion-slow: 350ms;
-  --motion-slower: 500ms;
-  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  /* ── Z-Index ────────────────────────────────────────────── */
-  --z-base: 0;
-  --z-content: 1;
-  --z-navigation: 10;
-  --z-floating: 20;
-  --z-overlay: 30;
-  --z-modal: 40;
-  --z-system: 50;
-  --z-debug: 100;
-
-  /* ── Typography ─────────────────────────────────────────── */
-  --font-size-xs: 10px;
-  --font-size-sm: 11px;
-  --font-size-md: 12px;
-  --font-size-base: 13px;
-  --font-size-lg: 14px;
-  --font-size-xl: 16px;
-  --font-size-xxl: 20px;
-  --font-size-display: 28px;
-
-  /* ── Waveform ───────────────────────────────────────────── */
-  --waveform-bar-width: 2px;
-  --waveform-bar-gap: 3px;
+@layer base {
+  body {
+    background-color: #030712;
+    color: #f3f4f6;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
-/* ══════════════════════════════════════════════════════════════
-   Tailwind v4 @theme — registers tokens as utility classes
-   ══════════════════════════════════════════════════════════════ */
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-
-  /* Semantic color tokens for Tailwind utilities */
-  --color-bg-base: var(--color-bg-base);
-  --color-bg-panel: var(--color-bg-panel);
-  --color-bg-card: var(--color-bg-card);
-  --color-bg-elevated: var(--color-bg-elevated);
-  --color-bg-hover: var(--color-bg-hover);
-  --color-bg-active: var(--color-bg-active);
-
-  --color-text-primary: var(--color-text-primary);
-  --color-text-secondary: var(--color-text-secondary);
-  --color-text-muted: var(--color-text-muted);
-  --color-text-accent: var(--color-text-accent);
-
-  --color-accent: var(--color-accent-primary);
-  --color-accent-dim: var(--color-accent-primary-dim);
-
-  --color-success: var(--color-status-success);
-  --color-warning: var(--color-status-warning);
-  --color-error: var(--color-status-error);
-  --color-info: var(--color-status-info);
-
-  --color-myraa: var(--color-myraa-core);
-  --color-myraa-glow: var(--color-myraa-glow);
-
-  /* Spacing */
-  --spacing-0: 0;
-  --spacing-xs: var(--spacing-xs);
-  --spacing-sm: var(--spacing-sm);
-  --spacing-md: var(--spacing-md);
-  --spacing-lg: var(--spacing-lg);
-  --spacing-xl: var(--spacing-xl);
-  --spacing-2xl: var(--spacing-xxl);
-  --spacing-3xl: var(--spacing-xxxl);
-
-  /* Radius */
-  --radius-none: 0;
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-lg: var(--radius-lg);
-  --radius-xl: var(--radius-xl);
-  --radius-full: 9999px;
-
-  /* Sizing */
-  --size-sidebar: var(--size-sidebar);
-  --size-topbar: var(--size-topbar);
-  --size-footer: var(--size-footer);
+.font-display {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   Base Styles
-   ══════════════════════════════════════════════════════════════ */
-
-* { box-sizing: border-box; }
-
-html, body, #root {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: var(--color-bg-base);
-  color: var(--color-text-primary);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* ══════════════════════════════════════════════════════════════
-   Panel Glass Effect
-   ══════════════════════════════════════════════════════════════ */
-
-.panel-glass {
-  background: var(--color-bg-panel);
-  border: 1px solid var(--color-myraa-glow);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.panel-glass-hover:hover {
-  border-color: var(--color-border-primary);
-  background: var(--color-bg-card);
-}
-
-/* ══════════════════════════════════════════════════════════════
-   Glow Effects
-   ══════════════════════════════════════════════════════════════ */
-
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(192, 132, 252, 0.18), inset 0 0 20px var(--color-bg-hover);
-}
-
-.glow-cyan-strong {
-  box-shadow: 0 0 30px rgba(192, 132, 252, 0.3), inset 0 0 30px var(--color-bg-hover);
-}
-
-.text-glow-cyan {
-  text-shadow: 0 0 12px rgba(192, 132, 252, 0.55);
-}
-
-.text-glow-green {
-  text-shadow: 0 0 12px rgba(74, 222, 128, 0.5);
-}
-
-.font-hand { font-family: "Caveat", cursive; }
-.font-script { font-family: "Great Vibes", cursive; }
-
-.myraa-glass {
-  background: var(--myraa-panel);
-  backdrop-filter: blur(26px) saturate(1.25);
-  -webkit-backdrop-filter: blur(26px) saturate(1.25);
-  border: 1px solid var(--myraa-panel-border);
-  box-shadow: 0 18px 60px rgba(10, 4, 28, 0.55), inset 0 1px 0 rgba(255,255,255,0.08);
-}
-
-.myraa-no-scrollbar::-webkit-scrollbar { width: 0; height: 0; }
-.myraa-no-scrollbar { scrollbar-width: none; }
-
-/* ══════════════════════════════════════════════════════════════
-   Keyframe Animations
-   ══════════════════════════════════════════════════════════════ */
-
-@keyframes sparkline-draw {
-  from { stroke-dashoffset: 200; }
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(1.8); opacity: 0; }
-}
-
-@keyframes scan-line {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-
-@keyframes subtle-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-/* ══════════════════════════════════════════════════════════════
-   Grid Background
-   ══════════════════════════════════════════════════════════════ */
-
-.grid-bg {
-  background-image:
-    linear-gradient(var(--color-bg-hover) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-bg-hover) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* ══════════════════════════════════════════════════════════════
-   Scrollbar Styling
-   ══════════════════════════════════════════════════════════════ */
-
+/* Custom scrollbars */
 ::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-border-primary);
-  border-radius: 2px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-border-active);
-}
-
-/* ══════════════════════════════════════════════════════════════
-   Sidebar Navigation
-   ══════════════════════════════════════════════════════════════ */
-
-.sidebar-nav-item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-lg);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  cursor: pointer;
-  transition: all var(--motion-fast) var(--ease-default);
-  letter-spacing: 0.02em;
-}
-.sidebar-nav-item:hover {
-  color: var(--color-text-primary);
-  background: var(--color-bg-hover);
-}
-.sidebar-nav-item.active {
-  color: var(--color-text-accent);
-  background: var(--color-bg-active);
-}
-
-/* ══════════════════════════════════════════════════════════════
-   Status Dot
-   ══════════════════════════════════════════════════════════════ */
-
-.status-dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.status-dot-on {
-  background: var(--color-status-success);
-  box-shadow: 0 0 8px rgba(0, 232, 138, 0.5);
-}
-.status-dot-off {
-  background: var(--color-text-muted);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   Chat Bubbles
-   ══════════════════════════════════════════════════════════════ */
-
-.chat-bubble-user {
-  background: var(--color-bg-active);
-  border: 1px solid var(--color-border-primary);
-  border-radius: 12px 12px 4px 12px;
-  padding: 10px 14px;
-  max-width: 90%;
-}
-.chat-bubble-assistant {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 12px 12px 12px 4px;
-  padding: 10px 14px;
-  max-width: 90%;
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   Globe / Visualization Container
-   ══════════════════════════════════════════════════════════════ */
-
-.globe-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   Waveform Bar
-   ══════════════════════════════════════════════════════════════ */
-
-.waveform-bar {
-  width: var(--waveform-bar-width);
-  border-radius: 1px;
-  transition: height var(--motion-fast) var(--ease-default), background var(--motion-fast) var(--ease-default);
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   Focus Visible (accessibility)
-   ══════════════════════════════════════════════════════════════ */
-
-:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+/* Glow effects */
+.glow-cyan {
+  text-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   Reduced Motion
-   ══════════════════════════════════════════════════════════════ */
+.glow-purple {
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+}
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+.glow-rose {
+  text-shadow: 0 0 12px rgba(244, 63, 94, 0.6);
+}
+
+.glow-emerald {
+  text-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+}
+
+.glow-sky {
+  text-shadow: 0 0 12px rgba(14, 165, 233, 0.6);
+}
+
+.glow-pink {
+  text-shadow: 0 0 12px rgba(236, 72, 153, 0.6);
 }

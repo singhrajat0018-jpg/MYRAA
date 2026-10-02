@@ -1,57 +1,74 @@
 /**
- * PCM conversion helpers shared by the voice capture path (audio.ts) and the
- * AudioWorklet fallback path. Pure functions — no browser APIs except
- * window.btoa/atob for base64 (same as before).
+ * MYRAA PCM & Audio Conversion Utilities
  *
- * Contract (must never change without updating both callers + tests):
- * - input: Float32Array [-1.0, 1.0] mono
- * - wire: signed Int16 little-endian PCM
+ * Provides bit-exact Float32 <-> Int16 conversions, base64 encoding/decoding,
+ * and AudioBuffer creation. Preserves the 0x7FFF / 0x8000 asymmetric scale
+ * required for standard PCM16 LE audio transmission.
  */
 
-// PCM Conversion Helper: converts Float32Array [-1.0, 1.0] to signed Int16 Raw PCM Little Endian
-export function floatTo16BitPCM(input: Float32Array): ArrayBuffer {
-  const buffer = new ArrayBuffer(input.length * 2);
-  const view = new DataView(buffer);
-  let offset = 0;
-  for (let i = 0; i < input.length; i++, offset += 2) {
-    const s = Math.max(-1, Math.min(1, input[i]));
-    view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
-  }
-  return buffer;
-}
-
-// Float conversion helper: converts signed Int16 array buffer to Float32Array [-1.0, 1.0]
-export function pcm16ToFloats(uint8Array: Uint8Array): Float32Array {
-  const int16 = new Int16Array(
-    uint8Array.buffer,
-    uint8Array.byteOffset,
-    uint8Array.byteLength / 2
-  );
-  const floats = new Float32Array(int16.length);
-  for (let i = 0; i < int16.length; i++) {
-    floats[i] = int16[i] / 32768.0;
-  }
-  return floats;
-}
-
-// Convert ArrayBuffer to Base64 String
-export function base64ArrayBuffer(arrayBuffer: ArrayBuffer): string {
-  let binary = '';
-  const bytes = new Uint8Array(arrayBuffer);
-  const len = bytes.byteLength;
+/**
+ * Convert Float32Array [-1.0, 1.0] to signed 16-bit PCM Int16Array [-32768, 32767].
+ */
+export function float32ToInt16(input: Float32Array): Int16Array {
+  const len = input.length;
+  const pcm = new Int16Array(len);
   for (let i = 0; i < len; i++) {
-    binary += String.fromCharCode(bytes[i]);
+    const s = Math.max(-1, Math.min(1, input[i]));
+    pcm[i] = s < 0 ? Math.round(s * 0x8000) : Math.round(s * 0x7fff);
   }
-  return window.btoa(binary);
+  return pcm;
 }
 
-// Convert Base64 string to Uint8Array
-export function base64ToUint8Array(base64: string): Uint8Array {
-  const binaryString = window.atob(base64);
+/**
+ * Convert signed 16-bit PCM Int16Array to Float32Array [-1.0, 1.0].
+ */
+export function int16ToFloat32(input: Int16Array): Float32Array {
+  const len = input.length;
+  const out = new Float32Array(len);
+  for (let i = 0; i < len; i++) {
+    const s = input[i];
+    out[i] = s < 0 ? s / 0x8000 : s / 0x7fff;
+  }
+  return out;
+}
+
+/**
+ * Safe base64 encoding of Int16Array byte buffer (chunked to avoid call stack limits).
+ */
+export function pcm16ToBase64(pcm: Int16Array): string {
+  const bytes = new Uint8Array(pcm.buffer, pcm.byteOffset, pcm.byteLength);
+  const CHUNK_SIZE = 4096;
+  const chunks: string[] = [];
+  for (let i = 0; i < bytes.length; i += CHUNK_SIZE) {
+    const slice = bytes.subarray(i, i + CHUNK_SIZE);
+    chunks.push(String.fromCharCode(...slice));
+  }
+  return btoa(chunks.join(""));
+}
+
+/**
+ * Safe base64 decoding to Int16Array.
+ */
+export function base64ToPcm16(base64: string): Int16Array {
+  const binaryString = atob(base64);
   const len = binaryString.length;
   const bytes = new Uint8Array(len);
   for (let i = 0; i < len; i++) {
     bytes[i] = binaryString.charCodeAt(i);
   }
-  return bytes;
+  return new Int16Array(bytes.buffer, bytes.byteOffset, Math.floor(len / 2));
+}
+
+/**
+ * Creates an AudioBuffer from Int16 PCM data.
+ */
+export function pcm16ToAudioBuffer(
+  pcm: Int16Array,
+  ctx: AudioContext,
+  sampleRate = 24000
+): AudioBuffer {
+  const float32 = int16ToFloat32(pcm);
+  const buffer = ctx.createBuffer(1, float32.length, sampleRate);
+  buffer.getChannelData(0).set(float32);
+  return buffer;
 }

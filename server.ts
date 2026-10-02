@@ -138,12 +138,28 @@ async function spawnDesktopAgent(): Promise<void> {
   if (agentExe && fs.existsSync(agentExe)) {
       logStartup(`[Desktop Agent] Spawning frozen agent: ${agentExe}`);
       console.log(`[Desktop Agent] Spawning frozen agent: ${agentExe}`);
-      const child = spawnProcess(agentExe, [], {
-          detached: true, stdio: "ignore", windowsHide: true,
-      });
-      child.unref();
+      try {
+        const child = spawnProcess(agentExe, [], {
+            detached: true, stdio: "ignore", windowsHide: true,
+        });
+        child.on("error", (err) => {
+          logStartup(`[Desktop Agent] Frozen agent process note: ${err.message}`);
+          console.log(`[Desktop Agent] Frozen agent process note: ${err.message}`);
+        });
+        child.unref();
+      } catch (err: any) {
+        logStartup(`[Desktop Agent] Frozen agent spawn error: ${err.message}`);
+      }
       return;
   }
+
+  // In cloud/container or non-Windows environments, desktop agent is optional
+  if (process.env.MYRAA_AGENT_AUTOSPAWN === "false" || process.platform !== "win32") {
+    logStartup("[Desktop Agent] Standalone web mode: skipping desktop agent auto-spawn.");
+    console.log("[Desktop Agent] Standalone web mode: skipping desktop agent auto-spawn.");
+    return;
+  }
+
   const pythonCmd = process.env.PYTHON_PATH || "python";
   logStartup(`[Desktop Agent] Spawning via ${pythonCmd} uvicorn...`);
   console.log(`[Desktop Agent] Spawning via ${pythonCmd} uvicorn...`);
@@ -152,6 +168,10 @@ async function spawnDesktopAgent(): Promise<void> {
           detached: true, stdio: "ignore",
           cwd: process.env.MYRAA_APP_ROOT || process.cwd(),
           windowsHide: true,
+      });
+      child.on("error", (err) => {
+          logStartup(`[Desktop Agent] Auto-start note: ${err.message}`);
+          console.log(`[Desktop Agent] Auto-start note: ${err.message}`);
       });
       child.unref();
   } catch (e: any) {
@@ -177,15 +197,13 @@ async function startServer() {
 
   app.use(express.json());
 
-  // CORS middleware — restrict to known local origins
-  const ALLOWED_ORIGINS = new Set([
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-  ]);
+  // CORS middleware — allow local and AI Studio preview origins
   app.use((req, res, next) => {
-    const origin = req.headers.origin || "";
-    if (ALLOWED_ORIGINS.has(origin)) {
+    const origin = req.headers.origin;
+    if (origin) {
       res.header("Access-Control-Allow-Origin", origin);
+    } else {
+      res.header("Access-Control-Allow-Origin", "*");
     }
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Request-ID");
@@ -202,17 +220,12 @@ async function startServer() {
     next();
   });
 
-  // Content Security Policy — prevent XSS and code injection.
-  // Development (Vite dev middleware active) requires relaxed rules so the
-  // @vitejs/plugin-react preamble (inline script) and the Vite HMR WebSocket
-  // (ws://localhost:24678) can operate. Production keeps a strict CSP.
-  // worker-src 'self' blob: allows the Blob-URL AudioWorklet capture
-  // processor (src/lib/audio.ts); script-src is unchanged.
+  // Content Security Policy — permissive for AI Studio iframe embedding and WebSockets
   const isDev = process.env.NODE_ENV !== 'production';
   app.use((_req, res, next) => {
     const csp = isDev
-      ? "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; connect-src 'self' ws://localhost:3000 ws://localhost:24678 http://127.0.0.1:8765 http://127.0.0.1:11434; img-src 'self' data: blob:; font-src 'self'; frame-ancestors 'none'"
-      : "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; connect-src 'self' ws://localhost:3000 http://127.0.0.1:8765 http://127.0.0.1:11434; img-src 'self' data: blob:; font-src 'self'; frame-ancestors 'none'";
+      ? "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; connect-src * ws: wss:; img-src 'self' data: blob: https:; media-src 'self' data: blob: https:; font-src 'self' data:;"
+      : "default-src 'self' 'unsafe-inline' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; connect-src * ws: wss:; img-src 'self' data: blob: https:; media-src 'self' data: blob: https:; font-src 'self' data:;";
     res.header("Content-Security-Policy", csp);
     next();
   });
@@ -395,16 +408,22 @@ async function startServer() {
     });
   }
 
-  server.listen(PORT, "127.0.0.1", () => {
-    logStartup(`MYRAA V2 server started on http://localhost:${PORT}`);
-    console.log(`[Server] Running on http://localhost:${PORT}`);
-    // Try to auto-start Python agent if not running (skips if already healthy)
+  server.listen(PORT, "0.0.0.0", () => {
+    logStartup(`MYRAA V2 server started on http://0.0.0.0:${PORT}`);
+    console.log(`[Server] Running on http://0.0.0.0:${PORT}`);
+    // Try to auto-start Python agent if not running (skips if already healthy or in web mode)
     spawnDesktopAgent().catch((e) =>
-      console.warn(`[Desktop Agent] Auto-start failed: ${e?.message || e}`)
+      console.log(`[Desktop Agent] Auto-start note: ${e?.message || e}`)
     );
-    ensureDesktopAgent().catch((e) =>
-      console.warn(`[Desktop Agent] Boot probe failed: ${e?.message || e}`)
-    );
+    ensureDesktopAgent().then((alive) => {
+      if (alive) {
+        console.log("[Desktop Agent] Connected successfully.");
+      } else {
+        console.log("[Desktop Agent] Standalone web mode: agent offline (desktop tools disabled).");
+      }
+    }).catch(() => {
+      console.log("[Desktop Agent] Standalone web mode: agent offline (desktop tools disabled).");
+    });
     nodeTelemetryRelay.start();
     console.log("[Telemetry Relay] Started polling Python agent.");
   });

@@ -224,7 +224,7 @@ export class VoiceTransport {
   private async connectGemini(): Promise<void> {
     if ((this.geminiWs && (this.geminiReady)) || this.geminiUnavailable) return;
 
-    const wsUrl = "ws://127.0.0.1:8765/voice/gemini/stream";
+    const wsUrl = `${DESKTOP_AGENT_URL.replace(/^http/, "ws")}/voice/gemini/stream`;
 
     try {
       this.geminiWs = new WebSocket(wsUrl);
@@ -518,6 +518,14 @@ export class VoiceTransport {
 
       this.setState("interrupted");
       this.sendToClient({ type: "interrupted" });
+
+      if (this.geminiWs && this.geminiWs.readyState === WebSocket.OPEN) {
+        try {
+          this.geminiWs.send(JSON.stringify({ type: "interrupt" }));
+        } catch {
+          // best-effort forward
+        }
+      }
 
       this.t0Mic = 0;
       this.tFirstTranscript = 0;
