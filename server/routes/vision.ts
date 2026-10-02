@@ -33,6 +33,11 @@ export function registerVisionRoutes(
     });
   });
 
+  app.get('/api/vision/telemetry', (_req: Request, res: Response) => {
+    if (!engine) return res.status(503).json({ error: 'Vision engine not initialized' });
+    res.json(engine.getTelemetry());
+  });
+
   // --- Observe (full screen) ---
 
   app.post('/api/vision/observe', async (req: Request, res: Response) => {

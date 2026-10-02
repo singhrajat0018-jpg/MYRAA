@@ -292,6 +292,7 @@ async function startServer() {
     const ve = new VisionEngine({
       captureAdapter: new BridgeScreenCaptureAdapter({ agentUrl: DESKTOP_AGENT_URL }),
       ocrAdapter: new BridgeOcrAdapter({ agentUrl: DESKTOP_AGENT_URL }),
+      agentUrl: DESKTOP_AGENT_URL,
     });
     setVisionEngine(ve);
     visionEngine = ve;
